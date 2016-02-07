@@ -15,7 +15,12 @@ namespace TasteIt.Data.Migrations
 
         protected override void Seed(TasteItDbContext context)
         {
-            
+            if (context.Recipes.Any() || context.Articles.Any())
+            {
+                return;
+            }
+
+
         }
     }
 }
