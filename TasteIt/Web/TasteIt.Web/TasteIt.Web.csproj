@@ -174,7 +174,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -192,6 +191,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -245,6 +246,20 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\TasteIt.Data.Models\TasteIt.Data.Models.csproj">
+      <Project>{5c9c055f-1442-4238-9e65-75331cdfe451}</Project>
+      <Name>TasteIt.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\TasteIt.Data\TasteIt.Data.csproj">
+      <Project>{56a25714-23c7-4426-80fc-39972aa64468}</Project>
+      <Name>TasteIt.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\TasteIt.Data.Services\TasteIt.Data.Services.csproj">
+      <Project>{9db53bff-e054-4cd6-b5da-fb1273ba3b2e}</Project>
+      <Name>TasteIt.Data.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
