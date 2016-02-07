@@ -9,6 +9,7 @@
         protected void Application_Start()
         {
             DbConfig.Initialize();
+            EnginesConfig.StartOnlyRazor();
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
