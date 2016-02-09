@@ -16,6 +16,12 @@
         public string Quantity { get; set; }
 
         [Required]
+        [StringLength(500, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 3)]
+        public string IngredientDetails { get; set; }
+
+        public string IngredientImage { get; set; }
+
+        [Required]
         public int RecipeId { get; set; }
 
         [ForeignKey("RecipeId")]

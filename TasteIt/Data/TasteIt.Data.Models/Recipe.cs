@@ -32,6 +32,8 @@
 
         public Season Season { get; set; }
 
+        public string RecipeImage { get; set; }
+
         [Required]
         public string AuthorId { get; set; }
 
