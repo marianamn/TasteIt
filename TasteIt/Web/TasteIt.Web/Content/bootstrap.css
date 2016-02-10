@@ -310,8 +310,10 @@ body {
     font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
     font-size: 14px;
     line-height: 1.428571429;
-    color: darkred;
-
+    color: #666464;
+    width:90%;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 input,
@@ -4024,6 +4026,9 @@ textarea.input-group-sm > .input-group-btn > .btn {
   min-height: 50px;
   margin-bottom: 20px;
   border: 1px solid transparent;
+  width:80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .navbar:before,
@@ -4075,6 +4080,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 @media (min-width: 768px) {
   .navbar-header {
     float: left;
+    padding-right: 50px;
   }
 }
 
@@ -4128,7 +4134,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
     overflow-y: visible;
   }
   .navbar-collapse .navbar-nav.navbar-left:first-child {
-    margin-left: -15px;
+    margin-left: 0;
   }
   .navbar-collapse .navbar-nav.navbar-right:last-child {
     margin-right: -15px;
@@ -4147,8 +4153,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 @media (min-width: 768px) {
   .container > .navbar-header,
   .container > .navbar-collapse {
-    margin-right: 0;
-    margin-left: 0;
+    margin-right: -100px;
+    margin-left: -80px;
   }
 }
 
@@ -4932,6 +4938,8 @@ a.list-group-item.active > .badge,
   line-height: 1.2;
   color: inherit;
   background-color: #f5f3f3;
+  width:120%;
+  margin-left:-100px;
 }
 
 .jumbotron h1 {
