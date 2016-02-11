@@ -17,16 +17,22 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Taste it!", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li class="dropdown">
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        </ul>
+                    </li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Ingredients", "Index", "Ingredients")</li>
+                    <li>@Html.ActionLink("Recipes", "Index", "Recipes")</li>
+                    <li>@Html.ActionLink("Articles", "Index", "Articles")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Ingredients", "Ingredients", "Home")</li>
-                    <li>@Html.ActionLink("Recipe", "Recipe", "Home")</li>
-                    <li>@Html.ActionLink("Articles", "Articles", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -34,12 +40,10 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-       
-        <footer>
-            <p>
-                All rights reserved &copy; @DateTime.Now.Year Telerik Academy
-                <br /><strong>Taste It</strong> - ASP.NET MVC Application
-            </p>
+
+        <footer class="panel-footer">
+            All rights reserved &copy; @DateTime.Now.Year Telerik Academy
+            <br /><strong>Taste It</strong> - ASP.NET MVC Application
         </footer>
     </div>
 
