@@ -2,6 +2,7 @@
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(TasteIt.Web.Startup))]
+
 namespace TasteIt.Web
 {
     public partial class Startup

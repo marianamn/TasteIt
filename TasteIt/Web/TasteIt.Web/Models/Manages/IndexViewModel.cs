@@ -1,7 +1,7 @@
 ﻿namespace TasteIt.Web.Models.Manages
 {
-    using Microsoft.AspNet.Identity;
     using System.Collections.Generic;
+    using Microsoft.AspNet.Identity;
 
     public class IndexViewModel
     {

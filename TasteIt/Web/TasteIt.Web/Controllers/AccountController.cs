@@ -9,6 +9,7 @@
     using Microsoft.Owin.Security;
     using TasteIt.Data.Models;
     using Models.Account;
+    using App_Start;
 
     [Authorize]
     public class AccountController : Controller
@@ -32,6 +33,7 @@
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
+
             private set 
             { 
                 _signInManager = value; 
@@ -44,6 +46,7 @@
             {
                 return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
+
             private set
             {
                 _userManager = value;
@@ -99,6 +102,7 @@
             {
                 return View("Error");
             }
+
             return View(new VerifyCodeViewModel { Provider = provider, ReturnUrl = returnUrl, RememberMe = rememberMe });
         }
 
@@ -166,10 +170,11 @@
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    /// await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     return RedirectToAction("Index", "Home");
                 }
+
                 AddErrors(result);
             }
 
@@ -186,6 +191,7 @@
             {
                 return View("Error");
             }
+
             var result = await UserManager.ConfirmEmailAsync(userId, code);
             return View(result.Succeeded ? "ConfirmEmail" : "Error");
         }
@@ -253,17 +259,20 @@
             {
                 return View(model);
             }
+
             var user = await UserManager.FindByNameAsync(model.Email);
             if (user == null)
             {
                 // Don't reveal that the user does not exist
                 return RedirectToAction("ResetPasswordConfirmation", "Account");
             }
+
             var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
             if (result.Succeeded)
             {
                 return RedirectToAction("ResetPasswordConfirmation", "Account");
             }
+
             AddErrors(result);
             return View();
         }
@@ -297,6 +306,7 @@
             {
                 return View("Error");
             }
+
             var userFactors = await UserManager.GetValidTwoFactorProvidersAsync(userId);
             var factorOptions = userFactors.Select(purpose => new SelectListItem { Text = purpose, Value = purpose }).ToList();
             return View(new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe });
@@ -319,6 +329,7 @@
             {
                 return View("Error");
             }
+
             return RedirectToAction("VerifyCode", new { Provider = model.SelectedProvider, ReturnUrl = model.ReturnUrl, RememberMe = model.RememberMe });
         }
 
@@ -368,10 +379,12 @@
             {
                 // Get the information about the user from the external login provider
                 var info = await AuthenticationManager.GetExternalLoginInfoAsync();
+
                 if (info == null)
                 {
                     return View("ExternalLoginFailure");
                 }
+
                 var user = new User { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
@@ -383,6 +396,7 @@
                         return RedirectToLocal(returnUrl);
                     }
                 }
+
                 AddErrors(result);
             }
 
@@ -454,6 +468,7 @@
             {
                 return Redirect(returnUrl);
             }
+
             return RedirectToAction("Index", "Home");
         }
 
@@ -472,7 +487,9 @@
             }
 
             public string LoginProvider { get; set; }
+
             public string RedirectUri { get; set; }
+
             public string UserId { get; set; }
 
             public override void ExecuteResult(ControllerContext context)
@@ -482,6 +499,7 @@
                 {
                     properties.Dictionary[XsrfKey] = UserId;
                 }
+
                 context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);
             }
         }

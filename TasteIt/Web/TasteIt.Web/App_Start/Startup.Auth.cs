@@ -1,16 +1,15 @@
-﻿using System;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin;
-using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.Google;
-using Owin;
-using TasteIt.Web.Models;
-using TasteIt.Data;
-using TasteIt.Data.Models;
-
-namespace TasteIt.Web
+﻿namespace TasteIt.Web
 {
+    using System;
+    using App_Start;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.Owin;
+    using Microsoft.Owin;
+    using Microsoft.Owin.Security.Cookies;
+    using Owin;
+    using TasteIt.Data;
+    using TasteIt.Data.Models;
+
     public partial class Startup
     {
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
@@ -48,23 +47,23 @@ namespace TasteIt.Web
             app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
 
             // Uncomment the following lines to enable logging in with third party login providers
-            //app.UseMicrosoftAccountAuthentication(
+            // app.UseMicrosoftAccountAuthentication(
             //    clientId: "",
             //    clientSecret: "");
 
-            //app.UseTwitterAuthentication(
+            // app.UseTwitterAuthentication(
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
+            // app.UseFacebookAuthentication(
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
+            // app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            // {
             //    ClientId = "",
             //    ClientSecret = ""
-            //});
+            // });
         }
     }
 }

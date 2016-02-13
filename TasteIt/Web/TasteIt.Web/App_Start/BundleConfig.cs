@@ -14,7 +14,7 @@
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
-            //added ajax
+            // added ajax
             bundles.Add(new ScriptBundle("~/bundles/unobrtrusive").Include(
                         "~/Scripts/jquery.unobtrusive-ajax.js"));
 
@@ -22,7 +22,6 @@
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
-
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/Site.css",
@@ -33,7 +32,6 @@
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
-
         }
     }
 }
