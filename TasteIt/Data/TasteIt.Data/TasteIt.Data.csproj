@@ -57,13 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201602131639325_InitialCreate.cs" />
-    <Compile Include="Migrations\201602131639325_InitialCreate.Designer.cs">
-      <DependentUpon>201602131639325_InitialCreate.cs</DependentUpon>
-    </Compile>
+    <Compile Include="ITasteItDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\GenericRepository.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="TasteItDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -72,19 +71,10 @@
     <None Include="Settings.StyleCop" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TasteIt.Data.Common\TasteIt.Data.Common.csproj">
-      <Project>{f90463d3-d915-4300-8c9c-e9d3e5131831}</Project>
-      <Name>TasteIt.Data.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TasteIt.Data.Models\TasteIt.Data.Models.csproj">
       <Project>{5c9c055f-1442-4238-9e65-75331cdfe451}</Project>
       <Name>TasteIt.Data.Models</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201602131639325_InitialCreate.resx">
-      <DependentUpon>201602131639325_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

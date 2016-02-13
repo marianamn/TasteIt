@@ -1,13 +1,10 @@
 ﻿namespace TasteIt.Data
 {
-    using System;
     using System.Data.Entity;
-    using System.Linq;
-    using Common.Models;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
 
-    public class TasteItDbContext : IdentityDbContext<User>
+    public class TasteItDbContext : IdentityDbContext<User>, ITasteItDbContext
     {
         public TasteItDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -22,8 +19,6 @@
 
         public IDbSet<Like> Likes { get; set; }
 
-        public IDbSet<Comment> Comments { get; set; }
-
         public IDbSet<Category> Categories { get; set; }
 
         public IDbSet<Article> Articles { get; set; }
@@ -31,33 +26,6 @@
         public static TasteItDbContext Create()
         {
             return new TasteItDbContext();
-        }
-
-        public override int SaveChanges()
-        {
-            this.ApplyAuditInfoRules();
-            return base.SaveChanges();
-        }
-
-        private void ApplyAuditInfoRules()
-        {
-            // Approach via @julielerman: http://bit.ly/123661P
-            foreach (var entry in
-                this.ChangeTracker.Entries()
-                    .Where(
-                        e =>
-                        e.Entity is IAuditInfo && ((e.State == EntityState.Added) || (e.State == EntityState.Modified))))
-            {
-                var entity = (IAuditInfo)entry.Entity;
-                if (entry.State == EntityState.Added && entity.CreatedOn == default(DateTime))
-                {
-                    entity.CreatedOn = DateTime.Now;
-                }
-                else
-                {
-                    entity.ModifiedOn = DateTime.Now;
-                }
-            }
         }
     }
 }

@@ -1,10 +1,11 @@
 ﻿namespace TasteIt.Data.Models
 {
     using System.ComponentModel.DataAnnotations.Schema;
-    using Common.Models;
 
-    public class Like : BaseModel<int>
+    public class Like
     {
+        public int Id { get; set; }
+
         public bool Value { get; set; }
 
         public string AuthorId { get; set; }

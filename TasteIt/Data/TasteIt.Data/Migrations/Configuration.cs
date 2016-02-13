@@ -1,7 +1,5 @@
 namespace TasteIt.Data.Migrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
     using Microsoft.AspNet.Identity;
@@ -11,8 +9,8 @@ namespace TasteIt.Data.Migrations
     {
         public Configuration()
         {
-            this.AutomaticMigrationsEnabled = false;
-            this.AutomaticMigrationDataLossAllowed = false;
+            this.AutomaticMigrationsEnabled = true;
+            this.AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(TasteItDbContext context)
@@ -34,7 +32,7 @@ namespace TasteIt.Data.Migrations
                 PasswordHash = password,
                 ImageURL = "http://trendsnutrition.com/wp-content/uploads/2014/02/eat-more-sandwich.jpg"
             };
-            
+
             if (context.Users.Any())
             {
                 return;
@@ -44,15 +42,15 @@ namespace TasteIt.Data.Migrations
             context.SaveChanges();
 
             var seed = new SeedData(user);
-           
+            
             seed.Users.ForEach(x => context.Users.Add(x));
-
+            
             seed.Occasions.ForEach(x => context.Occasions.Add(x));
-
+            
             seed.Recipes.ForEach(x => context.Recipes.Add(x));
-
+            
             seed.Ingredients.ForEach(x => context.Ingredients.Add(x));
-
+            
             context.SaveChanges();
         }
     }

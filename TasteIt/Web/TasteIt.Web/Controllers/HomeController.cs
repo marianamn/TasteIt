@@ -8,8 +8,6 @@
     {
         public ActionResult Index()
         {
-            var db = new TasteItDbContext();
-            var userCount = db.Users.Count();
             return this.View();
         }
 

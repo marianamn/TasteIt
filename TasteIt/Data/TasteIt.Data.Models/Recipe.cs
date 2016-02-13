@@ -1,11 +1,11 @@
 ﻿namespace TasteIt.Data.Models
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using Common.Models;
 
-    public class Recipe : BaseModel<int>
+    public class Recipe
     {
         private ICollection<Ingredient> ingredients;
 
@@ -20,12 +20,16 @@
             this.comments = new HashSet<Comment>();
         }
 
+        public int Id { get; set; }
+
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 5)]
         public string Title { get; set; }
 
         [Required]
         public string Description { get; set; }
+
+        public DateTime CreatedOn { get; set; }
 
         public string CookingTime { get; set; }
 
