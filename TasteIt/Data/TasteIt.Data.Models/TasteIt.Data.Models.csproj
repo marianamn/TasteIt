@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Article.cs" />
     <Compile Include="Category.cs" />
+    <Compile Include="Comment.cs" />
     <Compile Include="Ingredient.cs" />
     <Compile Include="Like.cs" />
     <Compile Include="Occasion.cs" />
@@ -71,6 +72,12 @@
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Settings.StyleCop" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TasteIt.Data.Common\TasteIt.Data.Common.csproj">
+      <Project>{f90463d3-d915-4300-8c9c-e9d3e5131831}</Project>
+      <Name>TasteIt.Data.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

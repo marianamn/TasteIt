@@ -1,11 +1,15 @@
 ﻿namespace TasteIt.Web.Controllers
 {
+    using System.Linq;
     using System.Web.Mvc;
+    using Data;
 
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
+            var db = new TasteItDbContext();
+            var userCount = db.Users.Count();
             return this.View();
         }
 

@@ -21,7 +21,7 @@
 
         public List<User> Users;
 
-        public User Author { get; set; }
+        public List<Comment> Comments;
 
         private static Random rand = new Random();
 
@@ -146,8 +146,8 @@
                 IngredientImage = "http://cdn2.stylecraze.com/wp-content/uploads/2013/08/4810-peanut-oil-for-skin-hair-and-health.jpg",
                 Recipe = Recipes[0]
             });
- 
-
         }
+
+        public User Author { get; set; }
     }
 }

@@ -3,8 +3,9 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using Common.Models;
 
-    public class Occasion
+    public class Occasion : BaseModel<int>
     {
         private ICollection<Recipe> recipes;
 
@@ -12,8 +13,6 @@
         {
             this.recipes = new HashSet<Recipe>();
         }
-
-        public int Id { get; set; }
 
         [Required]
         [Index(IsUnique = true)]

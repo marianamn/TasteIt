@@ -1,11 +1,11 @@
 ﻿namespace TasteIt.Data
 {
+    using System;
     using System.Data.Entity;
-    using Microsoft.AspNet.Identity.EntityFramework;
-    using Models;
     using System.Linq;
     using Common.Models;
-    using System;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using Models;
 
     public class TasteItDbContext : IdentityDbContext<User>
     {
@@ -21,6 +21,8 @@
         public IDbSet<Ingredient> Ingredients { get; set; }
 
         public IDbSet<Like> Likes { get; set; }
+
+        public IDbSet<Comment> Comments { get; set; }
 
         public IDbSet<Category> Categories { get; set; }
 

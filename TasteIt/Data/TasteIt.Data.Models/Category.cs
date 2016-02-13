@@ -3,8 +3,9 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using Common.Models;
 
-    public class Category
+    public class Category : BaseModel<int>
     {
         private ICollection<Article> articles;
 
@@ -12,8 +13,6 @@
         {
             this.articles = new HashSet<Article>();
         }
-
-        public int Id { get; set; }
 
         [Required]
         [Index(IsUnique = true)]
