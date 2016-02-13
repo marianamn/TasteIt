@@ -10,6 +10,7 @@
         {
             DbConfig.Initialize();
             EnginesConfig.StartOnlyRazor();
+            AutofacConfig.RegisterAutofac();
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

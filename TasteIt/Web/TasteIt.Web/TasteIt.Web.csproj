@@ -44,6 +44,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.4.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Autofac.3.4.0\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Autofac.Mvc5.3.3.4\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Glimpse.AspNet, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Glimpse.AspNet.1.8.0\lib\net45\Glimpse.AspNet.dll</HintPath>
       <Private>True</Private>
@@ -184,6 +192,7 @@
   <ItemGroup>
     <Compile Include="App_Start\ApplicationSignInManager.cs" />
     <Compile Include="App_Start\ApplicationUserManager.cs" />
+    <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\DbConfig.cs" />
     <Compile Include="App_Start\EmailService.cs" />
@@ -312,10 +321,6 @@
     <ProjectReference Include="..\..\Data\TasteIt.Data\TasteIt.Data.csproj">
       <Project>{56a25714-23c7-4426-80fc-39972aa64468}</Project>
       <Name>TasteIt.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Services\TasteIt.Data.Services\TasteIt.Data.Services.csproj">
-      <Project>{9db53bff-e054-4cd6-b5da-fb1273ba3b2e}</Project>
-      <Name>TasteIt.Data.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

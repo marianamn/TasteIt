@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TasteIt.Data.Services")]
+[assembly: AssemblyTitle("TasteIt.Data.Common")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TasteIt.Data.Services")]
+[assembly: AssemblyProduct("TasteIt.Data.Common")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("9db53bff-e054-4cd6-b5da-fb1273ba3b2e")]
+[assembly: Guid("f90463d3-d915-4300-8c9c-e9d3e5131831")]
 
 // Version information for an assembly consists of the following four values:
 //
