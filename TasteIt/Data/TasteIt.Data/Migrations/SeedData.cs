@@ -1,12 +1,12 @@
 ﻿namespace TasteIt.Data.Migrations
 {
-    using Microsoft.AspNet.Identity;
-    using Models;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using Microsoft.AspNet.Identity;
+    using Models;
 
     public class SeedData
     {

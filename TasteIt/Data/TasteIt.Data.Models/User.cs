@@ -1,10 +1,10 @@
 ﻿namespace TasteIt.Data.Models
 {
+    using System.ComponentModel.DataAnnotations;
     using System.Security.Claims;
     using System.Threading.Tasks;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
-    using System.ComponentModel.DataAnnotations;
 
     public class User : IdentityUser
     {

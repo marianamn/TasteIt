@@ -1,11 +1,11 @@
 namespace TasteIt.Data.Migrations
 {
-    using Microsoft.AspNet.Identity;
-    using Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using Microsoft.AspNet.Identity;
+    using Models;
 
     public sealed class Configuration : DbMigrationsConfiguration<TasteItDbContext>
     {
@@ -39,6 +39,7 @@ namespace TasteIt.Data.Migrations
             {
                 return;
             }
+
             context.Users.Add(user);
             context.SaveChanges();
 

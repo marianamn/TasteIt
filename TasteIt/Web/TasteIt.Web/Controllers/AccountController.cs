@@ -8,7 +8,7 @@
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
     using TasteIt.Data.Models;
-    using TasteIt.Web.Models;
+    using Models.Account;
 
     [Authorize]
     public class AccountController : Controller

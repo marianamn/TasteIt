@@ -6,8 +6,6 @@
 
     public interface ITasteItDbContext
     {
-        int SaveChanges();
-
         IDbSet<User> Users { get; set; }
 
         IDbSet<Occasion> Occasions { get; set; }
@@ -25,5 +23,7 @@
         DbSet<TEntry> Set<TEntry>() where TEntry : class;
 
         DbEntityEntry<TEntry> Entry<TEntry>(TEntry entity) where TEntry : class;
+
+        int SaveChanges();
     }
 }

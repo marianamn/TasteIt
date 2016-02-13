@@ -4,7 +4,7 @@
 
     public class Like
     {
-        public int id { get; set; }
+        public int Id { get; set; }
 
         public bool Value { get; set; }
 
