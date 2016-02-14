@@ -8,6 +8,7 @@
     {
         protected void Application_Start()
         {
+            // custom
             DbConfig.Initialize();
             EnginesConfig.StartOnlyRazor();
 

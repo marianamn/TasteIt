@@ -3,17 +3,27 @@
     using System.Linq;
     using System.Web.Mvc;
     using Data;
+    using Data.Repositories;
+    using Data.Models;
 
     public class HomeController : Controller
     {
+        private IDbRepository<Article> articles;
+
+        public HomeController(IDbRepository<Article> articles)
+        {
+            this.articles = articles;
+        }
+
         public ActionResult Index()
         {
             if (this.User.Identity.IsAuthenticated)
             {
-                this.ViewData.Add("Username", this.User.Identity.Name);
+                this.ViewData.Add("Username", this.User.Identity);
             }
-            
-            return this.View();
+
+            var newestArticles = this.articles.All().OrderBy(x => x.CreatedOn).Take(3);
+            return this.View(newestArticles);
         }
 
         public ActionResult About()
