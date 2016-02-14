@@ -9,14 +9,14 @@
         public int Id { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 5)]
         public string Title { get; set; }
 
         [Required]
-        [StringLength(10000, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 5)]
         public string Content { get; set; }
 
         public DateTime CreatedOn { get; set; }
+
+        public string ArticleImage { get; set; }
 
         [Required]
         public string AuthorId { get; set; }

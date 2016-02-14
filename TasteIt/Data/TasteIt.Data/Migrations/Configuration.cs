@@ -36,7 +36,7 @@ namespace TasteIt.Data.Migrations
             if (context.Users.Any())
             {
                 return;
-            }
+            } 
 
             context.Users.Add(user);
             context.SaveChanges();
@@ -48,9 +48,11 @@ namespace TasteIt.Data.Migrations
             seed.Occasions.ForEach(x => context.Occasions.Add(x));
             
             seed.Recipes.ForEach(x => context.Recipes.Add(x));
-            
-            seed.Ingredients.ForEach(x => context.Ingredients.Add(x));
-            
+
+            seed.Categories.ForEach(x => context.Categories.Add(x));
+
+            seed.Articles.ForEach(x => context.Articles.Add(x));
+
             context.SaveChanges();
         }
     }

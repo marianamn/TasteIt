@@ -1,8 +1,8 @@
 ﻿namespace TasteIt.Web
 {
+    using System.Data.Entity;
     using Data;
     using Data.Migrations;
-    using System.Data.Entity;
 
     public class DbConfig
     {

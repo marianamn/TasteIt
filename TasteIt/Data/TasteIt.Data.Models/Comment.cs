@@ -15,10 +15,5 @@
 
         [ForeignKey("PostedById")]
         public virtual User PostedBy { get; set; }
-
-        public int RecipeId { get; set; }
-
-        [ForeignKey("RecipeId")]
-        public virtual Recipe Recipe { get; set; }
     }
 }

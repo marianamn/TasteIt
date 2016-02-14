@@ -7,19 +7,6 @@
 
     public class Recipe
     {
-        private ICollection<Ingredient> ingredients;
-
-        private ICollection<Like> likes;
-
-        private ICollection<Comment> comments;
-
-        public Recipe()
-        {
-            this.ingredients = new HashSet<Ingredient>();
-            this.likes = new HashSet<Like>();
-            this.comments = new HashSet<Comment>();
-        }
-
         public int Id { get; set; }
 
         [Required]
@@ -49,22 +36,10 @@
         [ForeignKey("OccasionId")]
         public virtual Occasion Occasion { get; set; }
 
-        public virtual ICollection<Ingredient> Ingredients
-        {
-            get { return this.ingredients; }
-            set { this.ingredients = value; }
-        }
+        public virtual ICollection<Ingredient> Ingredients { get; set; }
 
-        public virtual ICollection<Like> Likes
-        {
-            get { return this.likes; }
-            set { this.likes = value; }
-        }
+        public virtual ICollection<Like> Likes { get; set; }
 
-        public virtual ICollection<Comment> Comments
-        {
-            get { return this.comments; }
-            set { this.comments = value; }
-        }
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

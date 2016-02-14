@@ -12,10 +12,5 @@
 
         [ForeignKey("AuthorId")]
         public virtual User Author { get; set; }
-
-        public int RecipeId { get; set; }
-
-        [ForeignKey("RecipeId")]
-        public virtual Recipe Recipe { get; set; }
     }
 }
