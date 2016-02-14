@@ -1,5 +1,4 @@
-﻿@model IEnumerable<TasteIt.Data.Models.Article>
-@{
+﻿@{
     ViewBag.Title = "Home Page";
 }
 
@@ -18,20 +17,6 @@
             <img class="home-page-image" src="~/Images/Article.png" title="Articles" />
         </li>
     </ul>
-</div>
-
-<div class="jumbotron">
-    <h1>Latest Articles</h1>
-    <div class="row">
-        @foreach (var article in Model)
-        {
-            <div class="col-md-4">
-                <p class="text-center"><strong>@article.Title</strong></p>
-                <p class="text-center">@article.CreatedOn</p>
-                <img src="@article.ArticleImage"/>
-            </div>
-        }
-    </div>
 </div>
 
 <script>

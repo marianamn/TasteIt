@@ -279,7 +279,7 @@
                 Category = this.Categories[1],
                 Content = "Long-grain or basmati rice should be light and fluffy when perfectly cooked. To make sure you get good results every time, wash the rice in cold water until it runs clear. Drain the rice and put into a medium saucepan. Pour in water so that it covers the rice by 1.5cm/5/8in. Add a generous pinch of salt. Bring to the boil and then reduce the heat so that the water is simmering. Cover with a tight-fitting lid. White rice will cook in 10-12 minutes. When ready to serve, fluff the rice with a fork to separate the grains.",
                 CreatedOn = DateTime.Now.AddDays(rand.Next(-5, 5)),
-                ArticleImage = "http://www.thehungrymouse.com/wp-content/uploads/2011/09/DSCN0618.jpg"
+                ArticleImage = "http://www.spiceupthecurry.com/wp-content/uploads/2015/05/basmati-rice-recipe-5.jpg"
             });
             this.Articles.Add(new Article
             {
