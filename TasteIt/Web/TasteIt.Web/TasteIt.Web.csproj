@@ -52,6 +52,10 @@
       <HintPath>..\..\packages\Autofac.Mvc5.3.3.4\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="AutoMapper, Version=4.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.4.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Glimpse.AspNet, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Glimpse.AspNet.1.8.0\lib\net45\Glimpse.AspNet.dll</HintPath>
       <Private>True</Private>
@@ -351,6 +355,14 @@
     <ProjectReference Include="..\..\Data\TasteIt.Data\TasteIt.Data.csproj">
       <Project>{56a25714-23c7-4426-80fc-39972aa64468}</Project>
       <Name>TasteIt.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\TatseIt.Services.Data\TatseIt.Services.Data.csproj">
+      <Project>{5c4c1dc1-c45f-4431-980d-8c80b4cdb48a}</Project>
+      <Name>TatseIt.Services.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TasteIt.Web.Infrastructure\TasteIt.Web.Infrastructure.csproj">
+      <Project>{5f28b42f-ef43-4598-8030-3f51dc063e90}</Project>
+      <Name>TasteIt.Web.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

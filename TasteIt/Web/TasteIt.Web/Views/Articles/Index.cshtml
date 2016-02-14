@@ -1,0 +1,23 @@
+﻿@model IEnumerable<TasteIt.Web.Models.Article.ArticleViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="jumbotron">
+    <h1>Latest Articles</h1>
+    <hr />
+
+    <div class="row">
+        @foreach (var article in Model)
+        {
+            <div class="col-md-4 text-center">
+                <div class="container-articles">
+                    <h4><strong>@article.Title</strong></h4>
+                    <p><span class="glyphicon glyphicon-calendar"></span> @article.CreatedOn</p>
+                    <img src="@article.ArticleImage" class="article-images-home" />
+                </div>
+            </div>
+            
+        }
+    </div>
+</div>

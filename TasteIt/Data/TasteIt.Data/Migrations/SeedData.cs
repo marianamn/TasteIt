@@ -265,7 +265,7 @@
             });
             this.Articles.Add(new Article
             {
-                Title = "LEARNING TO CHOP: SLICING AN ONION",
+                Title = "LEARNING: SLICING AN ONION",
                 Author = user,
                 Category = this.Categories[1],
                 Content = "With a sharp knife and practice, you'll be slicing like a pro in no time. Peel the onion, leaving the root intact.Cut the onion in half through the root. With the onion flat on the chopping board, cut off the root at an angle. Trim away the top of the onion. Hold one side of the onion between your little finger and thumb. Place your other fingers on top of the onion. Angle the fingernail of your middle (or longest) finger and use that fingernail to guide and buffer the blade as it slices the onion very finely from one edge to the other. Meanwhile, with the hand holding the knife, ease the blade further up the onion with each cut.",
@@ -283,7 +283,7 @@
             });
             this.Articles.Add(new Article
             {
-                Title = "HOW TO PIPE CHOCOLATE DECORATIONS",
+                Title = "PIPE CHOCOLATE DECORATIONS",
                 Author = user,
                 Category = this.Categories[1],
                 Content = "Create easy decorations for cakes by piping chocolate onto non-stick acetate, baking parchment or a silicone mat. Fill a piping bag with tempered chocolate and snip off the tip. Slowly and steadily draw any shape you like with the chocolate onto your sheet or silicone mat. You could try hearts, spirals or waffles. For more complicated designs or consistent shapes, draw a template onto a piece of paper. Place this on baking tray and cover with a sheet of clear acetate so that you can follow the lines. Leave until completely set, or place in the fridge for 10 minutes to set faster so that it’s hard enough to peel off the acetate. When your shapes are ready, carefully lift off with a palette knife and place onto your iced cake.",
@@ -301,7 +301,7 @@
             });
             this.Articles.Add(new Article
             {
-                Title = "ADRENAL FATIGUE, THE STRESS SYNDROME OF THE 21ST CENTURY",
+                Title = "FIGHTING STRESS",
                 Author = user,
                 Category = this.Categories[0],
                 Content = "Adrenal fatigue. In this blog I would like to discuss the greatest epidemic of Western society, next to insulin resistance: adrenal fatigue, also called burnout. Adrenal fatigue may occur when we are chronically exposed to stress. Next to checking the symptoms, it is possible to have a cortisol profile determined by a physician, using saliva tests. Make sure the physician concerned knows what adrenal fatigue is. Regular medical protocols only involve cortisol values for Addison's disease and Cushing's syndrome.It is very important, after reading the symptoms and if you suspect adrenal fatigue, to tackle the causes. Try to find out which stress sources have the most impact on you. Focus on these sources and determine, if necessary by consulting a coach, how this stress may be reduced in order to allow your adrenal glands to be restored. Be aware of the fact that, if adrenal fatigue is actually the case, it will not suffice to go on a week's holiday.Food: Too much sugar, chemical E numbers, pesticides, and food for which you may be intolerant or allergic may be stress sources that can be avoided. The Hormone Balance Diet is hypoallergenic, and chemical E numbers and pesticides are avoided. Still, you may have a rare intolerance or allergy that is not included in this programme. Therefore, it is wise to keep a diary to find out whether other allergens may play a part.",
@@ -310,7 +310,7 @@
             });
             this.Articles.Add(new Article
             {
-                Title = "EATING ORGANIC ON A BUDGET. IT’S POSSIBLE!",
+                Title = "EATING ORGANIC ON A BUDGET!",
                 Author = user,
                 Category = this.Categories[3],
                 Content = "I used to be green with envy when my friends who were working full-time jobs bought organically grown healthy foods while I was in grad school and keeping expenses tight. With many people struggling to pay the bills, organic foods produced without chemicals or additives seem like an unattainable luxury only a few can actually afford. While it wasn’t easy in grad school to budget for foods that kept me feeling healthy, happy, and strong, with a little research, I found that there are ways to keep your diet green and your pockets green too! First: Eat with the seasons. I love eating seasonal produce. When I started to tailor my diet according to the seasons, I noticed how my body would change as well. Did you know that in the winter months the body actually calls for more food? Body fat is an evolutionary adaptation to insulate us from cold weather and even provides us with an emergency source of caloric energy. When you purchase food, you’re paying for packaging costs as well, which can add up. When purchasing in bulk, you not only get a little workout, but you aren’t paying for all of the packaging associated with single items. When I buy organics in bulk I buy nuts, grains, and dried fruit. This really does save you a lot and is good for the environment too. I know what you’re probably thinking… “Yeah right, I don’t have the time to grow anything to feed my family with! It’s busy enough to go to the market and shop for groceries.”  I am not saying that you need to start a greenhouse, but you may have fun and save money by growing some produce. I suggest planting basil or tomatoes to start with. If you don’t feel like starting from a seed, you could even buy an already fruitful plant and just maintain it. ",
