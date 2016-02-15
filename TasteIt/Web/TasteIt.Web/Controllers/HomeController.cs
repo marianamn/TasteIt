@@ -1,14 +1,9 @@
 ﻿namespace TasteIt.Web.Controllers
 {
-    using System.Linq;
     using System.Web.Mvc;
-    using Data.Repositories;
-    using Data.Models;
-    using Models.Article;
 
     public class HomeController : Controller
     {
-       
         public ActionResult Index()
         {
             if (this.User.Identity.IsAuthenticated)

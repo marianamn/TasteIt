@@ -1,11 +1,11 @@
 ﻿namespace TasteIt.Data.Models
 {
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Security.Claims;
     using System.Threading.Tasks;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
-    using System.Collections.Generic;
 
     public class User : IdentityUser
     {
@@ -29,7 +29,6 @@
         public string LastName { get; set; }
 
         public string ImageURL { get; set; }
-
 
         public virtual ICollection<Recipe> Recipes
         {

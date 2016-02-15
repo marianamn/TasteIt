@@ -5,15 +5,15 @@ namespace TasteIt.Web.App_Start
 {
     using System;
     using System.Web;
-    using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-    using Ninject;
     using Data;
     using Data.Repositories;
+    using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+    using Ninject;
     using Ninject.Web.Common;
 
     public static class NinjectWebCommon 
     {
-        private static readonly Bootstrapper bootstrapper = new Bootstrapper();
+        private static readonly Bootstrapper Bootstrapper = new Bootstrapper();
 
         /// <summary>
         /// Starts the application
@@ -22,7 +22,7 @@ namespace TasteIt.Web.App_Start
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
-            bootstrapper.Initialize(CreateKernel);
+            Bootstrapper.Initialize(CreateKernel);
         }
         
         /// <summary>
@@ -30,7 +30,7 @@ namespace TasteIt.Web.App_Start
         /// </summary>
         public static void Stop()
         {
-            bootstrapper.ShutDown();
+            Bootstrapper.ShutDown();
         }
         
         /// <summary>
@@ -64,8 +64,8 @@ namespace TasteIt.Web.App_Start
             kernel.Bind(typeof(ITasteItDbContext)).To(typeof(TasteItDbContext));
             kernel.Bind(typeof(IDbRepository<>)).To(typeof(DbRepository<>));
 
-            //kernel.Bind<ITweetsService>().To<TweetsService>();
-            //kernel.Bind(b => b.From("TatseIt.Services.Data")
+            // kernel.Bind<ITweetsService>().To<TweetsService>();
+            // kernel.Bind(b => b.From("TatseIt.Services.Data")
             //                  .SelectAllClasses()
             //                  .BindDefaultInterface());
         }        

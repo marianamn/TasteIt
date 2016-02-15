@@ -1,18 +1,21 @@
 ﻿namespace TasteIt.Web.Models.Recipe
 {
-    using System.ComponentModel.DataAnnotations.Schema;
+    using AutoMapper;
     using Infrastructure.Mapping;
     using TasteIt.Data.Models;
 
-    public class LikeViewModel : IMapFrom<Like>
+    public class LikeViewModel : IMapFrom<Like>, IHaveCustomMappings
     {
-       //public int Id { get; set; }
-       //
-       //public bool Value { get; set; }
-       //
-       //public string AuthorId { get; set; }
-       //
-       //[ForeignKey("AuthorId")]
-       //public virtual UserViewModel Author { get; set; }
+       public int Id { get; set; }
+       
+       public bool Value { get; set; }
+
+       public string Author { get; set; }
+
+        public void CreateMappings(IMapperConfiguration configuration)
+        {
+            configuration.CreateMap<Like, LikeViewModel>()
+                   .ForMember(x => x.Author, opt => opt.MapFrom(x => (x.Author.FirstName + " " + x.Author.LastName)));
+        }
     }
 }

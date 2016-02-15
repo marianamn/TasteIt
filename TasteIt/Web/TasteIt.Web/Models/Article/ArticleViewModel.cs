@@ -2,13 +2,11 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
+    using AutoMapper;
     using Infrastructure.Mapping;
     using TasteIt.Data.Models;
-    using AutoMapper;
 
-    public class ArticleViewModel : IMapFrom<Article>
+    public class ArticleViewModel : IMapFrom<Article>, IHaveCustomMappings
     {
         public int Id { get; set; }
 
@@ -28,17 +26,13 @@
 
         public void CreateMappings(IMapperConfiguration configuration)
         {
-            //configuration.CreateMap<Article, ArticleViewModel>(null)
-            //   .ForMember(x => x.AuthorId, opts => opts.MapFrom(u => (u.AuthorId)));
-            //
-            configuration.CreateMap<Article, ArticleViewModel>(null)
-               .ForMember(x => x.Author, opts => opts.MapFrom(x => (x.Author.FirstName + " " + x.Author.LastName)));
-            //
-            //configuration.CreateMap<Article, ArticleViewModel>(null)
-            //   .ForMember(x => x.CategoryId, opts => opts.MapFrom(u => (u.CategoryId)));
-        
-            configuration.CreateMap<Article, ArticleViewModel>(null)
-                .ForMember(x => x.Category, opt => opt.MapFrom(x => x.Category.Name));
+            {
+                configuration.CreateMap<Article, ArticleViewModel>()
+                    .ForMember(x => x.Author, opt => opt.MapFrom(x => (x.Author.FirstName + " " + x.Author.LastName)));
+
+                configuration.CreateMap<Article, ArticleViewModel>()
+                    .ForMember(x => x.Category, opt => opt.MapFrom(x => x.Category.Name));
+            }
         }
     }
 }
