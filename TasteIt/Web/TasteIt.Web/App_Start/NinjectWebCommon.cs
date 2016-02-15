@@ -9,6 +9,7 @@ namespace TasteIt.Web.App_Start
     using Data.Repositories;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
     using Ninject;
+    using Ninject.Extensions.Conventions;
     using Ninject.Web.Common;
 
     public static class NinjectWebCommon 
@@ -64,10 +65,10 @@ namespace TasteIt.Web.App_Start
             kernel.Bind(typeof(ITasteItDbContext)).To(typeof(TasteItDbContext));
             kernel.Bind(typeof(IDbRepository<>)).To(typeof(DbRepository<>));
 
-            // kernel.Bind<ITweetsService>().To<TweetsService>();
-            // kernel.Bind(b => b.From("TatseIt.Services.Data")
-            //                  .SelectAllClasses()
-            //                  .BindDefaultInterface());
+            //kernel.Bind<ITweetsService>().To<TweetsService>();
+            kernel.Bind(b => b.From("TatseIt.Services.Data")
+                             .SelectAllClasses()
+                             .BindDefaultInterface());
         }        
     }
 }

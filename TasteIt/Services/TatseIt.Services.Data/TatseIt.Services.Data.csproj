@@ -40,7 +40,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArticlesService.cs" />
+    <Compile Include="Contracts\IArticlesService.cs" />
+    <Compile Include="Contracts\IIngredientsService.cs" />
+    <Compile Include="Contracts\IRecipesService.cs" />
+    <Compile Include="IngredientsService.cs" />
+    <Compile Include="RecipesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\TasteIt.Data.Models\TasteIt.Data.Models.csproj">
+      <Project>{5c9c055f-1442-4238-9e65-75331cdfe451}</Project>
+      <Name>TasteIt.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\TasteIt.Data\TasteIt.Data.csproj">
+      <Project>{56a25714-23c7-4426-80fc-39972aa64468}</Project>
+      <Name>TasteIt.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

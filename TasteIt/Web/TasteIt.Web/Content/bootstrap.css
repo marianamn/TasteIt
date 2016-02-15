@@ -4938,7 +4938,7 @@ a.list-group-item.active > .badge,
   color: inherit;
   background-color: #f5f3f3;
   width:130%;
-  margin-left:-100px;
+  margin-left:-170px;
 }
 
 .jumbotron h1 {
@@ -5414,8 +5414,8 @@ a.list-group-item:focus {
   border-bottom-left-radius: 3px;
   color:white;
   text-align:center;
-  width:130%;
-  margin-left:-170px;
+  width:133%;
+  margin-left:-190px;
 
 }
 

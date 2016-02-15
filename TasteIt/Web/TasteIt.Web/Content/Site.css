@@ -67,8 +67,8 @@ textarea {
 
 .home-page-image {
     text-align:center;
-    width: 950px;
-    height:450px;
+    width: 920px;
+    height:400px;
 }
 
 .slide-container{
@@ -76,12 +76,28 @@ textarea {
     margin: 0 auto;
 }
 
-.article-images-home{
+.images-home{
     text-align:center;
     width: 300px;
-    height:200px;
+    height:180px;
 }
 
 .container-articles{
     padding:20px;
+}
+
+.logo{
+    color:#1d7777
+}
+
+.section-titles{
+    padding-left: 80px;
+}
+
+.section-titles a{
+    color: #666464;
+}
+
+.section-titles a:hover{
+    color:#1d7777
 }

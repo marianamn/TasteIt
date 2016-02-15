@@ -1,28 +1,82 @@
-﻿@{
+﻿@model TasteIt.Web.Models.Home.IndexViewModel
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="slide-container">
-    <ul class="bxslider">
-        <li>
-            @Html.ActionLink("Ingredients", "Index", "Ingredients", new { area = "" }, new { @class = "navbar-brand" })
-            <img class="home-page-image" src="~/Images/Ingredients.jpg" title="Ingredients" />
-        </li>
-        <li>
-            @Html.ActionLink("Recipes", "Index", "Recipes", new { area = "" }, new { @class = "navbar-brand" })
-            <img class="home-page-image" src="~/Images/Recipe.jpg" title="Recipes" />
-        </li>
-        <li>
-            @Html.ActionLink("Articles", "Index", "Articles", new { area = "" }, new { @class = "navbar-brand" })
-            <img class="home-page-image" src="~/Images/Article.png" title="Articles" />
-        </li>
-    </ul>
+<div class="jumbotron">
+    <div class="slide-container">
+        <ul class="bxslider">
+            <li>
+                <a href="/Ingredients"><img class="home-page-image" src="~/Images/Ingredients.jpg" title="Ingredients" /></a>
+            </li>
+            <li>
+                <a href="/Recipes"><img class="home-page-image" src="~/Images/Recipe.jpg" title="Recipes" /></a>
+            </li>
+            <li>
+                <a href="/Articles"><img class="home-page-image" src="~/Images/Article.png" title="Articles" /></a>
+            </li>
+        </ul>
+    </div>
+
+    <h2 class="section-titles"><a href="/Ingredients">Lern about</a></h2>
+    <hr />
+
+    <div class="row">
+        @foreach (var ingredient in Model.Ingredients)
+        {
+            <div class="col-md-4 text-center">
+                <div class="container-articles">
+                    <h4><strong>@ingredient.Name</strong></h4>
+                    <img src="@ingredient.IngredientImage" class="images-home" />
+                </div>
+            </div>
+
+        }
+    </div>
+
+    <h2 class="section-titles"><a href="/Recipes">Most popular recipes</a></h2>
+    <hr />
+
+    <div class="row">
+        @foreach (var recipe in Model.Recipes)
+        {
+            <div class="col-md-4 text-center">
+                <div class="container-articles">
+                    <h4><strong>@recipe.Title</strong></h4>
+                    <p>
+                        <span class="glyphicon glyphicon-heart"></span> @recipe.Likes.Count() 
+                        <span class="glyphicon glyphicon-comment"></span> @recipe.Comments.Count()
+                    </p>
+                    <img src="@recipe.RecipeImage" class="images-home" />
+                </div>
+            </div>
+
+        }
+    </div>
+
+    <h2 class="section-titles"><a href="/Articles">Latest articles</a></h2>
+    <hr />
+
+    <div class="row">
+        @foreach (var article in Model.Articles)
+        {
+            <div class="col-md-4 text-center">
+                <div class="container-articles">
+                    <h4><strong>@article.Title</strong></h4>
+                    <p><span class="glyphicon glyphicon-calendar"></span> @article.CreatedOn</p>
+                    <img src="@article.ArticleImage" class="images-home" />
+                </div>
+            </div>
+
+        }
+    </div>
 </div>
+
 
 <script>
     $('.bxslider').bxSlider({
         mode: 'fade',
         captions: true,
-        auto:true
+        auto: true
     });
 </script>

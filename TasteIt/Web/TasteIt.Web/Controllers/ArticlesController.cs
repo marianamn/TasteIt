@@ -6,26 +6,25 @@
     using Models.Article;
     using TasteIt.Data.Models;
     using TasteIt.Data.Repositories;
+    using TatseIt.Services.Data.Contracts;
 
-    public class ArticlesController : Controller
+    public class ArticlesController : BaseController
     {
-        private IDbRepository<Article> articles;
+        private readonly IArticlesService articles;
 
-        public ArticlesController(IDbRepository<Article> articles)
+        public ArticlesController(IArticlesService articles)
         {
             this.articles = articles;
         }
 
         public ActionResult Index()
         {
-            var newestArticles = this.articles
-                .All()
-                .OrderByDescending(x => x.CreatedOn)
-                .Take(10)
-                .To<ArticleViewModel>()
-                .ToList();
+            var allArticles = this.articles
+                                     .GetAll()
+                                     .To<ArticleViewModel>()
+                                     .ToList();
 
-            return this.View(newestArticles);
+            return this.View(allArticles);
         }
     }
 }

@@ -23,15 +23,15 @@
                 <div class="row">
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
-                            <a href="/Home" class="dropdown-toggle" data-toggle="dropdown">
-                                Home
-                                <strong class="caret"></strong>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/Home/About">About</a></li>
-                                <li><a href="/Home/Contact">Contact</a></li>
-                            </ul>
-                        </li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Home
+                            <strong class="caret"></strong>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Contact")</li>
+                        </ul>
+                    </li>
                         <li>@Html.ActionLink("Ingredients", "Index", "Ingredients")</li>
                         <li>@Html.ActionLink("Recipes", "Index", "Recipes")</li>
                         <li>@Html.ActionLink("Articles", "Index", "Articles")</li>
