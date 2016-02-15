@@ -11,7 +11,8 @@ namespace TasteIt.Web.App_Start
     using Ninject;
     using Ninject.Extensions.Conventions;
     using Ninject.Web.Common;
-
+    using Services.Web.Contracts;
+    using Services.Web;
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper Bootstrapper = new Bootstrapper();
@@ -65,10 +66,13 @@ namespace TasteIt.Web.App_Start
             kernel.Bind(typeof(ITasteItDbContext)).To(typeof(TasteItDbContext));
             kernel.Bind(typeof(IDbRepository<>)).To(typeof(DbRepository<>));
 
-            //kernel.Bind<ITweetsService>().To<TweetsService>();
+            kernel.Bind(typeof(IIdentifierProvider)).To<IdentifierProvider>();
+
+            // kernel.Bind<IMoviesService>().To<MoviesService>();
             kernel.Bind(b => b.From("TatseIt.Services.Data")
                              .SelectAllClasses()
                              .BindDefaultInterface());
+            
         }        
     }
 }

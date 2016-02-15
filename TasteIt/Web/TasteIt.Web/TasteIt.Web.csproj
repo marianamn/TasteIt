@@ -231,6 +231,7 @@
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
+    <Compile Include="Controllers\RecipeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -341,9 +342,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Settings.StyleCop" />
     <Content Include="Views\Articles\Index.cshtml" />
+    <Content Include="Views\Articles\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Recipe\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -365,6 +368,10 @@
     <ProjectReference Include="..\..\Services\TatseIt.Services.Data\TatseIt.Services.Data.csproj">
       <Project>{5c4c1dc1-c45f-4431-980d-8c80b4cdb48a}</Project>
       <Name>TatseIt.Services.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TasteIt.Services.Web\TasteIt.Services.Web.csproj">
+      <Project>{333c2d5c-cea6-450a-a1cd-4edc241d7316}</Project>
+      <Name>TasteIt.Services.Web</Name>
     </ProjectReference>
     <ProjectReference Include="..\TasteIt.Web.Infrastructure\TasteIt.Web.Infrastructure.csproj">
       <Project>{5f28b42f-ef43-4598-8030-3f51dc063e90}</Project>

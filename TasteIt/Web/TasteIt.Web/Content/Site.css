@@ -101,3 +101,28 @@ textarea {
 .section-titles a:hover{
     color:#1d7777
 }
+
+.section-subtitles a{
+    color: #666464;
+}
+
+.section-subtitles a:hover{
+    color:#1d7777
+}
+
+.article-text{
+    font-size:1.3em;
+}
+
+.article-text :first-letter{
+    font-size:200%;
+    color: #242020;
+}
+
+.article-image{
+    width: 800px;
+    height: 500px;
+    padding-bottom: 20px;
+    text-align:center;
+    margin-left:250px;
+}

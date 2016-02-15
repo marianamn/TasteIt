@@ -5,7 +5,8 @@
     using AutoMapper;
     using Infrastructure.Mapping;
     using TasteIt.Data.Models;
-
+    using Services.Web.Contracts;
+    using Services.Web;
     public class ArticleViewModel : IMapFrom<Article>, IHaveCustomMappings
     {
         public int Id { get; set; }
@@ -23,6 +24,15 @@
         public string Author { get; set; }
 
         public string Category { get; set; }
+
+        public string Url
+        {
+            get
+            {
+                IIdentifierProvider identifier = new IdentifierProvider();
+                return $"/Articles/Details/{identifier.EncodeId(this.Id)}";
+            }
+        }
 
         public void CreateMappings(IMapperConfiguration configuration)
         {

@@ -26,5 +26,13 @@
 
             return this.View(allArticles);
         }
+
+        public ActionResult Details(string Id)
+        {
+            var article = this.articles.GetById(Id);
+            var viewModel = this.Mapper.Map<ArticleViewModel>(article);
+
+            return View("Details", viewModel);
+        }
     }
 }

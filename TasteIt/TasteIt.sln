@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TatseIt.Services.Data", "Se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TasteIt.Web.Infrastructure", "Web\TasteIt.Web.Infrastructure\TasteIt.Web.Infrastructure.csproj", "{5F28B42F-EF43-4598-8030-3F51DC063E90}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TasteIt.Services.Web", "TasteIt.Services.Web\TasteIt.Services.Web.csproj", "{333C2D5C-CEA6-450A-A1CD-4EDC241D7316}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{5F28B42F-EF43-4598-8030-3F51DC063E90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F28B42F-EF43-4598-8030-3F51DC063E90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F28B42F-EF43-4598-8030-3F51DC063E90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{333C2D5C-CEA6-450A-A1CD-4EDC241D7316}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{333C2D5C-CEA6-450A-A1CD-4EDC241D7316}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{333C2D5C-CEA6-450A-A1CD-4EDC241D7316}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{333C2D5C-CEA6-450A-A1CD-4EDC241D7316}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,5 +61,6 @@ Global
 		{BFC38897-0825-4212-A8F5-9A71858561C8} = {B547A06F-3C15-4E9A-8AF8-A612F098F59C}
 		{5C4C1DC1-C45F-4431-980D-8C80B4CDB48A} = {E5F28888-0BD8-4FA1-BE37-B844414C369F}
 		{5F28B42F-EF43-4598-8030-3F51DC063E90} = {B547A06F-3C15-4E9A-8AF8-A612F098F59C}
+		{333C2D5C-CEA6-450A-A1CD-4EDC241D7316} = {E5F28888-0BD8-4FA1-BE37-B844414C369F}
 	EndGlobalSection
 EndGlobal

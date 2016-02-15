@@ -12,5 +12,7 @@
         IQueryable<Article> GetAll();
 
         IQueryable<Article> GetNewestArticles(int count);
+
+        Article GetById(string id);
     }
 }
