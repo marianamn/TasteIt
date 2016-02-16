@@ -30,7 +30,7 @@
             get
             {
                 IIdentifierProvider identifier = new IdentifierProvider();
-                return $"/Articles/Details/{identifier.EncodeId(this.Id)}";
+                return $"/{identifier.EncodeId(this.Id)}";
             }
         }
 

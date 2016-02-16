@@ -51,16 +51,16 @@
             });
 
             // Adding Occasions
-            this.Occasions.Add(new Occasion { Name = "St.Valentine's Day" });
-            this.Occasions.Add(new Occasion { Name = "Easter" });
-            this.Occasions.Add(new Occasion { Name = "Christmas" });
-            this.Occasions.Add(new Occasion { Name = "Halloween" });
-            this.Occasions.Add(new Occasion { Name = "BirthdayParty" });
-            this.Occasions.Add(new Occasion { Name = "Healthy diet plans" });
-            this.Occasions.Add(new Occasion { Name = "Dinner" });
-            this.Occasions.Add(new Occasion { Name = "Lunch" });
-            this.Occasions.Add(new Occasion { Name = "Breakfast" });
-            this.Occasions.Add(new Occasion { Name = "Wedding" });
+            this.Occasions.Add(new Occasion { Name = "St.Valentine's Day", OccasionImage = "http://freehappybirthdayimages.com/wp-content/uploads/2015/09/Internet-Greeting-Cards.jpg" });
+            this.Occasions.Add(new Occasion { Name = "Easter", OccasionImage = "http://www.toptenz.net/wp-content/uploads/2015/03/easter1.jpg" });
+            this.Occasions.Add(new Occasion { Name = "Christmas", OccasionImage = "http://c.tadst.com/gfx/600x400/christmas.jpg?1" });
+            this.Occasions.Add(new Occasion { Name = "Halloween", OccasionImage = "http://img01.thedrum.com/news/tmp/111596/halloween.jpg" });
+            this.Occasions.Add(new Occasion { Name = "BirthdayParty", OccasionImage = "http://cdn.sheknows.com/articles/birthday-party-manners-600.jpg" });
+            this.Occasions.Add(new Occasion { Name = "Healthy diet plans", OccasionImage = "http://cdn2-b.examiner.com/sites/default/files/styles/image_content_width/hash/ed/9b/ed9b1d3709f2e7bff9fcf6e9cbc55fc5.jpg?itok=w47CAGHW" });
+            this.Occasions.Add(new Occasion { Name = "Dinner", OccasionImage = "http://www.gentlemansgazette.com/wp-content/uploads/2013/12/Dinner-Party-Hors-dOeuvres.jpg" });
+            this.Occasions.Add(new Occasion { Name = "Lunch", OccasionImage = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQsW-rhZPDxbQXOfGW6wW_KGtVt5HvpLgICqNJZWlHOUL9lTYv81g" });
+            this.Occasions.Add(new Occasion { Name = "Breakfast", OccasionImage = "http://cache4.asset-cache.net/gc/84438240-bacon-and-eggs-shaped-as-a-face-gettyimages.jpg?v=1&c=IWSAsset&k=2&d=KwD9gZKR%2F14XyEl%2FDxw1308niyzp5jqSM%2BStb9vxlTw%3D" });
+            this.Occasions.Add(new Occasion { Name = "Wedding", OccasionImage = "http://olivo.co.uk/wp-content/uploads/2015/04/wedding-02.jpg" });
 
             // Adding Recipes
             this.Recipes.Add(new Recipe
@@ -230,10 +230,10 @@
             });
 
             // Adding Article Categories
-            this.Categories.Add(new Category { Name = "Did you know?" });
-            this.Categories.Add(new Category { Name = "Cooking techniques" });
-            this.Categories.Add(new Category { Name = "Travel with Taste it!" });
-            this.Categories.Add(new Category { Name = "Healthy" });
+            this.Categories.Add(new Category { Name = "Did you know?", CategoryImage = "http://www.didyouknow.cd/wp-content/uploads/2014/12/did-you-know.jpg" });
+            this.Categories.Add(new Category { Name = "Cooking techniques", CategoryImage= "https://shutterbuggeek.files.wordpress.com/2010/06/img_7721.jpg" });
+            this.Categories.Add(new Category { Name = "Travel with Taste it!", CategoryImage= "http://bonnat-chocolatier.com/assets/img/1_bonnat/stephane-bonnat_1-1024.jpg" });
+            this.Categories.Add(new Category { Name = "Healthy", CategoryImage= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqA1QuzNfTSUto-p8AA-qfctOr0vq_Vf044TJE7u85U2Yy3Wf_eQ" });
 
             // Adding Articles
             this.Articles.Add(new Article

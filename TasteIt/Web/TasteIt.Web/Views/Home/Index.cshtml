@@ -64,7 +64,7 @@
                 <div class="container-articles">
                     <h4 class="section-subtitles">
                         <strong>
-                            <a href="@article.Url">@article.Title</a>
+                            @Html.ActionLink(article.Title, "/Details" + article.Url, "Articles")
                         </strong>
                     </h4>
                     <p><span class="glyphicon glyphicon-calendar"></span> @article.CreatedOn</p>

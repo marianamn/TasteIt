@@ -45,5 +45,28 @@
 
             return article;
         }
+
+        public IQueryable<Article> GetRandomArticles(int count)
+        {
+            var randomArticles = this.articles.All()
+                                                .OrderBy(x => Guid.NewGuid())
+                                                .Take(count);
+
+            return randomArticles;
+        }
+
+        public IQueryable<Article> GetRelatedArticles(string id)
+        {
+            var intId = this.identifierProvider.DecodeId(id);
+ 
+            var currentArticle = this.articles.GetById(intId);
+            var currentArticleCaregory = currentArticle.Category.Name;
+
+            var relatedArticles = this.articles.All()
+                                      .Where(x => x.Category.Name == currentArticleCaregory);
+
+
+            return relatedArticles;
+        }
     }
 }

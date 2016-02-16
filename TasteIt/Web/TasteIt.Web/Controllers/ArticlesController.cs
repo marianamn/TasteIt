@@ -27,12 +27,28 @@
             return this.View(allArticles);
         }
 
+        [HttpGet]
         public ActionResult Details(string Id)
         {
             var article = this.articles.GetById(Id);
             var viewModel = this.Mapper.Map<ArticleViewModel>(article);
 
             return View("Details", viewModel);
+        }
+
+        [HttpGet]
+        public ActionResult RelatedArticles(string Id)
+        {
+            var relatedArticles = this.articles.GetRelatedArticles(Id)
+                                                .To<ArticleViewModel>()
+                                                .ToList();
+
+            if (relatedArticles == null)
+            {
+                return RedirectToAction("NoArticlesFound");
+            }
+
+            return View("RelatedArticles", relatedArticles);
         }
     }
 }

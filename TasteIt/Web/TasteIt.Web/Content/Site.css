@@ -112,6 +112,8 @@ textarea {
 
 .article-text{
     font-size:1.3em;
+    width:90%;
+    font-family:'Bookman Old Style';
 }
 
 .article-text :first-letter{
@@ -120,9 +122,16 @@ textarea {
 }
 
 .article-image{
-    width: 800px;
+    width: 750px;
     height: 500px;
     padding-bottom: 20px;
     text-align:center;
     margin-left:250px;
+}
+
+.relatedArticle-link-titles a{
+    color: #666464;
+}
+.relatedArticle-link a:hover{
+    color:#1d7777
 }
