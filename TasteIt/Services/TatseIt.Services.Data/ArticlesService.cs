@@ -9,6 +9,7 @@
     using TasteIt.Data.Models;
     using TasteIt.Data.Repositories;
     using TasteIt.Services.Web.Contracts;
+    using TasteIt.Common;
 
     public class ArticlesService : IArticlesService
     {
@@ -23,9 +24,18 @@
 
         public IQueryable<Article> GetAll()
         {
-            var allArticles = this.articles.All();
+            var allArticles = this.articles
+                                 .All()
+                                 .OrderByDescending(x => x.CreatedOn);
 
             return allArticles;
+        }
+
+        public int Count()
+        {
+            var count = this.articles.All().Count();
+
+            return count;
         }
 
         public IQueryable<Article> GetNewestArticles(int count)
@@ -62,7 +72,8 @@
             var currentArticle = this.articles.GetById(intId);
             var currentArticleCaregory = currentArticle.Category.Name;
 
-            var relatedArticles = this.articles.All()
+            var relatedArticles = this.articles
+                                      .All()
                                       .Where(x => x.Category.Name == currentArticleCaregory);
 
             return relatedArticles;

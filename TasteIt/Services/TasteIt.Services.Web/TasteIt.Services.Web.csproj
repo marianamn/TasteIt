@@ -49,6 +49,12 @@
   <ItemGroup>
     <None Include="stylecop.json" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\TasteIt.Common\TasteIt.Common.csproj">
+      <Project>{43065715-32ae-46d4-82de-b9a350ce9a28}</Project>
+      <Name>TasteIt.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

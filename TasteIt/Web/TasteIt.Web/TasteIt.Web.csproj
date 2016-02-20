@@ -248,11 +248,10 @@
     <Compile Include="Models\Account\ResetPasswordViewModel.cs" />
     <Compile Include="Models\Account\SendCodeViewModel.cs" />
     <Compile Include="Models\Account\VerifyCodeViewModel.cs" />
+    <Compile Include="Models\Article\ArticleListViewModel.cs" />
     <Compile Include="Models\Article\ArticleViewModel.cs" />
     <Compile Include="Models\Article\CategoryViewModel.cs" />
-    <Compile Include="Models\Article\DetailsViewModel.cs" />
     <Compile Include="Models\Home\IndexViewModel.cs" />
-    <Compile Include="Models\Ingredient\DetailsViewModel.cs" />
     <Compile Include="Models\Ingredient\IngredientViewModel.cs" />
     <Compile Include="Models\Manages\AddPhoneNumberViewModel.cs" />
     <Compile Include="Models\Manages\ChangePasswordViewModel.cs" />
@@ -357,6 +356,7 @@
     <Content Include="Views\Recipes\Index.cshtml" />
     <Content Include="Views\Recipes\Details.cshtml" />
     <Content Include="Views\Recipes\_RecipePartial.cshtml" />
+    <Content Include="Views\Articles\_PagingPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -385,6 +385,10 @@
     <ProjectReference Include="..\..\Services\TatseIt.Services.Data\TatseIt.Services.Data.csproj">
       <Project>{5c4c1dc1-c45f-4431-980d-8c80b4cdb48a}</Project>
       <Name>TatseIt.Services.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TasteIt.Common\TasteIt.Common.csproj">
+      <Project>{43065715-32ae-46d4-82de-b9a350ce9a28}</Project>
+      <Name>TasteIt.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\TasteIt.Web.Infrastructure\TasteIt.Web.Infrastructure.csproj">
       <Project>{5f28b42f-ef43-4598-8030-3f51dc063e90}</Project>

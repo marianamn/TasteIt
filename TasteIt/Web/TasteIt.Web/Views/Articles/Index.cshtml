@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TasteIt.Web.Models.Article.ArticleViewModel>
+﻿@model TasteIt.Web.Models.Article.ArticleListViewModel
 @{
     ViewBag.Title = "Articles";
 }
@@ -8,7 +8,7 @@
     <hr />
 
     <div class="row">
-        @foreach (var article in Model)
+        @foreach (var article in Model.Articles)
         {
             <div class="col-md-4 text-center">
                 <div class="container-articles">
@@ -20,4 +20,6 @@
             </div> 
         }
     </div>
+
+   @Html.Partial("_PagingPartial")
 </div>

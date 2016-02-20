@@ -65,7 +65,7 @@
                   .ForMember(x => x.CountLikes, opt => opt.MapFrom(x => x.Likes.Count()));
 
             configuration.CreateMap<Recipe, RecipeViewModel>()
-                 .ForMember(x => x.CountComments, opt => opt.MapFrom(x => x.Comments.Count()));
+                 .ForMember(x => x.CountComments, opt => opt.MapFrom(x => (x.Comments.Count() - 1)));
         }
     }
 }

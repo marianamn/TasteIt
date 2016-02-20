@@ -11,6 +11,8 @@
 
         Article GetById(string id);
 
+        int Count();
+
         IQueryable<Article> GetRelatedArticles(string id);
 
         IQueryable<Article> GetRandomArticles(int count);

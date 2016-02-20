@@ -7,9 +7,13 @@
     using TasteIt.Data.Models;
     using TasteIt.Data.Repositories;
     using TatseIt.Services.Data.Contracts;
+    using System;
+    using Common;
 
     public class ArticlesController : BaseController
     {
+        const int ItemsPerPage = GlobalConstants.itemsPerPage;
+
         private readonly IArticlesService articles;
 
         public ArticlesController(IArticlesService articles)
@@ -17,14 +21,28 @@
             this.articles = articles;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(int id = 1)
         {
-            var allArticles = this.articles
-                                     .GetAll()
-                                     .To<ArticleViewModel>()
-                                     .ToList();
+            var page = id;
+            var allItemsCount = this.articles.Count();
+            var totalPages = (int)Math.Ceiling(allItemsCount / (decimal)ItemsPerPage);
+            var itemsToSkip = (page - 1) * ItemsPerPage;
+            var allArticles =this.articles
+                                 .GetAll()
+                                 .OrderByDescending(x =>x.CreatedOn)
+                                 .Skip(itemsToSkip)
+                                 .Take(ItemsPerPage)
+                                 .To<ArticleViewModel>()
+                                 .ToList();
 
-            return this.View(allArticles);
+            var viewModel = new ArticleListViewModel()
+            {
+                CurrentPage = page,
+                TotalPages = totalPages,
+                Articles = allArticles
+            };
+
+            return this.View(viewModel);
         }
 
         [HttpGet]
@@ -37,18 +55,32 @@
         }
 
         [HttpGet]
-        public ActionResult RelatedArticles(string id)
+        public ActionResult RelatedArticles(string id, int page = 1)
         {
-            var relatedArticles = this.articles.GetRelatedArticles(id)
-                                                .To<ArticleViewModel>()
-                                                .ToList();
+            var relatedArticles = this.articles.GetRelatedArticles(id);
+            var allItemsCount = relatedArticles.Count();
+            var totalPages = (int)Math.Ceiling(allItemsCount / (decimal)ItemsPerPage);
+            var itemsToSkip = (page - 1) * ItemsPerPage;
 
-            if (relatedArticles == null)
+            var result = relatedArticles.OrderByDescending(x => x.CreatedOn)
+                            .Skip(itemsToSkip)
+                            .Take(ItemsPerPage)
+                            .To<ArticleViewModel>()
+                            .ToList();
+
+            if (result == null)
             {
                 return this.RedirectToAction("NoArticlesFound");
             }
 
-            return this.View("RelatedArticles", relatedArticles);
+            var viewModel = new ArticleListViewModel()
+            {
+                CurrentPage = page,
+                TotalPages = totalPages,
+                Articles = result
+            };
+
+            return this.View("RelatedArticles", viewModel);
         }
     }
 }

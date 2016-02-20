@@ -68,7 +68,7 @@ textarea {
 .home-page-image {
     text-align:center;
     width: 920px;
-    height:400px;
+    height:450px;
 }
 
 .slide-container{
@@ -84,7 +84,7 @@ textarea {
 }
 
 .container-articles{
-    padding:20px;
+    padding:10px;
 }
 
 .logo{
@@ -107,6 +107,7 @@ textarea {
 
 .section-subtitles a{
     color: #666464;
+    padding:0;
 }
 
 .section-subtitles a:hover{

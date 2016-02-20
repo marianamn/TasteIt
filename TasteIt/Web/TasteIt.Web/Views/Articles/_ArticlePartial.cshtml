@@ -1,9 +1,9 @@
-﻿@model IEnumerable<TasteIt.Web.Models.Article.ArticleViewModel>
+﻿@model TasteIt.Web.Models.Article.ArticleListViewModel
 @{
     ViewBag.Title = "_ArticlePartial";
 }
 
-@foreach (var article in Model)
+@foreach (var article in Model.Articles)
 {
     <div class="col-md-4 text-center">
         <div class="container-articles">

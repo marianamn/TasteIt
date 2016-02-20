@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5C4C1DC1-C45F-4431-980D-8C80B4CDB48A}</ProjectGuid>
+    <ProjectGuid>{43065715-32AE-46D4-82DE-B9A350CE9A28}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TatseIt.Services.Data</RootNamespace>
-    <AssemblyName>TatseIt.Services.Data</AssemblyName>
+    <RootNamespace>TasteIt.Common</RootNamespace>
+    <AssemblyName>TasteIt.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,31 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArticlesService.cs" />
-    <Compile Include="Contracts\IArticlesService.cs" />
-    <Compile Include="Contracts\IIngredientsService.cs" />
-    <Compile Include="Contracts\IRecipesService.cs" />
-    <Compile Include="IngredientsService.cs" />
-    <Compile Include="RecipesService.cs" />
+    <Compile Include="GlobalConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Data\TasteIt.Data.Models\TasteIt.Data.Models.csproj">
-      <Project>{5c9c055f-1442-4238-9e65-75331cdfe451}</Project>
-      <Name>TasteIt.Data.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Data\TasteIt.Data\TasteIt.Data.csproj">
-      <Project>{56a25714-23c7-4426-80fc-39972aa64468}</Project>
-      <Name>TasteIt.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\TasteIt.Common\TasteIt.Common.csproj">
-      <Project>{43065715-32ae-46d4-82de-b9a350ce9a28}</Project>
-      <Name>TasteIt.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TasteIt.Services.Web\TasteIt.Services.Web.csproj">
-      <Project>{333c2d5c-cea6-450a-a1cd-4edc241d7316}</Project>
-      <Name>TasteIt.Services.Web</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
