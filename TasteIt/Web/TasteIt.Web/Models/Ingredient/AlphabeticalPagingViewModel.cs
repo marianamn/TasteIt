@@ -8,34 +8,28 @@
     using AutoMapper;
     using System;
 
-    public class AlphabeticalPagingViewModel : IMapFrom<Data.Models.Ingredient>
+    public class AlphabeticalPagingViewModel
     {
-        public List<int> Id { get; set; }
+        public string CurrentPage { get; set; }
 
-        public List<string> IngredientNames { get; set; }
+        public IEnumerable<IngredientViewModel> Ingredients { get; set; }
 
-        public List<string> Alphabet
-        {
-            get
-            {
-                var alphabet = Enumerable.Range(65, 26).Select(i => ((char)i).ToString()).ToList();
-                alphabet.Insert(0, "All");
-                return alphabet;
-            }
-        }
-
-        public List<string> FirstLetters { get; set; }
-        
-        public string SelectedLetter { get; set; }
-
-        //public string Url
+        //public List<string> IngredientNames { get; set; }
+        //
+        //public List<string> Alphabet
         //{
         //    get
         //    {
-        //        IIdentifierProvider identifier = new IdentifierProvider();
-        //        return $"/{identifier.EncodeId(this.Id)}";
+        //        var alphabet = Enumerable.Range(65, 26).Select(i => ((char)i).ToString()).ToList();
+        //        alphabet.Insert(0, "All");
+        //        return alphabet;
         //    }
         //}
-
+        //
+        //public List<string> FirstLetters { get; set; }
+        //
+        //public string SelectedLetter { get; set; }
+        //
+        //public IEnumerable<IngredientViewModel> Ingredients { get; set; }
     }
 }

@@ -45,6 +45,14 @@
             return ingredient;
         }
 
+        public IQueryable<Ingredient> GetIngredientsWithCommonLetter(string letter)
+        {
+            var igredientsWithCommonLetter = this.ingredients.All()
+                                                    .Where(p => p.Name.StartsWith(letter));
+
+            return igredientsWithCommonLetter;
+        }
+
         //public List<string> GetFirstLetters()
         //{
         //    var letters = this.ingredients.All()

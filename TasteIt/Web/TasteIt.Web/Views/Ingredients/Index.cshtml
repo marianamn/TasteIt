@@ -1,4 +1,4 @@
-﻿@model TasteIt.Web.Models.Ingredient.AlphabeticalPagingViewModel
+﻿
 @{
     ViewBag.Title = "Ingredient";
 }
@@ -7,31 +7,36 @@
     <h1 class="text-center">Learn About Ingredients with<i class="logo">Taste It!</i></h1>
     <hr />
 
-    <ul class="pagination alpha">
-        @foreach (var link in Model.Alphabet)
-        {
-            if (Model.FirstLetters.Contains(link) || link == "All")
-            {
-                if (Model.SelectedLetter == link || Model.SelectedLetter.IsEmpty() && link == "All")
-                {
-                    <li class="active"><span>@link</span></li>
-                }
-                else
-                {
-                    <li>@Html.ActionLink(link, "Index", new { selectedLetter = link })</li>
-                }
-            }
-            else
-            {
-                <li class="inactive"><span>@link</span></li>
-            }
-        }
-    </ul>
-    <ul>
-        @foreach (var item in Model.IngredientNames)
-        {
-            <li><a href="/Details/@Model.Id">@item</a></li>
-        }
-    </ul>
+    <div class="container">
+        <div class="btn-toolbar">
+            <div class="btn-group btn-group-sm">
+                <button class="btn btn-default">A</button>
+                <button class="btn btn-default">B</button>
+                <button class="btn btn-default">C</button>
+                <button class="btn btn-default">D</button>
+                <button class="btn btn-default">E</button>
+                <button class="btn btn-default">F</button>
+                <button class="btn btn-default">G</button>
+                <button class="btn btn-default">H</button>
+                <button class="btn btn-default">I</button>
+                <button class="btn btn-default">J</button>
+                <button class="btn btn-default">K</button>
+                <button class="btn btn-default">L</button>
+                <button class="btn btn-default">M</button>
+                <button class="btn btn-default">N</button>
+                <button class="btn btn-default">O</button>
+                <button class="btn btn-default">P</button>
+                <button class="btn btn-default">Q</button>
+                <button class="btn btn-default">R</button>
+                <button class="btn btn-default">S</button>
+                <button class="btn btn-default">T</button>
+                <button class="btn btn-default">U</button>
+                <button class="btn btn-default">V</button>
+                <button class="btn btn-default">W</button>
+                <button class="btn btn-default">X</button>
+                <button class="btn btn-default">Y</button>
+                <button class="btn btn-default">Z</button>
+            </div>
+        </div>
+    </div>
 </div>
-

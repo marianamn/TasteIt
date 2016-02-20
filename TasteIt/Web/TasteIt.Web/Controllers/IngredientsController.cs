@@ -20,39 +20,10 @@
             this.ingredients = ingredients;
         }
 
-        public ActionResult Index(string selectedLetter)
+        public ActionResult Index(char selectedLetter)
         {
-            var model = new AlphabeticalPagingViewModel { SelectedLetter = selectedLetter };
 
-            model.FirstLetters = this.ingredients.GetAll()
-                                                 .GroupBy(p => p.Name.Substring(0, 1))
-                                                 .Select(x => x.Key.ToUpper())
-                                                 .ToList();
-
-            if (string.IsNullOrEmpty(selectedLetter) || selectedLetter == "All")
-            {
-                model.IngredientNames = this.ingredients.GetAll()
-                                             .Select(p => p.Name)
-                                             .ToList();
-
-                model.Id = this.ingredients.GetAll()
-                                             .Select(p => p.Id)
-                                             .ToList();
-            }
-            else
-            {
-                model.IngredientNames = this.ingredients.GetAll()
-                                            .Where(p => p.Name.StartsWith(selectedLetter))
-                                            .Select(p => p.Name)
-                                            .ToList();
-
-                model.Id = this.ingredients.GetAll()
-                                             .Where(p => p.Name.StartsWith(selectedLetter))
-                                             .Select(p => p.Id)
-                                             .ToList();
-            }
-
-            return View(model);
+            return this.View();
         }
 
         [HttpGet]
