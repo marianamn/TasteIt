@@ -44,5 +44,14 @@
 
             return ingredient;
         }
+
+        //public List<string> GetFirstLetters()
+        //{
+        //    var letters = this.ingredients.All()
+        //                                  .GroupBy(p => p.Name.Substring(0, 1))
+        //                                  .Select(x => x.Key.ToUpper());
+        //
+        //    return letters;
+        //}
     }
 }

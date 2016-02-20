@@ -1,0 +1,32 @@
+﻿@model TasteIt.Web.Models.Ingredient.IndexIngredientsViewModel
+@{
+    ViewBag.Title = "_IngredientPartial";
+}
+
+@foreach (var ingredient in Model.Ingredients)
+{
+    foreach (var item in Model.Letters.IngredientNames)
+    {
+        if (ingredient.Name.ToString() == item)
+        {
+            <div><a href="/Ingredients/Details" + @ingredient.Url>@item</a></div>
+        }
+    }
+    @*<div><a href="/Ingredients/Details" + Model.Url>@item</a></div>*@
+}
+
+@*
+       @foreach (var item in Model.Ingredients)
+    {
+        <div class="col-md-6 text-center">
+            <div class="container-articles">
+                <h4 class="section-subtitles">
+                    <strong>
+                        @Html.ActionLink(item.Name, "/Details" + item.Url, "Ingredients")
+                    </strong>
+                </h4>
+                <img src="@item.IngredientImage" class="images-home" />
+            </div>
+        </div>
+    }
+*@

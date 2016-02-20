@@ -1,8 +1,37 @@
-﻿@{
+﻿@model TasteIt.Web.Models.Ingredient.AlphabeticalPagingViewModel
+@{
     ViewBag.Title = "Ingredient";
 }
 
 <div class="jumbotron">
     <h1 class="text-center">Learn About Ingredients with<i class="logo">Taste It!</i></h1>
     <hr />
+
+    <ul class="pagination alpha">
+        @foreach (var link in Model.Alphabet)
+        {
+            if (Model.FirstLetters.Contains(link) || link == "All")
+            {
+                if (Model.SelectedLetter == link || Model.SelectedLetter.IsEmpty() && link == "All")
+                {
+                    <li class="active"><span>@link</span></li>
+                }
+                else
+                {
+                    <li>@Html.ActionLink(link, "Index", new { selectedLetter = link })</li>
+                }
+            }
+            else
+            {
+                <li class="inactive"><span>@link</span></li>
+            }
+        }
+    </ul>
+    <ul>
+        @foreach (var item in Model.IngredientNames)
+        {
+            <li><a href="/Details/@Model.Id">@item</a></li>
+        }
+    </ul>
 </div>
+

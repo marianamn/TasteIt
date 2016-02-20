@@ -252,6 +252,8 @@
     <Compile Include="Models\Article\ArticleViewModel.cs" />
     <Compile Include="Models\Article\CategoryViewModel.cs" />
     <Compile Include="Models\Home\IndexViewModel.cs" />
+    <Compile Include="Models\Ingredient\AlphabeticalPagingViewModel.cs" />
+    <Compile Include="Models\Ingredient\IndexIngredientsViewModel.cs" />
     <Compile Include="Models\Ingredient\IngredientViewModel.cs" />
     <Compile Include="Models\Manages\AddPhoneNumberViewModel.cs" />
     <Compile Include="Models\Manages\ChangePasswordViewModel.cs" />
@@ -357,6 +359,7 @@
     <Content Include="Views\Recipes\Details.cshtml" />
     <Content Include="Views\Recipes\_RecipePartial.cshtml" />
     <Content Include="Views\Articles\_PagingPartial.cshtml" />
+    <Content Include="Views\Ingredients\_IngredientPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

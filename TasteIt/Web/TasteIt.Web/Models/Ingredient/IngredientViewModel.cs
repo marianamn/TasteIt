@@ -5,6 +5,8 @@
     using Infrastructure.Mapping;
     using Services.Web.Contracts;
     using Services.Web;
+    using System.Collections.Generic;
+    using System.Linq;
 
     public class IngredientViewModel : IMapFrom<Ingredient>
     {
