@@ -12,5 +12,7 @@
         IQueryable<Ingredient> GetAll();
 
         IQueryable<Ingredient> GetRandomIngredients(int count);
+
+        Ingredient GetById(string id);
     }
 }

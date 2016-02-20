@@ -1,12 +1,12 @@
 ﻿namespace TasteIt.Web.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
     using Infrastructure.Mapping;
     using Models.Article;
     using Models.Home;
-    using Models.Ingredients;
+    using Models.Ingredient;
     using Models.Recipe;
-    using System.Linq;
-    using System.Web.Mvc;
     using TatseIt.Services.Data.Contracts;
 
     public class HomeController : BaseController
@@ -30,7 +30,7 @@
             }
 
             var ingredients = this.ingredients.GetRandomIngredients(3)
-                                  .To<IngredientsViewModel>()
+                                  .To<IngredientViewModel>()
                                   .ToList();
 
             var recipes = this.recipes.GetMostLikedRecipes(3)
@@ -41,7 +41,7 @@
                                .To<ArticleViewModel>()
                                .ToList();
 
-            //var categories =
+            // var categories =
             //    this.Cache.Get(
             //        "categories",
             //        () => this.jokeCategories.GetAll().To<JokeCategoryViewModel>().ToList(),

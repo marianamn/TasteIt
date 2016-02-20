@@ -1,13 +1,12 @@
 ﻿namespace TasteIt.Web.Controllers
 {
-    using AutoMapper;
     using System.Web.Mvc;
+    using AutoMapper;
     using TasteIt.Web.Infrastructure.Mapping;
 
     public abstract class BaseController : Controller
     {
-        //public ICacheService Cache { get; set; }
-
+        // public ICacheService Cache { get; set; }
         protected IMapper Mapper
         {
             get

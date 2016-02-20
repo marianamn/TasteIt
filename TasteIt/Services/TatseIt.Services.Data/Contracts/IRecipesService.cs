@@ -12,5 +12,7 @@
         IQueryable<Recipe> GetAll();
 
         IQueryable<Recipe> GetMostLikedRecipes(int count);
+
+        Recipe GetById(string id);
     }
 }

@@ -7,6 +7,19 @@
 
     public class Recipe
     {
+        private ICollection<Ingredient> ingredients;
+
+        private ICollection<Like> like;
+
+        private ICollection<Comment> comment;
+
+        public Recipe()
+        {
+            this.ingredients = new HashSet<Ingredient>();
+            this.like = new HashSet<Like>();
+            this.comment = new HashSet<Comment>();
+        }
+
         public int Id { get; set; }
 
         [Required]

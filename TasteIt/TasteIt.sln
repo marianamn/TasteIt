@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TatseIt.Services.Data", "Se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TasteIt.Web.Infrastructure", "Web\TasteIt.Web.Infrastructure\TasteIt.Web.Infrastructure.csproj", "{5F28B42F-EF43-4598-8030-3F51DC063E90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TasteIt.Services.Web", "TasteIt.Services.Web\TasteIt.Services.Web.csproj", "{333C2D5C-CEA6-450A-A1CD-4EDC241D7316}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TasteIt.Services.Web", "Services\TasteIt.Services.Web\TasteIt.Services.Web.csproj", "{333C2D5C-CEA6-450A-A1CD-4EDC241D7316}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -5,7 +5,5 @@
     public class DetailsViewModel
     {
         public ArticleViewModel Article { get; set; }
-
-        public IEnumerable<ArticleViewModel> Articles { get; set; }
     }
 }

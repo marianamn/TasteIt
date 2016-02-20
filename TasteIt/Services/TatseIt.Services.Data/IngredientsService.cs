@@ -8,14 +8,17 @@
     using TasteIt.Data.Models;
     using TasteIt.Data.Repositories;
     using TatseIt.Services.Data.Contracts;
+    using TasteIt.Services.Web.Contracts;
 
     public class IngredientsService : IIngredientsService
     {
         private IDbRepository<Ingredient> ingredients;
+        private readonly IIdentifierProvider identifierProvider;
 
-        public IngredientsService(IDbRepository<Ingredient> ingredients)
+        public IngredientsService(IDbRepository<Ingredient> ingredients, IIdentifierProvider identifierProvider)
         {
             this.ingredients = ingredients;
+            this.identifierProvider = identifierProvider;
         }
 
         public IQueryable<Ingredient> GetAll()
@@ -32,6 +35,14 @@
                                                     .Take(count);
 
             return randomIngredients;
+        }
+
+        public Ingredient GetById(string id)
+        {
+            var intId = this.identifierProvider.DecodeId(id);
+            var ingredient = this.ingredients.GetById(intId);
+
+            return ingredient;
         }
     }
 }

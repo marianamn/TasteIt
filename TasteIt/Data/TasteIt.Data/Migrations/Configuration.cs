@@ -3,6 +3,7 @@ namespace TasteIt.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
     using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
 
     public sealed class Configuration : DbMigrationsConfiguration<TasteItDbContext>
@@ -54,6 +55,36 @@ namespace TasteIt.Data.Migrations
             seed.Articles.ForEach(x => context.Articles.Add(x));
 
             context.SaveChanges();
+
+            const string AdministratorUserName = "admin@admin.com";
+            const string AdministratorPassword = AdministratorUserName;
+            const string AdministratorRoleName = "Administrator";
+
+            if (!context.Roles.Any())
+            {
+                // Create admin role
+                var roleStore = new RoleStore<IdentityRole>(context);
+                var roleManager = new RoleManager<IdentityRole>(roleStore);
+                var role = new IdentityRole { Name = AdministratorRoleName };
+                roleManager.Create(role);
+
+                // Create admin user
+                var userStore = new UserStore<User>(context);
+                var userManager = new UserManager<User>(userStore);
+                var admin = new User
+                {
+                    FirstName = "Admin",
+                    LastName = "Admin",
+                    UserName = AdministratorUserName,
+                    Email = AdministratorUserName,
+                    PasswordHash = AdministratorPassword,
+                };
+                userManager.Create(admin, AdministratorPassword);
+
+                // Assign user to admin role
+                userManager.AddToRole(admin.Id, AdministratorRoleName);
+                context.SaveChanges();
+            }
         }
     }
 }

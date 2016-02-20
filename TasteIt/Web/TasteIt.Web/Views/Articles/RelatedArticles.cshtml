@@ -9,17 +9,9 @@
     <hr />
 
     <div class="row">
-        @foreach (var article in Model)
-        {
-            <div class="col-md-4 text-center">
-                <div class="container-articles">
-                    <h4 class="section-subtitles"><strong>@Html.ActionLink(article.Title, article.Url, "Articles")</strong></h4>
-                    <p><span class="glyphicon glyphicon-calendar"></span> @article.CreatedOn</p>
-                    <img src="@article.ArticleImage" class="images-home" />
-                </div>
-            </div>
-
-        }
+        @Html.Partial("_ArticlePartial")
     </div>
+
+    <div>@Html.ActionLink("Back to articles", "/", null, new { @class = "btn btn-primary" })</div>
 </div>
 

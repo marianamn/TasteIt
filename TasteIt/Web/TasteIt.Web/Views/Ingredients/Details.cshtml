@@ -1,0 +1,21 @@
+﻿@model TasteIt.Web.Models.Ingredient.IngredientViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="jumbotron">
+    <div>
+        <h2 class="detail-title">@Html.DisplayFor(@model => model.Name)</h2>
+        <img class="detail-image" src="@Html.DisplayFor(@model =>model.IngredientImage)" />
+    </div>
+
+    <div class="detail-text">
+        @Html.DisplayFor(@model => model.IngredientDetails)
+    </div>
+
+    <div>
+        <h2 class="relatedArticle-link">
+            @Html.ActionLink("More ingredients", "/Index" + @Html.DisplayFor(@model => model.Url), "Ingredients")
+        </h2>
+    </div>
+</div>

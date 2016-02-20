@@ -7,15 +7,18 @@
     using System.Threading.Tasks;
     using TasteIt.Data.Models;
     using TasteIt.Data.Repositories;
+    using TasteIt.Services.Web.Contracts;
     using TatseIt.Services.Data.Contracts;
 
     public class RecipesService : IRecipesService
     {
         private IDbRepository<Recipe> recipes;
+        private readonly IIdentifierProvider identifierProvider;
 
-        public RecipesService(IDbRepository<Recipe> recipes)
+        public RecipesService(IDbRepository<Recipe> recipes, IIdentifierProvider identifierProvider)
         {
             this.recipes = recipes;
+            this.identifierProvider = identifierProvider;
         }
 
         public IQueryable<Recipe> GetAll()
@@ -32,6 +35,14 @@
                                                 .Take(count);
 
             return mostLikedRecipes;
+        }
+
+        public Recipe GetById(string id)
+        {
+            var intId = this.identifierProvider.DecodeId(id);
+            var recipe = this.recipes.GetById(intId);
+
+            return recipe;
         }
     }
 }

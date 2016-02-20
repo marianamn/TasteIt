@@ -1,19 +1,19 @@
 ﻿namespace TatseIt.Services.Data
 {
-    using Contracts;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using Contracts;
     using TasteIt.Data.Models;
     using TasteIt.Data.Repositories;
     using TasteIt.Services.Web.Contracts;
 
     public class ArticlesService : IArticlesService
     {
-        private IDbRepository<Article> articles;
         private readonly IIdentifierProvider identifierProvider;
+        private IDbRepository<Article> articles;
 
         public ArticlesService(IDbRepository<Article> articles, IIdentifierProvider identifierProvider)
         {
@@ -64,7 +64,6 @@
 
             var relatedArticles = this.articles.All()
                                       .Where(x => x.Category.Name == currentArticleCaregory);
-
 
             return relatedArticles;
         }

@@ -39,15 +39,15 @@
                 UserName = "john@abv.bg",
                 Email = "john@abv.bg",
                 PasswordHash = password,
-                ImageURL = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSfGp4ah9gQs2SOlorqzJZ927GwqeAgZm4gFX1EAK0C6Cl_lGso"
             });
             this.Users.Add(new User()
             {
                 FirstName = "Maria",
-                LastName = "jIvanova",
+                LastName = "Ivanova",
                 UserName = "ivanova@gmail.com",
                 Email = "john@abv.bg",
-                PasswordHash = password
+                PasswordHash = password,
+                ImageURL = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSfGp4ah9gQs2SOlorqzJZ927GwqeAgZm4gFX1EAK0C6Cl_lGso"
             });
 
             // Adding Occasions
@@ -198,7 +198,7 @@
                         Name = "raspberries",
                         Quantity = "150g/5oz",
                         IngredientDetails = "Fill a Victoria sponge with fresh raspberries for a taste of summer, or use them in a classic summer pudding. Try visiting a pick your own farm for the freshest raspberries.",
-                        IngredientImage = "http://weknowyourdreamz.com/images/raspberries/raspberries-04.jpg"
+                        IngredientImage = "http://supergardener.com/wp-content/uploads/2015/04/raspberry.jpg"
                     },
                     new Ingredient()
                     {
@@ -231,9 +231,9 @@
 
             // Adding Article Categories
             this.Categories.Add(new Category { Name = "Did you know?", CategoryImage = "http://www.didyouknow.cd/wp-content/uploads/2014/12/did-you-know.jpg" });
-            this.Categories.Add(new Category { Name = "Cooking techniques", CategoryImage= "https://shutterbuggeek.files.wordpress.com/2010/06/img_7721.jpg" });
-            this.Categories.Add(new Category { Name = "Travel with Taste it!", CategoryImage= "http://bonnat-chocolatier.com/assets/img/1_bonnat/stephane-bonnat_1-1024.jpg" });
-            this.Categories.Add(new Category { Name = "Healthy", CategoryImage= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqA1QuzNfTSUto-p8AA-qfctOr0vq_Vf044TJE7u85U2Yy3Wf_eQ" });
+            this.Categories.Add(new Category { Name = "Cooking techniques", CategoryImage = "https://shutterbuggeek.files.wordpress.com/2010/06/img_7721.jpg" });
+            this.Categories.Add(new Category { Name = "Travel with Taste it!", CategoryImage = "http://bonnat-chocolatier.com/assets/img/1_bonnat/stephane-bonnat_1-1024.jpg" });
+            this.Categories.Add(new Category { Name = "Healthy", CategoryImage = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqA1QuzNfTSUto-p8AA-qfctOr0vq_Vf044TJE7u85U2Yy3Wf_eQ" });
 
             // Adding Articles
             this.Articles.Add(new Article

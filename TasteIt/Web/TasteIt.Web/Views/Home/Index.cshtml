@@ -18,23 +18,7 @@
         </ul>
     </div>
 
-    <h2 class="section-titles"><a href="/Ingredients">Learn about</a></h2>
-    <hr />
-
-    <div class="row">
-        @foreach (var ingredient in Model.Ingredients)
-        {
-            <div class="col-md-4 text-center">
-                <div class="container-articles">
-                    <h4><strong>@ingredient.Name</strong></h4>
-                    <img src="@ingredient.IngredientImage" class="images-home" />
-                </div>
-            </div>
-
-        }
-    </div>
-
-    <h2 class="section-titles"><a href="/Recipes">Most popular recipes</a></h2>
+    <h2 class="section-titles"><a href="/Recipes">Popular Recipes</a></h2>
     <hr />
 
     <div class="row">
@@ -42,9 +26,13 @@
         {
             <div class="col-md-4 text-center">
                 <div class="container-articles">
-                    <h4><strong>@recipe.Title</strong></h4>
+                    <h4 class="section-subtitles">
+                        <strong>
+                            @Html.ActionLink(recipe.Title, "/Details" + recipe.Url, "Recipes")
+                        </strong>
+                    </h4>
                     <p>
-                        <span class="glyphicon glyphicon-heart"></span> @recipe.Likes.Count() 
+                        <span class="glyphicon glyphicon-heart"></span> @recipe.Likes.Count()
                         <span class="glyphicon glyphicon-comment"></span> @recipe.Comments.Count()
                     </p>
                     <img src="@recipe.RecipeImage" class="images-home" />
@@ -54,7 +42,27 @@
         }
     </div>
 
-    <h2 class="section-titles"><a href="/Articles">Latest articles</a></h2>
+    <h2 class="section-titles"><a href="/Ingredients">Learn About</a></h2>
+    <hr />
+
+    <div class="row">
+        @foreach (var ingredient in Model.Ingredients)
+        {
+            <div class="col-md-4 text-center">
+                <div class="container-articles">
+                    <h4 class="section-subtitles">
+                        <strong>
+                            @Html.ActionLink(ingredient.Name, "/Details" + ingredient.Url, "Ingredients")
+                        </strong>
+                    </h4>
+                    <img src="@ingredient.IngredientImage" class="images-home" />
+                </div>
+            </div>
+
+        }
+    </div>
+
+    <h2 class="section-titles"><a href="/Articles">Newes Articles</a></h2>
     <hr />
 
     <div class="row">

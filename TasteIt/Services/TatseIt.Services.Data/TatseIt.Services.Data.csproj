@@ -57,7 +57,7 @@
       <Project>{56a25714-23c7-4426-80fc-39972aa64468}</Project>
       <Name>TasteIt.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\TasteIt.Services.Web\TasteIt.Services.Web.csproj">
+    <ProjectReference Include="..\TasteIt.Services.Web\TasteIt.Services.Web.csproj">
       <Project>{333c2d5c-cea6-450a-a1cd-4edc241d7316}</Project>
       <Name>TasteIt.Services.Web</Name>
     </ProjectReference>

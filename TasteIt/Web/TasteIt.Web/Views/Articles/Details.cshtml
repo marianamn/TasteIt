@@ -5,14 +5,14 @@
 
 <div class="jumbotron">
     <div>
-        <h2 class="article-title">@Html.DisplayFor(@model => model.Title)</h2>
+        <h2 class="detail-title">@Html.DisplayFor(@model => model.Title)</h2>
         <div>
             <p><i>by: </i>@Html.DisplayFor(@model => model.Author) <i>on: </i>@Html.DisplayFor(@model => model.CreatedOn)</p>
         </div>
-        <img class="article-image" src="@Html.DisplayFor(@model =>model.ArticleImage)" />
+        <img class="detail-image" src="@Html.DisplayFor(@model =>model.ArticleImage)" />
     </div>
 
-    <div class="article-text">
+    <div class="detail-text">
         @Html.DisplayFor(@model => model.Content)
     </div>
 

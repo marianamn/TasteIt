@@ -1,11 +1,15 @@
 ﻿namespace TasteIt.Web.Models.Recipe
 {
     using System;
+    using System.Linq;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using AutoMapper;
     using Infrastructure.Mapping;
+    using Services.Web;
+    using Services.Web.Contracts;
     using TasteIt.Data.Models;
+    using Ingredient;
 
     public class RecipeViewModel : IMapFrom<Recipe>, IHaveCustomMappings
     {
@@ -30,11 +34,24 @@
 
         public string Occasion { get; set; }
 
-        public IEnumerable<Ingredient> Ingredients { get; set; }
+        public string CountLikes { get; set; }
 
-        public IEnumerable<Like> Likes { get; set; }
+        public string CountComments { get; set; }
 
-        public IEnumerable<Comment> Comments { get; set; }
+        public IEnumerable<IngredientViewModel> Ingredients { get; set; }
+
+        public IEnumerable<LikeViewModel> Likes { get; set; }
+
+        public IEnumerable<CommentViewModel> Comments { get; set; }
+
+        public string Url
+        {
+            get
+            {
+                IIdentifierProvider identifier = new IdentifierProvider();
+                return $"/{identifier.EncodeId(this.Id)}";
+            }
+        }
 
         public void CreateMappings(IMapperConfiguration configuration)
         {
@@ -43,6 +60,12 @@
 
             configuration.CreateMap<Recipe, RecipeViewModel>()
                    .ForMember(x => x.Occasion, opt => opt.MapFrom(x => x.Occasion.Name));
+
+            configuration.CreateMap<Recipe, RecipeViewModel>()
+                  .ForMember(x => x.CountLikes, opt => opt.MapFrom(x => x.Likes.Count()));
+
+            configuration.CreateMap<Recipe, RecipeViewModel>()
+                 .ForMember(x => x.CountComments, opt => opt.MapFrom(x => x.Comments.Count()));
         }
     }
 }

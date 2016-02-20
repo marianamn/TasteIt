@@ -4,9 +4,10 @@
     using System.ComponentModel.DataAnnotations;
     using AutoMapper;
     using Infrastructure.Mapping;
-    using TasteIt.Data.Models;
-    using Services.Web.Contracts;
     using Services.Web;
+    using Services.Web.Contracts;
+    using TasteIt.Data.Models;
+
     public class ArticleViewModel : IMapFrom<Article>, IHaveCustomMappings
     {
         public int Id { get; set; }

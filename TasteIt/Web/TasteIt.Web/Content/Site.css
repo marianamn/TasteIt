@@ -77,6 +77,7 @@ textarea {
 }
 
 .images-home{
+    padding-top:10px;
     text-align:center;
     width: 300px;
     height:180px;
@@ -92,10 +93,12 @@ textarea {
 
 .section-titles{
     padding-left: 80px;
+
 }
 
 .section-titles a{
-    color: #666464;
+    color:#1d7777;
+    font-style:italic;
 }
 
 .section-titles a:hover{
@@ -110,18 +113,19 @@ textarea {
     color:#1d7777
 }
 
-.article-text{
+.detail-text{
     font-size:1.3em;
     width:90%;
     font-family:'Bookman Old Style';
 }
 
-.article-text :first-letter{
-    font-size:200%;
-    color: #242020;
+.detail-text :first-letter{
+    padding-top:20px;
+    font-size:100%;
+    color: #666464;
 }
 
-.article-image{
+.detail-image{
     width: 750px;
     height: 500px;
     padding-bottom: 20px;
@@ -134,4 +138,22 @@ textarea {
 }
 .relatedArticle-link a:hover{
     color:#1d7777
+}
+
+.recipe-image{
+    width: 350px;
+    height: 250px;
+}
+
+.comment-image{
+    width: 100px;
+    height: 100px;
+}
+
+.comment-content{
+    border:1px solid #a39d9d;
+    background-color:#F5F5F5;
+    margin-left:170px;
+    width:80%;
+    height: 50px;
 }

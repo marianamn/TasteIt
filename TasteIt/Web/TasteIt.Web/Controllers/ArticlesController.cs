@@ -28,27 +28,27 @@
         }
 
         [HttpGet]
-        public ActionResult Details(string Id)
+        public ActionResult Details(string id)
         {
-            var article = this.articles.GetById(Id);
+            var article = this.articles.GetById(id);
             var viewModel = this.Mapper.Map<ArticleViewModel>(article);
 
-            return View("Details", viewModel);
+            return this.View("Details", viewModel);
         }
 
         [HttpGet]
-        public ActionResult RelatedArticles(string Id)
+        public ActionResult RelatedArticles(string id)
         {
-            var relatedArticles = this.articles.GetRelatedArticles(Id)
+            var relatedArticles = this.articles.GetRelatedArticles(id)
                                                 .To<ArticleViewModel>()
                                                 .ToList();
 
             if (relatedArticles == null)
             {
-                return RedirectToAction("NoArticlesFound");
+                return this.RedirectToAction("NoArticlesFound");
             }
 
-            return View("RelatedArticles", relatedArticles);
+            return this.View("RelatedArticles", relatedArticles);
         }
     }
 }

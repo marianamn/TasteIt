@@ -17,10 +17,15 @@
 
         public string PostedBy { get; set; }
 
+        public string PostedByImage { get; set; }
+
         public void CreateMappings(IMapperConfiguration configuration)
         {
             configuration.CreateMap<Comment, CommentViewModel>()
                    .ForMember(x => x.PostedBy, opt => opt.MapFrom(x => (x.PostedBy.FirstName + " " + x.PostedBy.LastName)));
+
+            configuration.CreateMap<Comment, CommentViewModel>()
+                   .ForMember(x => x.PostedByImage, opt => opt.MapFrom(x => x.PostedBy.ImageURL));
         }
     }
 }
