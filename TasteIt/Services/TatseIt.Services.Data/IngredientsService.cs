@@ -63,5 +63,21 @@
 
             return letters;
         }
+
+        public Ingredient Create(string name, string description, string IngredientImage)
+        {
+            var ingredient = new Ingredient()
+            {
+                Name = name,
+                IngredientDetails = description,
+                IngredientImage = IngredientImage
+            };
+
+            this.ingredients.Add(ingredient);
+
+            this.ingredients.SaveChanges();
+
+            return ingredient;
+        }
     }
 }

@@ -64,5 +64,30 @@
 
             return this.View("ShowList", ingredients);
         }
+
+        [Authorize]
+        public ActionResult Create()
+        {
+            return PartialView();
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(IngredientViewModel ingredient)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.PartialView(ingredient);
+            }
+
+            var newIngredient = this.ingredients.Create(ingredient.Name, ingredient.IngredientDetails, ingredient.IngredientImage);
+            var resultIngredient = this.Mapper.Map<IngredientViewModel>(newIngredient);
+
+            this.TempData["Notification"] = "Ingredient was successfully created!";
+
+            return this.PartialView(resultIngredient);
+        }
+
     }
 }

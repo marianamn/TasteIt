@@ -5042,9 +5042,9 @@ a.thumbnail:focus {
 }
 
 .alert-success {
-  color: #468847;
-  background-color: #dff0d8;
-  border-color: #d6e9c6;
+  color: white;
+  background-color: #228b22;
+  border-color: #228b22;
 }
 
 .alert-success hr {

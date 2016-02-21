@@ -18,5 +18,7 @@
         IQueryable<Ingredient> GetIngredientsWithCommonLetter(string letter);
 
         List<string> GetFirstLetters();
+
+        Ingredient Create(string name, string description, string url);
     }
 }

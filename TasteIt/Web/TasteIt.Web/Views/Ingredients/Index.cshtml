@@ -7,6 +7,8 @@
     <h1 class="text-center">Learn About Ingredients with<i class="logo">Taste It!</i></h1>
     <hr />
 
+    <h4>@Html.ActionLink("Create New Ingredient", "Create", null, new { @class = "btn btn-primary" })</h4>
+
     <div class="text-center">
         <ul class="pagination alpha">
             @foreach (var link in Model.Alphabet)

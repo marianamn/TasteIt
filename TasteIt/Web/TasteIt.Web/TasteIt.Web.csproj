@@ -359,6 +359,7 @@
     <Content Include="Views\Recipes\_RecipePartial.cshtml" />
     <Content Include="Views\Articles\_PagingPartial.cshtml" />
     <Content Include="Views\Ingredients\_IngredientPartial.cshtml" />
+    <Content Include="Views\Ingredients\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
