@@ -12,6 +12,7 @@
                     @Html.ActionLink(article.Title, "/Details" + article.Url, "Articles")
                 </strong>
             </h4>
+            <h4><strong><i>Category: </i>@article.Category</strong></h4>
             <p><span class="glyphicon glyphicon-calendar"></span> @article.CreatedOn</p>
             <img src="@article.ArticleImage" class="images-home" />
         </div>

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<TasteIt.Web.Models.Comment.CommentViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+@*
+
+    <p>
+        @Ajax.ActionLink("Add Comment", "Create", "Comments", new AjaxOptions()
+       {
+           HttpMethod = "GET",
+           InsertionMode = InsertionMode.Replace,
+           UpdateTargetId = "create-comment"
+       })
+    </p>
+
+    <div id="create-comment"></div>
+*@
+
+@foreach (var item in Model)
+{
+    <div class="row">
+    <div class="col-md-2">
+        @if (item.PostedByImage == null)
+        {
+            <img class="comment-image" src="http://www.adsitsolutions.com/images/icons/grey/home-user-icon.png" />
+        }
+        else
+        {
+            <img class="comment-image" src="@item.PostedByImage" />
+        }
+    </div>
+    <div class="col-md-12">
+        <h4 class="logo">@item.PostedBy</h4>
+        <div class="comment-content">@item.Content</div>
+    </div>
+</div>
+}

@@ -10,6 +10,7 @@
     using Services.Web.Contracts;
     using TasteIt.Data.Models;
     using Ingredient;
+    using Comment;
 
     public class RecipeViewModel : IMapFrom<Recipe>, IHaveCustomMappings
     {
@@ -40,7 +41,7 @@
 
         public IEnumerable<IngredientViewModel> Ingredients { get; set; }
 
-        public IEnumerable<LikeViewModel> Likes { get; set; }
+        public IEnumerable<Like> Likes { get; set; }
 
         public IEnumerable<CommentViewModel> Comments { get; set; }
 
@@ -62,7 +63,7 @@
                    .ForMember(x => x.Occasion, opt => opt.MapFrom(x => x.Occasion.Name));
 
             configuration.CreateMap<Recipe, RecipeViewModel>()
-                  .ForMember(x => x.CountLikes, opt => opt.MapFrom(x => x.Likes.Count()));
+                  .ForMember(x => x.CountLikes, opt => opt.MapFrom(x => x.Likes.Any() ? x.Likes.Sum(v => (int)v.Value) : 0));
 
             configuration.CreateMap<Recipe, RecipeViewModel>()
                  .ForMember(x => x.CountComments, opt => opt.MapFrom(x => (x.Comments.Count() - 1)));

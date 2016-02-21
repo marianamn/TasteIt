@@ -229,8 +229,10 @@
     </Compile>
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IngredientsController.cs" />
+    <Compile Include="Controllers\LikeController.cs" />
     <Compile Include="Controllers\ManageController.cs">
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
@@ -251,6 +253,7 @@
     <Compile Include="Models\Article\ArticleListViewModel.cs" />
     <Compile Include="Models\Article\ArticleViewModel.cs" />
     <Compile Include="Models\Article\CategoryViewModel.cs" />
+    <Compile Include="Models\Comment\CommentInputModel.cs" />
     <Compile Include="Models\Home\IndexViewModel.cs" />
     <Compile Include="Models\Ingredient\AlphabeticalPagingViewModel.cs" />
     <Compile Include="Models\Ingredient\IngredientViewModel.cs" />
@@ -262,8 +265,7 @@
     <Compile Include="Models\Manages\ManageLoginsViewModel.cs" />
     <Compile Include="Models\Manages\SetPasswordViewModel.cs" />
     <Compile Include="Models\Manages\VerifyPhoneNumberViewModel.cs" />
-    <Compile Include="Models\Recipe\CommentViewModel.cs" />
-    <Compile Include="Models\Recipe\LikeViewModel.cs" />
+    <Compile Include="Models\Comment\CommentViewModel.cs" />
     <Compile Include="Models\Recipe\OccasionViewModel.cs" />
     <Compile Include="Models\Recipe\RecipeViewModel.cs" />
     <Compile Include="Models\Recipe\SeasonViewModel.cs" />
@@ -350,7 +352,7 @@
     <Content Include="Views\Articles\Details.cshtml" />
     <Content Include="Views\Articles\RelatedArticles.cshtml" />
     <Content Include="Views\Articles\NoArticlesFound.cshtml" />
-    <Content Include="Views\Articles\_ArticlePartial.cshtml" />
+    <Content Include="Views\Shared\_ArticlePartial.cshtml" />
     <Content Include="Views\Ingredients.cshtml" />
     <Content Include="Views\Ingredients\Index.cshtml" />
     <Content Include="Views\Ingredients\Details.cshtml" />
@@ -360,9 +362,12 @@
     <Content Include="Views\Articles\_PagingPartial.cshtml" />
     <Content Include="Views\Ingredients\_IngredientPartial.cshtml" />
     <Content Include="Views\Ingredients\Create.cshtml" />
+    <Content Include="Views\Comments\Create.cshtml" />
+    <Content Include="Views\Comments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Like\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

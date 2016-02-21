@@ -130,13 +130,14 @@
                     new Comment()
                     {
                         Content = "Very delicious one!",
-                        PostedBy = this.Users[1]
+                        PostedBy = this.Users[1],
+                        CreatedOn = DateTime.Now.AddDays(rand.Next(-5, 5))
                     }
                 },
                 Likes = new List<Like>()
                 {
-                    new Like() { Value = true, Author = this.Users[0] },
-                    new Like() { Value = true, Author = this.Users[1] }
+                    new Like() { Value = LikeType.Positive, Author = this.Users[0] },
+                    new Like() { Value = LikeType.Positive, Author = this.Users[1] },
                 }
             });
             this.Recipes.Add(new Recipe
@@ -213,19 +214,21 @@
                     new Comment()
                     {
                         Content = "Thank you for the good recipe!",
-                        PostedBy = this.Users[1]
+                        PostedBy = this.Users[1],
+                        CreatedOn = DateTime.Now.AddDays(rand.Next(-5, 5))
                     },
                     new Comment()
                     {
                         Content = "I love it!",
-                        PostedBy = this.Users[2]
+                        PostedBy = this.Users[2],
+                        CreatedOn = DateTime.Now.AddDays(rand.Next(-5, 5))
                     }
                 },
                 Likes = new List<Like>()
                 {
-                    new Like() { Value = true, Author = this.Users[0] },
-                    new Like() { Value = true, Author = this.Users[1] },
-                    new Like() { Value = true, Author = this.Users[2] }
+                    new Like() { Value = LikeType.Positive, Author = this.Users[0] },
+                    new Like() { Value = LikeType.Positive, Author = this.Users[1] },
+                    new Like() { Value = LikeType.Positive, Author = this.Users[2] }
                 }
             });
 

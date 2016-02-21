@@ -6,21 +6,26 @@
 <div class="jumbotron">
     <div>
         <h2 class="detail-title">@Html.DisplayFor(@model => model.Title)</h2>
-
+        <p><i>Recipe autor: @Html.DisplayFor(@model => model.Author)</i></p>
     </div>
 
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
-                <p>
-                    <span class="glyphicon glyphicon-heart"></span> @Html.DisplayFor(@model => model.CountLikes)
-                    <span class="glyphicon glyphicon-comment"></span> @Html.DisplayFor(@model => model.CountLikes)
-                </p>
-                <p><i>Recipe autor: @Html.DisplayFor(@model => model.Author)</i></p>
-                <img class="recipe-image" src="@Html.DisplayFor(@model =>model.RecipeImage)" />
+            <div class="col-md-1">
+                <div class="well text-center">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <div class="row" data-id="@Model.Id" data-action="up"><span class="glyphicon glyphicon glyphicon-thumbs-up"></span></div>
+                    }
+                    <div class="row" data-id="@Model.Id" data-action="recipesCount">@Model.CountLikes</div>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <div class="row" data-id="@Model.Id" data-action="down"><span class="glyphicon glyphicon-thumbs-down"></span></div>
+                    }
+                </div>
             </div>
 
-            <div class="recipe-details col-md-12 detail-text">
+            <div class="recipe-details col-md-6 detail-text">
                 <div>
                     <p><strong>Preparation time: </strong></p>
                     <p>@Html.DisplayFor(@model => model.CookingTime)</p>
@@ -42,6 +47,11 @@
                     }
                 }
             </div>
+
+            <div class="col-md-4">
+                <img class="recipe-image" src="@Html.DisplayFor(@model =>model.RecipeImage)" />
+            </div>
+
         </div>
         <br />
 
@@ -53,6 +63,21 @@
         </div>
     </div>
     <br />
+
+    <div class="row">
+        @Html.Action("Create", "Comments", new { id = Model.Id })
+    </div>
+
+    <p>
+        @Ajax.ActionLink("Add Comment", "Create", "Comments", new AjaxOptions()
+        {
+            HttpMethod = "GET",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "create-comment"
+        })
+    </p>
+
+    <div id="create-comment"></div>
 
     <h3><strong>Comments:</strong></h3>
     <div>
@@ -86,11 +111,32 @@
         </div>
     </div>
 
-
     <div>
         <h2 class="relatedArticle-link">
             @Html.ActionLink("More recipes", "/Index" + @Html.DisplayFor(@model => model.Url), "Recipes")
         </h2>
     </div>
 </div>
+
+
+@section scripts{
+    <script>
+        $("div[data-action='up'").click(function () {
+            var id = $(this).attr("data-id");
+            likeClick(id, 1);
+        });
+        $("div[data-action='down'").click(function () {
+            var id = $(this).attr("data-id");
+            likeClick(id, -1);
+        });
+
+        function likeClick(id, likeType) {
+            $.post("/Likes/Like", { recipeId: id, likeType: likeType },
+                function (data) {
+                    var newLikesCount = data.Count;
+                    $("div[data-action='recipesCount'][data-id='" + id + "']").html(newLikesCount)
+                });
+        }
+    </script>
+}
 
