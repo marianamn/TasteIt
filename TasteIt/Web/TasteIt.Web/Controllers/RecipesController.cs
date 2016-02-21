@@ -12,21 +12,32 @@
     public class RecipesController : BaseController
     {
         private readonly IRecipesService recipes;
+        private readonly IOccasionsService occasions;
 
-        public RecipesController(IRecipesService recipes)
+        public RecipesController(IRecipesService recipes, IOccasionsService occasions)
         {
             this.recipes = recipes;
+            this.occasions = occasions;
         }
 
         // GET: Recipe
         public ActionResult Index()
         {
-            var allRecipes = this.recipes
-                                  .GetAll()
+            var occasions = this.occasions.GetAll()
+                                        .To<OccasionViewModel>()
+                                        .ToList();
+
+            var recipes = this.recipes.GetAll()
                                   .To<RecipeViewModel>()
                                   .ToList();
 
-            return this.View(allRecipes);
+            var viewModel = new RecipesIndexViewModel
+            {
+                Occasions = occasions,
+                Recipes = recipes
+            };
+
+            return this.View(viewModel);
         }
 
         [HttpGet]

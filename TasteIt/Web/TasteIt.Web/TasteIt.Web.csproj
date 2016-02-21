@@ -267,6 +267,7 @@
     <Compile Include="Models\Manages\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="Models\Comment\CommentViewModel.cs" />
     <Compile Include="Models\Recipe\OccasionViewModel.cs" />
+    <Compile Include="Models\Recipe\RecipesIndexViewModel.cs" />
     <Compile Include="Models\Recipe\RecipeViewModel.cs" />
     <Compile Include="Models\Recipe\SeasonViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
@@ -290,7 +291,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\Article.png" />
     <Content Include="Images\Ingredients.jpg" />
-    <Content Include="Images\Location Image.png" />
     <Content Include="Images\Recipe.jpg" />
     <Content Include="Images\TasteItLogo.png" />
     <Content Include="Images\Wood-background.jpg" />

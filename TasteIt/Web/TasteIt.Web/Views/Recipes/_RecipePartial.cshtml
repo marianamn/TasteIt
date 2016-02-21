@@ -1,5 +1,28 @@
-﻿@model TasteIt.Web.Models.Recipe.RecipeViewModel
+﻿@model TasteIt.Web.Models.Recipe.RecipesIndexViewModel
 @{
     ViewBag.Title = "_RecipePartial";
 }
+
+<div class="row">
+    @foreach (var recipe in Model.Recipes)
+    {
+        <div class="col-md-4 text-center">
+            <div class="container-articles">
+                <h4 class="section-subtitles">
+                    <strong>
+                        @Html.ActionLink(recipe.Title, "/Details" + recipe.Url, "Recipes")
+                    </strong>
+                </h4>
+                <p>
+                    <span class="glyphicon glyphicon-heart"></span>@recipe.Likes.Sum(v => (int)v.Value)
+                    <span class="glyphicon glyphicon-comment"></span> @recipe.Comments.Count()
+                </p>
+                <img src="@recipe.RecipeImage" class="images-home" />
+            </div>
+        </div>
+
+    }
+</div>
+
+
 

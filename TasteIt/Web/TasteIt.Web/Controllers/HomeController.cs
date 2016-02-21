@@ -30,22 +30,22 @@
             }
 
             var ingredients = this.ingredients.GetRandomIngredients(3)
-                                  .To<IngredientViewModel>()
-                                  .ToList();
+                                              .To<IngredientViewModel>()
+                                              .ToList();
 
             var recipes = this.recipes.GetMostLikedRecipes(3)
-                                 .To<RecipeViewModel>()
-                                 .ToList();
+                                       .To<RecipeViewModel>()
+                                       .ToList();
 
             var articles = this.articles.GetNewestArticles(3)
-                               .To<ArticleViewModel>()
-                               .ToList();
+                                        .To<ArticleViewModel>()
+                                        .ToList();
 
-            // var categories =
-            //    this.Cache.Get(
-            //        "categories",
-            //        () => this.jokeCategories.GetAll().To<JokeCategoryViewModel>().ToList(),
-            //        30 * 60);
+            // var articles = this.Cache.Get("articles",
+            //                               () => this.articles.GetNewestArticles(3)
+            //                                                  .To<ArticleViewModel>()
+            //                                                  .ToList(),
+            //                               15 * 60);
 
             var viewModel = new IndexViewModel
             {
