@@ -32,7 +32,7 @@
                         </strong>
                     </h4>
                     <p>
-                        <span class="glyphicon glyphicon-heart"></span> @recipe.Likes.Count()
+                        <span class="glyphicon glyphicon-heart"></span>@recipe.Likes.Sum(v => (int)v.Value)
                         <span class="glyphicon glyphicon-comment"></span> @recipe.Comments.Count()
                     </p>
                     <img src="@recipe.RecipeImage" class="images-home" />

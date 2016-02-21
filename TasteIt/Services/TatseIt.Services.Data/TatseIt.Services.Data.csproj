@@ -45,10 +45,8 @@
     <Compile Include="Contracts\IArticlesService.cs" />
     <Compile Include="Contracts\ICommentsService.cs" />
     <Compile Include="Contracts\IIngredientsService.cs" />
-    <Compile Include="Contracts\ILikeService.cs" />
     <Compile Include="Contracts\IRecipesService.cs" />
     <Compile Include="IngredientsService.cs" />
-    <Compile Include="LikeService.cs" />
     <Compile Include="RecipesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

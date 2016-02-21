@@ -55,7 +55,7 @@
             this.likes.SaveChanges();
             var recipesVotes = this.likes.All()
                 .Where(x => x.RecipeId == recipeId)
-                .Sum(x => (int)x.V);
+                .Sum(x => (int)x.Value);
 
             return this.Json(new { Count = recipesVotes });
         }

@@ -290,6 +290,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\Article.png" />
     <Content Include="Images\Ingredients.jpg" />
+    <Content Include="Images\Location Image.png" />
     <Content Include="Images\Recipe.jpg" />
     <Content Include="Images\TasteItLogo.png" />
     <Content Include="Images\Wood-background.jpg" />
