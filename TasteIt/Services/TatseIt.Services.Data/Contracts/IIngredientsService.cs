@@ -15,6 +15,8 @@
 
         Ingredient GetById(string id);
 
-        //List<string> GetFirstLetters();
+        IQueryable<Ingredient> GetIngredientsWithCommonLetter(string letter);
+
+        List<string> GetFirstLetters();
     }
 }

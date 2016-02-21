@@ -48,18 +48,20 @@
         public IQueryable<Ingredient> GetIngredientsWithCommonLetter(string letter)
         {
             var igredientsWithCommonLetter = this.ingredients.All()
-                                                    .Where(p => p.Name.StartsWith(letter));
+                                                 .Where(p => p.Name.StartsWith(letter.ToLower()))
+                                                 .OrderBy(p => p.Name);
 
             return igredientsWithCommonLetter;
         }
 
-        //public List<string> GetFirstLetters()
-        //{
-        //    var letters = this.ingredients.All()
-        //                                  .GroupBy(p => p.Name.Substring(0, 1))
-        //                                  .Select(x => x.Key.ToUpper());
-        //
-        //    return letters;
-        //}
+        public List<string> GetFirstLetters()
+        {
+            var letters = this.ingredients.All()
+                                          .GroupBy(p => p.Name.Substring(0, 1))
+                                          .Select(x => x.Key.ToUpper())
+                                          .ToList();
+
+            return letters;
+        }
     }
 }

@@ -253,7 +253,6 @@
     <Compile Include="Models\Article\CategoryViewModel.cs" />
     <Compile Include="Models\Home\IndexViewModel.cs" />
     <Compile Include="Models\Ingredient\AlphabeticalPagingViewModel.cs" />
-    <Compile Include="Models\Ingredient\IndexIngredientsViewModel.cs" />
     <Compile Include="Models\Ingredient\IngredientViewModel.cs" />
     <Compile Include="Models\Manages\AddPhoneNumberViewModel.cs" />
     <Compile Include="Models\Manages\ChangePasswordViewModel.cs" />

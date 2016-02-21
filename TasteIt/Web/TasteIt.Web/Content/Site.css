@@ -158,3 +158,8 @@ textarea {
     width:80%;
     height: 50px;
 }
+
+.ingredient-image{
+    width: 100px;
+    height: 100px;
+}

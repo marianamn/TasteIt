@@ -11,6 +11,7 @@
     using Data.Repositories;
     using Data.Models;
     using Data;
+
     public class IngredientsController : BaseController
     {
         private readonly IIngredientsService ingredients;
@@ -20,10 +21,29 @@
             this.ingredients = ingredients;
         }
 
-        public ActionResult Index(char selectedLetter)
+        public ActionResult Index(string selectedLetter)
         {
+            var model = new AlphabeticalPagingViewModel { SelectedLetter = selectedLetter };
 
-            return this.View();
+            model.FirstLetters = this.ingredients.GetFirstLetters();
+
+            if (string.IsNullOrEmpty(selectedLetter) || selectedLetter == "All")
+            {
+                model.Ingredients = this.ingredients.GetAll()
+                                           .OrderBy(p => p.Name)
+                                           .To<IngredientViewModel>()
+                                           .ToList();
+
+                return this.View(model);
+            }
+            else
+            {
+                model.Ingredients = this.ingredients.GetIngredientsWithCommonLetter(selectedLetter.ToLower())
+                                         .To<IngredientViewModel>()
+                                         .ToList();
+            }
+
+            return this.View(model);
         }
 
         [HttpGet]
@@ -33,6 +53,16 @@
             var viewModel = this.Mapper.Map<IngredientViewModel>(ingredient);
 
             return this.View("Details", viewModel);
+        }
+
+        [HttpGet]
+        public ActionResult ShowList(string firstLetter)
+        {
+            var ingredients = this.ingredients.GetIngredientsWithCommonLetter(firstLetter.ToLower())
+                                             .To<IngredientViewModel>()
+                                             .ToList();
+
+            return this.View("ShowList", ingredients);
         }
     }
 }

@@ -3,20 +3,19 @@
     ViewBag.Title = "_IngredientPartial";
 }
 
-@foreach (var item in Model.Ingredients)
-{
-    <div class="col-md-6 text-center">
-        <div class="container-articles">
-            <h4 class="section-subtitles">
-                item.Name
-                @*
-                <strong>
-                    @Html.ActionLink(item.Name, "/Details" + item.Url, "Ingredients")
-                </strong>
-                *@
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model.Ingredients)
+        {
+            <div class="col-md-2">
+                <h4 class="section-subtitles">
+                    <strong>
+                        @Html.ActionLink(item.Name, "/Details" + item.Url, "Ingredients")
+                    </strong>
+                </h4>
+                <img src="@item.IngredientImage" class="ingredient-image" />
+            </div>
+        }
 
-            </h4>
-            <img src="@item.IngredientImage" class="images-home" />
-        </div>
     </div>
-}
+</div>
