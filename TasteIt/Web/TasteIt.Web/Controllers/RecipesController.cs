@@ -8,7 +8,7 @@
     using Infrastructure.Mapping;
     using TasteIt.Web.Models.Recipe;
     using TatseIt.Services.Data.Contracts;
-
+    using Data.Models;
     public class RecipesController : BaseController
     {
         private readonly IRecipesService recipes;
@@ -26,17 +26,17 @@
             var occasions = this.occasions.GetAll()
                                         .To<OccasionViewModel>()
                                         .ToList();
-
+            
             var recipes = this.recipes.GetAll()
                                   .To<RecipeViewModel>()
                                   .ToList();
-
+            
             var viewModel = new RecipesIndexViewModel
             {
                 Occasions = occasions,
                 Recipes = recipes
             };
-
+            
             return this.View(viewModel);
         }
 
@@ -47,6 +47,36 @@
             var viewModel = this.Mapper.Map<RecipeViewModel>(recipe);
 
             return this.View("Details", viewModel);
+        }
+
+        [HttpGet]
+        public ActionResult GetBySeason(string season)
+        {
+            var recipes = this.recipes.GetBySeason(season)
+                                      .To<RecipeViewModel>()
+                                      .ToList();
+
+            var viewModel = new RecipesIndexViewModel
+            {
+                Recipes = recipes
+            };
+
+            return this.View(viewModel);
+        }
+
+        [HttpGet]
+        public ActionResult GetByOccasion(string occasion)
+        {
+            var recipes = this.recipes.GetByOccasion(occasion)
+                                      .To<RecipeViewModel>()
+                                      .ToList();
+
+            var viewModel = new RecipesIndexViewModel
+            {
+                Recipes = recipes
+            };
+
+            return this.View(viewModel);
         }
     }
 }

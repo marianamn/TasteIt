@@ -44,5 +44,22 @@
 
             return recipe;
         }
+        
+
+        public IQueryable<Recipe> GetBySeason(string season)
+        {
+            var recipes = this.recipes.All()
+                                    .Where(x => x.Season.ToString() == season);
+
+            return recipes;
+        }
+
+        public IQueryable<Recipe> GetByOccasion(string occasion)
+        {
+            var recipes = this.recipes.All()
+                                    .Where(x => x.Occasion.Name == occasion);
+
+            return recipes;
+        }
     }
 }

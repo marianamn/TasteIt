@@ -446,6 +446,8 @@
     <Content Include="Views\Ingredients\Create.cshtml" />
     <Content Include="Views\Comments\Create.cshtml" />
     <Content Include="Views\Comments\Index.cshtml" />
+    <Content Include="Views\Recipes\GetBySeason.cshtml" />
+    <Content Include="Views\Recipes\GetByOccasion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

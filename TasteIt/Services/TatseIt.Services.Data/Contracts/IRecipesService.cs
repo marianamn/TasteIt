@@ -14,5 +14,9 @@
         IQueryable<Recipe> GetMostLikedRecipes(int count);
 
         Recipe GetById(string id);
+
+        IQueryable<Recipe> GetBySeason(string season);
+
+        IQueryable<Recipe> GetByOccasion(string occasion);
     }
 }
