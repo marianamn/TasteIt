@@ -1,0 +1,70 @@
+﻿@using Kendo.Mvc.UI
+<div>
+    @(Html.Kendo().Grid<TasteIt.Data.Models.Article>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.Title);
+          columns.Bound(c => c.Content);
+          columns.Bound(c => c.CreatedOn);
+          columns.Bound(c => c.ArticleImage);
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar =>
+      {
+          toolbar.Create();
+      })
+      .Editable(editable => editable.Mode(GridEditMode.InLine))
+      .Pageable()
+      .Sortable(sortable =>
+      {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Scrollable()
+      .Events(events =>
+      {
+          events.Edit("onEdit");
+          events.SaveChanges("onSaveChanges");
+          events.Save("onSave");
+          events.Remove("onRemove");
+          events.DetailExpand("onDetailExpand");
+          events.Change("onChange");
+      })
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("Articles_Read", "ArticlesGrid"))
+          .Create(create => create.Action("Articles_Create", "ArticlesGrid"))
+          .Update(update => update.Action("Articles_Update", "ArticlesGrid"))
+          .Destroy(destroy => destroy.Action("Articles_Destroy", "ArticlesGrid"))
+      )
+    )
+</div>
+
+<script>
+
+    function onEdit(e){
+        //Implement the event handler for Edit
+    }
+
+    function onSaveChanges(e){
+        //Implement the event handler for SaveChanges
+    }
+
+    function onSave(e){
+        //Implement the event handler for Save
+    }
+
+    function onRemove(e){
+        //Implement the event handler for Remove
+    }
+
+    function onDetailExpand(e){
+        //Implement the event handler for DetailExpand
+    }
+
+    function onChange(e){
+        //Implement the event handler for Change
+    }
+
+</script>

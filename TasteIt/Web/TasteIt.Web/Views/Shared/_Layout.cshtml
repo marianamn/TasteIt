@@ -4,8 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/css", "~/Content/kendo")
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/kendo")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
@@ -36,55 +37,49 @@
                         <li>@Html.ActionLink("Ingredients", "Index", "Ingredients", new { area = string.Empty }, null)</li>
                         <li>@Html.ActionLink("Articles", "Index", "Articles", new { area = string.Empty }, null)</li>
 
-                        @*admin can manage all tabs - add/edit/delete
-                            <li class="dropdown">
-                                <a href="/ManageApp" class="dropdown-toggle" data-toggle="dropdown">
-                                    Manage App
-                                    <strong class="caret"></strong>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>@Html.ActionLink("Manage Recipes", "Index", "/ManageApp/ManageRecipes", new { area = "Administration" }, null)</li>
-                                    <li><a href="/ManageApp/ManageRecipes">Manage Recipes</a></li>
-                                    <li><a href="/ManageApp/ManageIngredients">Manage Ingredients</a></li>
-                                    <li><a href="/ManageApp/ManageArticles">Manage Articles</a></li>
-                                </ul>
-                            </li>
-                        *@
+                        @if (this.User.Identity.IsAuthenticated && this.User.IsInRole("Administrator"))
+
+                        {
+
+                            <li>@Html.ActionLink("Manage App", "Index", "ManageSite", new { area = "Administration" }, null)</li>
+
+                        }
                     </ul>
 
-                    <div class="col-md-3 hidden-sm navbar-left search-form">
-                        <form class="navbar-form" role="search" action="/Search/Results">
-                            <div class="input-group">
-                                <input type="text" class="form-control search-box" placeholder="Search" name="searchTerm" id="searchTerm">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-default btn-search" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    @*
+                        <div class="col-md-3 hidden-sm navbar-left search-form">
+                            <form class="navbar-form" role="search" action="/Search/Results">
+                                <div class="input-group">
+                                    <input type="text" class="form-control search-box" placeholder="Search" name="searchTerm" id="searchTerm">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-default btn-search" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
-                    </div>
-
+                            </form>
+                        </div>
+                    *@
                     @Html.Partial("_LoginPartial")
                 </div>
             </div>
         </div>
     </div>
     <div class="container body-content">
-
-        @if (this.TempData["Notification"] != null)
-        {
-            <div class="alert alert-success" role="alert">
-                @this.TempData["Notification"]
-            </div>
-        }
-        @RenderBody()
-
+        <div class="jumbotron">
+            @if (this.TempData["Notification"] != null)
+            {
+                <div class="alert alert-success" role="alert">
+                    @this.TempData["Notification"]
+                </div>
+            }
+            @RenderBody()
+        </div>
         <footer class="panel-footer">
             All rights reserved &copy; @DateTime.Now.Year Telerik Academy
             <br /><strong>Taste It</strong> - ASP.NET MVC Application
         </footer>
+
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

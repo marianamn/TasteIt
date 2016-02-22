@@ -3,86 +3,85 @@
     ViewBag.Title = "Details";
 }
 
-<div class="jumbotron">
-    <div>
-        <h2 class="detail-title">@Html.DisplayFor(@model => model.Title)</h2>
-        <p><i>Recipe autor: @Html.DisplayFor(@model => model.Author)</i></p>
-    </div>
+<div>
+    <h2 class="detail-title">@Html.DisplayFor(@model => model.Title)</h2>
+    <p><i>Recipe autor: @Html.DisplayFor(@model => model.Author)</i></p>
+</div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1">
-                <div class="well text-center">
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <div class="row" data-id="@Model.Id" data-action="up"><span class="glyphicon glyphicon glyphicon-thumbs-up"></span></div>
-                    }
-                    <div class="row" data-id="@Model.Id" data-action="recipesCount">@Model.CountLikes</div>
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <div class="row" data-id="@Model.Id" data-action="down"><span class="glyphicon glyphicon-thumbs-down"></span></div>
-                    }
-                </div>
-            </div>
-
-            <div class="recipe-details col-md-6 detail-text">
-                <div>
-                    <p><strong>Preparation time: </strong></p>
-                    <p>@Html.DisplayFor(@model => model.CookingTime)</p>
-                </div>
-
-                <p><strong>Ingredients:</strong></p>
-                @if (@Model.Ingredients == null)
+<div class="container">
+    <div class="row">
+        <div class="col-md-1">
+            <div class="well text-center">
+                @if (User.Identity.IsAuthenticated)
                 {
-                    return;
+                    <div class="row" data-id="@Model.Id" data-action="up"><span class="glyphicon glyphicon glyphicon-thumbs-up"></span></div>
                 }
-                else
+                <div class="row" data-id="@Model.Id" data-action="recipesCount">@Model.CountLikes</div>
+                @if (User.Identity.IsAuthenticated)
                 {
-                    foreach (var item in @Model.Ingredients)
-                    {
-                        <div>
-                            @item.Quantity
-                            @Html.ActionLink(item.Name, "/Details" + item.Url, "Ingredients")
-                        </div>
-                    }
+                    <div class="row" data-id="@Model.Id" data-action="down"><span class="glyphicon glyphicon-thumbs-down"></span></div>
                 }
             </div>
-
-            <div class="col-md-4">
-                <img class="recipe-image" src="@Html.DisplayFor(@model =>model.RecipeImage)" />
-            </div>
-
         </div>
-        <br />
 
-        <div class="detail-text">
+        <div class="recipe-details col-md-6 detail-text">
             <div>
-                <p><strong>Preparation:</strong></p>
-                @Html.DisplayFor(@model => model.Description)
+                <p><strong>Preparation time: </strong></p>
+                <p>@Html.DisplayFor(@model => model.CookingTime)</p>
             </div>
+
+            <p><strong>Ingredients:</strong></p>
+            @if (@Model.Ingredients == null)
+            {
+                return;
+            }
+            else
+            {
+                foreach (var item in @Model.Ingredients)
+                {
+                    <div>
+                        @item.Quantity
+                        @Html.ActionLink(item.Name, "/Details" + item.Url, "Ingredients")
+                    </div>
+                }
+            }
         </div>
+
+        <div class="col-md-4">
+            <img class="recipe-image" src="@Html.DisplayFor(@model =>model.RecipeImage)" />
+        </div>
+
     </div>
     <br />
 
-    <div class="row">
-        @Html.Action("Create", "Comments", new { id = Model.Id })
+    <div class="detail-text">
+        <div>
+            <p><strong>Preparation:</strong></p>
+            @Html.DisplayFor(@model => model.Description)
+        </div>
     </div>
+</div>
+<br />
 
-    <p>
-        @Ajax.ActionLink("Add Comment", "Create", "Comments", new AjaxOptions()
-        {
-            HttpMethod = "GET",
-            InsertionMode = InsertionMode.Replace,
-            UpdateTargetId = "create-comment"
-        })
-    </p>
+<div class="row">
+    @Html.Action("Create", "Comments", new { id = Model.Id })
+</div>
 
-    <div id="create-comment"></div>
+<p>
+    @Ajax.ActionLink("Add Comment", "Create", "Comments", new AjaxOptions()
+   {
+       HttpMethod = "GET",
+       InsertionMode = InsertionMode.Replace,
+       UpdateTargetId = "create-comment"
+   })
+</p>
 
-    <h3><strong>Comments:</strong></h3>
-    <div>
-        <div class="container">
-            @if (@Model.Comments == null)
+<div id="create-comment"></div>
+
+<h3><strong>Comments:</strong></h3>
+<div>
+    <div class="container">
+        @if (@Model.Comments == null)
             {
                 return;
             }
@@ -90,33 +89,33 @@
             {
                 foreach (var comment in @Model.Comments)
                 {
-                    <div class="row">
-                        <div class="col-md-2">
-                            @if (comment.PostedByImage == null)
-                            {
-                                <img class="comment-image" src="http://www.adsitsolutions.com/images/icons/grey/home-user-icon.png" />
-                            }
-                            else
-                            {
-                                <img class="comment-image" src="@comment.PostedByImage" />
-                            }
-                        </div>
-                        <div class="col-md-12">
-                            <h4 class="logo">@comment.PostedBy</h4>
-                            <div class="comment-content">@comment.Content</div>
-                        </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        @if (comment.PostedByImage == null)
+                        {
+                            <img class="comment-image" src="http://www.adsitsolutions.com/images/icons/grey/home-user-icon.png" />
+                        }
+                        else
+                        {
+                            <img class="comment-image" src="@comment.PostedByImage" />
+                        }
                     </div>
-                }
+                    <div class="col-md-12">
+                        <h4 class="logo">@comment.PostedBy</h4>
+                        <div class="comment-content">@comment.Content</div>
+                    </div>
+                </div>
             }
-        </div>
-    </div>
-
-    <div>
-        <h2 class="relatedArticle-link">
-            @Html.ActionLink("More recipes", "/Index" + @Html.DisplayFor(@model => model.Url), "Recipes")
-        </h2>
+        }
     </div>
 </div>
+
+<div>
+    <h2 class="relatedArticle-link">
+        @Html.ActionLink("More recipes", "/Index" + @Html.DisplayFor(@model => model.Url), "Recipes")
+    </h2>
+</div>
+
 
 
 @section scripts{

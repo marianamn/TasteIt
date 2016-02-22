@@ -3,13 +3,12 @@
     ViewBag.Title = "Articles";
 }
 
-<div class="jumbotron">
-    <h1 class="text-center">Food Articles with <i class="logo">Taste It!</i></h1>
-    <hr />
 
-    <div class="row">
-        @Html.Partial("_ArticlePartial")
-    </div>
+<h1 class="text-center">Food Articles with <i class="logo">Taste It!</i></h1>
+<hr />
 
-   @Html.Partial("_PagingPartial")
+<div class="row">
+    @Html.Partial("_ArticlePartial")
 </div>
+
+@Html.Partial("_PagingPartial")

@@ -3,40 +3,38 @@
     ViewBag.Title = "Recipe";
 }
 
-<div class="jumbotron">
-    <h1 class="text-center">Recipes with <i class="logo">Taste It!</i></h1>
-    <hr />
-    <h2 class="text-center logo">Select recipe by:</h2>
-    <hr />
+<h1 class="text-center">Recipes with <i class="logo">Taste It!</i></h1>
+<hr />
+<h2 class="text-center logo">Select recipe by:</h2>
+<hr />
 
-    <div class="container selected-items">
-        <div class="row">
-            <div class="col-md-6">
-                <h4 class="recipe-categ-title"><strong>Recipes by season:</strong></h4>
-                <ul class="detail-text">
-                    <li>Spring</li>
-                    <li>Summer</li>
-                    <li>Autumn</li>
-                    <li>Winter</li>
-                </ul>
-            </div>
+<div class="container selected-items">
+    <div class="row">
+        <div class="col-md-6">
+            <h4 class="recipe-categ-title"><strong>Recipes by season:</strong></h4>
+            <ul class="detail-text">
+                <li>Spring</li>
+                <li>Summer</li>
+                <li>Autumn</li>
+                <li>Winter</li>
+            </ul>
+        </div>
 
-            <div class="col-md-6">
-                <h4 class="recipe-categ-title"><strong>Recipes for special occations:</strong> </h4>
-                <ul class="detail-text">
-                    @foreach (var occasion in Model.Occasions)
-                    {
-                        <li>@occasion.Name</li>
-                    }
-                </ul>
-            </div>
+        <div class="col-md-6">
+            <h4 class="recipe-categ-title"><strong>Recipes for special occations:</strong> </h4>
+            <ul class="detail-text">
+                @foreach (var occasion in Model.Occasions)
+                {
+                    <li>@occasion.Name</li>
+                }
+            </ul>
         </div>
     </div>
-
-    <hr />
-    <h2 class="text-center logo">All recipes:</h2>
-    <hr />
-
-    @Html.Partial("_RecipePartial");
-
 </div>
+
+<hr />
+<h2 class="text-center logo">All recipes:</h2>
+<hr />
+
+@Html.Partial("_RecipePartial");
+

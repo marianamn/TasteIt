@@ -3,34 +3,33 @@
     ViewBag.Title = "Ingredient";
 }
 
-<div class="jumbotron">
-    <h1 class="text-center">Learn About Ingredients with<i class="logo">Taste It!</i></h1>
-    <hr />
+<h1 class="text-center">Learn About Ingredients with<i class="logo">Taste It!</i></h1>
+<hr />
 
-    <h4>@Html.ActionLink("Create New Ingredient", "Create", null, new { @class = "btn btn-primary" })</h4>
+<h4>@Html.ActionLink("Create New Ingredient", "Create", null, new { @class = "btn btn-primary" })</h4>
 
-    <div class="text-center">
-        <ul class="pagination alpha">
-            @foreach (var link in Model.Alphabet)
+<div class="text-center">
+    <ul class="pagination alpha">
+        @foreach (var link in Model.Alphabet)
             {
                 if (Model.FirstLetters.Contains(link) || link == "All")
                 {
                     if (Model.SelectedLetter == link || Model.SelectedLetter.IsEmpty() && link == "All")
                     {
-                        <li class="active"><span>@link</span></li>
-                    }
-                    else
-                    {
-                        <li>@Html.ActionLink(link, "Index", new { selectedLetter = link })</li>
-                    }
+                    <li class="active"><span>@link</span></li>
                 }
                 else
                 {
-                    <li class="inactive"><span>@link</span></li>
+                    <li>@Html.ActionLink(link, "Index", new { selectedLetter = link })</li>
                 }
             }
-        </ul>
+            else
+            {
+                <li class="inactive"><span>@link</span></li>
+            }
+        }
+    </ul>
 
-        @Html.Partial("_IngredientPartial")
-    </div>
+    @Html.Partial("_IngredientPartial")
 </div>
+

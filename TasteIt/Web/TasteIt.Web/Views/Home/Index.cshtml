@@ -3,85 +3,84 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <div class="slide-container">
-        <ul class="bxslider">
-            <li>
-                <a href="/Ingredients"><img class="home-page-image" src="~/Images/Ingredients.jpg" title="Ingredients" /></a>
-            </li>
-            <li>
-                <a href="/Recipes"><img class="home-page-image" src="~/Images/Recipe.jpg" title="Recipes" /></a>
-            </li>
-            <li>
-                <a href="/Articles"><img class="home-page-image" src="~/Images/Article.png" title="Articles" /></a>
-            </li>
-        </ul>
-    </div>
-
-    <h2 class="section-titles"><a href="/Recipes">Our Recipes</a></h2>
-    <hr />
-
-    <div class="row">
-        @foreach (var recipe in Model.Recipes)
-        {
-            <div class="col-md-4 text-center">
-                <div class="container-articles">
-                    <h4 class="section-subtitles">
-                        <strong>
-                            @Html.ActionLink(recipe.Title, "/Details" + recipe.Url, "Recipes")
-                        </strong>
-                    </h4>
-                    <p>
-                        <span class="glyphicon glyphicon-heart"></span>@recipe.Likes.Sum(v => (int)v.Value)
-                        <span class="glyphicon glyphicon-comment"></span> @recipe.Comments.Count()
-                    </p>
-                    <img src="@recipe.RecipeImage" class="images-home" />
-                </div>
-            </div>
-
-        }
-    </div>
-
-    <h2 class="section-titles"><a href="/Ingredients">Learn About</a></h2>
-    <hr />
-
-    <div class="row">
-        @foreach (var ingredient in Model.Ingredients)
-        {
-            <div class="col-md-4 text-center">
-                <div class="container-articles">
-                    <h4 class="section-subtitles">
-                        <strong>
-                            @Html.ActionLink(ingredient.Name, "/Details" + ingredient.Url, "Ingredients")
-                        </strong>
-                    </h4>
-                    <img src="@ingredient.IngredientImage" class="images-home" />
-                </div>
-            </div>
-        }
-    </div>
-
-    <h2 class="section-titles"><a href="/Articles">Our Articles</a></h2>
-    <hr />
-
-    <div class="row">
-        @foreach (var article in Model.Articles)
-        {
-            <div class="col-md-4 text-center">
-                <div class="container-articles">
-                    <h4 class="section-subtitles">
-                        <strong>
-                            @Html.ActionLink(article.Title, "/Details" + article.Url, "Articles")
-                        </strong>
-                    </h4>
-                    <p><span class="glyphicon glyphicon-calendar"></span> @article.CreatedOn</p>
-                    <img src="@article.ArticleImage" class="images-home" />
-                </div>
-            </div>
-
-        }
-    </div>
+<div class="slide-container">
+    <ul class="bxslider">
+        <li>
+            <a href="/Ingredients"><img class="home-page-image" src="~/Images/Ingredients.jpg" title="Ingredients" /></a>
+        </li>
+        <li>
+            <a href="/Recipes"><img class="home-page-image" src="~/Images/Recipe.jpg" title="Recipes" /></a>
+        </li>
+        <li>
+            <a href="/Articles"><img class="home-page-image" src="~/Images/Article.png" title="Articles" /></a>
+        </li>
+    </ul>
 </div>
+
+<h2 class="section-titles"><a href="/Recipes">Our Recipes</a></h2>
+<hr />
+
+<div class="row">
+    @foreach (var recipe in Model.Recipes)
+    {
+        <div class="col-md-4 text-center">
+            <div class="container-articles">
+                <h4 class="section-subtitles">
+                    <strong>
+                        @Html.ActionLink(recipe.Title, "/Details" + recipe.Url, "Recipes")
+                    </strong>
+                </h4>
+                <p>
+                    <span class="glyphicon glyphicon-heart"></span>@recipe.Likes.Sum(v => (int)v.Value)
+                    <span class="glyphicon glyphicon-comment"></span> @recipe.Comments.Count()
+                </p>
+                <img src="@recipe.RecipeImage" class="images-home" />
+            </div>
+        </div>
+
+    }
+</div>
+
+<h2 class="section-titles"><a href="/Ingredients">Learn About</a></h2>
+<hr />
+
+<div class="row">
+    @foreach (var ingredient in Model.Ingredients)
+    {
+        <div class="col-md-4 text-center">
+            <div class="container-articles">
+                <h4 class="section-subtitles">
+                    <strong>
+                        @Html.ActionLink(ingredient.Name, "/Details" + ingredient.Url, "Ingredients")
+                    </strong>
+                </h4>
+                <img src="@ingredient.IngredientImage" class="images-home" />
+            </div>
+        </div>
+    }
+</div>
+
+<h2 class="section-titles"><a href="/Articles">Our Articles</a></h2>
+<hr />
+
+<div class="row">
+    @foreach (var article in Model.Articles)
+    {
+        <div class="col-md-4 text-center">
+            <div class="container-articles">
+                <h4 class="section-subtitles">
+                    <strong>
+                        @Html.ActionLink(article.Title, "/Details" + article.Url, "Articles")
+                    </strong>
+                </h4>
+                <p><span class="glyphicon glyphicon-calendar"></span> @article.CreatedOn</p>
+                <img src="@article.ArticleImage" class="images-home" />
+            </div>
+        </div>
+
+    }
+</div>
+
 
 
 <script>

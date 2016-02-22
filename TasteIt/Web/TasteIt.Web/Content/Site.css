@@ -179,3 +179,23 @@ div[data-action="up"], div[data-action="down"] {
     font-size:1.5em;
     font-style:italic;
 }
+
+.admin-titles {
+    padding-left: 80px;
+    list-style:none;
+}
+
+    .admin-titles a {
+        color: #1d7777;
+        font-size:1.5em;
+    }
+
+        .admin-titles a:hover {
+            color: #1d7777;
+
+        }
+
+.admin-image {
+    width: 380px;
+    height: 300px;
+}

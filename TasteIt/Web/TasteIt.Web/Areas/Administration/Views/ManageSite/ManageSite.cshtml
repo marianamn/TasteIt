@@ -1,0 +1,22 @@
+﻿<div>
+    <h2 class="logo">Welcome to managing page</h2>
+    <hr />
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <img class="admin-image" src="http://www.soch4u.com/admin/assets/img/administrator-icon-10.png" />
+            </div>
+
+            <div class="col-md-4">
+                <h3 >Please choose an option:</h3>
+                <ul class="admin-titles">
+                    <li>@Html.ActionLink("Manage Articles", null, "ArticlesGrid")</li>
+                    <li>@Html.ActionLink("Manage Recipes", null, "RecipesGrid")</li>
+                    <li>@Html.ActionLink("Manage Comments", null, "CommentsGrid")</li>
+                    <li>@Html.ActionLink("Manage Users", null, "UsersGrid")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

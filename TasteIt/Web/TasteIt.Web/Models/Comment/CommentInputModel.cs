@@ -10,6 +10,7 @@
     public class CommentInputModel
     {
         [Required]
+        [AllowHtml]
         [DataType(DataType.MultilineText)]
         [StringLength(500, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 3)]
         public string Content { get; set; }

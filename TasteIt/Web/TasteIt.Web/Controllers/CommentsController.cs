@@ -1,5 +1,6 @@
 ﻿namespace TasteIt.Web.Controllers
 {
+    using Infrastructure;
     using Infrastructure.Mapping;
     using Microsoft.AspNet.Identity;
     using Models.Comment;
@@ -16,6 +17,7 @@
     {
         private readonly ICommentsService comments;
         private readonly IRecipesService recipes;
+        private readonly ISanitizer sanitizer;
 
         public CommentsController(ICommentsService comments, IRecipesService recipes)
         {
@@ -55,7 +57,7 @@
             var recipe = this.recipes.GetById(id);
             comment.AuthorId = this.User.Identity.GetUserId();
 
-            var newComment = this.comments.Create(comment.Content, comment.AuthorId, recipe.Id, DateTime.Now);
+            var newComment = this.comments.Create(this.sanitizer.Sanitize(comment.Content), comment.AuthorId, recipe.Id, DateTime.Now);
             var resultComment = this.Mapper.Map<CommentInputModel>(newComment);
 
             return this.PartialView(resultComment);
