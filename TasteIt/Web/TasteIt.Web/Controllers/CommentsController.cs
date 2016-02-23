@@ -18,11 +18,14 @@
         private readonly ICommentsService comments;
         private readonly IRecipesService recipes;
         private readonly ISanitizer sanitizer;
+        private readonly IIdentifierProvider identifierProvider;
 
-        public CommentsController(ICommentsService comments, IRecipesService recipes)
+        public CommentsController(ICommentsService comments, IRecipesService recipes, IIdentifierProvider identifierProvider)
         {
             this.comments = comments;
             this.recipes = recipes;
+            this.sanitizer = sanitizer;
+            this.identifierProvider = identifierProvider;
         }
 
         public ActionResult Index()
@@ -47,17 +50,17 @@
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CommentInputModel comment, string id)
+        public ActionResult Create(CommentInputModel comment)
         {
             if (!this.ModelState.IsValid)
             {
                 return this.PartialView(comment);
             }
-
-            var recipe = this.recipes.GetById(id);
+            
             comment.AuthorId = this.User.Identity.GetUserId();
 
-            var newComment = this.comments.Create(this.sanitizer.Sanitize(comment.Content), comment.AuthorId, recipe.Id, DateTime.Now);
+            var newComment = this.comments.Create(this.sanitizer.Sanitize(comment.Content), comment.AuthorId, DateTime.Now);
+
             var resultComment = this.Mapper.Map<CommentInputModel>(newComment);
 
             return this.PartialView(resultComment);

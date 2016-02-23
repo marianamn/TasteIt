@@ -9,6 +9,7 @@
     using TasteIt.Web.Models.Recipe;
     using TatseIt.Services.Data.Contracts;
     using Data.Models;
+    using Microsoft.AspNet.Identity;
     public class RecipesController : BaseController
     {
         private readonly IRecipesService recipes;
@@ -61,6 +62,11 @@
                 Recipes = recipes
             };
 
+            if (viewModel == null)
+            {
+                return Redirect("/");
+            }
+
             return this.View(viewModel);
         }
 
@@ -68,6 +74,7 @@
         public ActionResult GetByOccasion(string occasion)
         {
             var recipes = this.recipes.GetByOccasion(occasion)
+                                      .Where(x => x != null)
                                       .To<RecipeViewModel>()
                                       .ToList();
 
@@ -76,7 +83,46 @@
                 Recipes = recipes
             };
 
+            if (viewModel == null)
+            {
+                return Redirect("/");
+            }
+
             return this.View(viewModel);
+        }
+
+        [Authorize]
+        public ActionResult Create()
+        {
+            return PartialView();
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(RecipeInputModel recipe)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.PartialView(recipe);
+            }
+
+            var newRecipe = this.recipes.Create(
+                recipe.Title,
+                recipe.Description,
+                recipe.CookingTime,
+                recipe.RecipeImage);
+
+            newRecipe.AuthorId = this.User.Identity.GetUserId();
+            newRecipe.CreatedOn = DateTime.UtcNow;
+
+            this.recipes.Add(newRecipe);
+
+            var resultRecipe = this.Mapper.Map<RecipeInputModel>(newRecipe);
+
+            this.TempData["Notification"] = "Recipe was successfully added!";
+
+            return this.PartialView(resultRecipe);
         }
     }
 }

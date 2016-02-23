@@ -38,15 +38,12 @@
             return comment;
         }
 
-        public Comment Create(string content, string postedById, int RecipeId, DateTime createdOn)
+        public Comment Create(string content, string postedById, DateTime createdOn)
         {
-            //var intRecipeId = this.identifierProvider.DecodeId(RecipeId);
-
             var comment = new Comment()
             {
                 Content = content,
                 PostedById = postedById,
-                RecipeId = RecipeId,
                 CreatedOn = createdOn
             };
 

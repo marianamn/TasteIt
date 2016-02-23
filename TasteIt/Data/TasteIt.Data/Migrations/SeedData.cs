@@ -49,6 +49,23 @@
                 PasswordHash = password,
                 ImageURL = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSfGp4ah9gQs2SOlorqzJZ927GwqeAgZm4gFX1EAK0C6Cl_lGso"
             });
+            this.Users.Add(new User()
+            {
+                FirstName = "Ivan",
+                LastName = "Ivanov",
+                UserName = "ivancho@gmail.com",
+                Email = "ivancho@gmail.com",
+                PasswordHash = password,
+                ImageURL = "http://extremelifechanger.com/web_images/avatar-sam09-8-251.jpg"
+            });
+            this.Users.Add(new User()
+            {
+                FirstName = "Ivan",
+                LastName = "Hristov",
+                UserName = "hristov@gmail.com",
+                Email = "hristov@gmail.com",
+                PasswordHash = password
+            });
 
             // Adding Occasions
             this.Occasions.Add(new Occasion { Name = "St.Valentine's Day", OccasionImage = "http://freehappybirthdayimages.com/wp-content/uploads/2015/09/Internet-Greeting-Cards.jpg" });
@@ -85,7 +102,7 @@
                     new Ingredient()
                     {
                         Name = "ginger",
-                        Quantity = "50g / 2oz",
+                        Quantity = "50g",
                         IngredientDetails = "Ginger is a fiery root with rough beige skin and hard, juicy, pale yellow flesh. It can be used as a spice, fresh or dried and ground to a powder. The fresh, juicy root has a sweetly pungent taste and a perfume - like scent that makes it suitable for sweet or savoury dishes, whereas the dried ground root is much more fiery.Young ginger can also be preserved in sugar syrup or crystallised and rolled in sugar - in both cases it is then known as stem ginger.Ginger is popular in cuisines throughout Asia and Europe.",
                         IngredientImage = "http://www.herbalremediesadvice.org/images/Ginger-Root-Benefits.jpg"
                     },
@@ -155,21 +172,21 @@
                     new Ingredient()
                     {
                         Name = "butter",
-                        Quantity = "180g/6oz",
+                        Quantity = "180g",
                         IngredientDetails = "Butter is made from churning cream and is a kitchen essential. Without it, cakes, biscuits and pastries wouldn't have the same melting richness and tender texture. It's also used in many classic sauces, such as beurre blanc, beurre noisette, beurre meunier and hollandaise. Added at the end of cooking, it gives richness and gloss to sauces. With a fat content of 80 per cent, butter isn't exactly diet food, but a little goes a long way.",
                         IngredientImage = "http://www.greenprophet.com/wp-content/uploads/freshly-made-butter.jpg"
                     },
                     new Ingredient()
                     {
                        Name = "caster sugar",
-                        Quantity = "180g/6oz",
+                        Quantity = "180g",
                         IngredientDetails = "This is the British term for sugar with small grains that are between granulated and icing sugar in terms of fineness. It is sometimes spelled castor sugar, and is known as ‘superfine’ sugar in America. Caster sugar is obtained from sugar cane or sugar beet, and is valued for its quick-dissolving properties. The usual refined white variety of caster sugar will have been treated to remove molasses, and so will be free-flowing.",
                         IngredientImage = "http://f.tqn.com/y/candy/1/W/Z/O/-/-/bowl-of-sugar.jpg"
                     },
                     new Ingredient()
                     {
                         Name = "flour",
-                        Quantity = "180g/6ozplain",
+                        Quantity = "180g",
                         IngredientDetails = "Flour is the finely milled meal of cereal grains. The term mostly used to refer to wheat flour. However, nuts such as chestnuts, root vegetables like potatoes, seeds such as buckwheat, and pulses such as chickpeas can also be made into flour. Wheat flour is a staple of European, North American, Middle Eastern, African and South Asian cuisines. It’s graded according to whether it is made from hard wheat, soft wheat, or a mixture of the two; and whether the grain’s bran and germ are removed or left in. It is normally used in dishes where raising agents are not required.",
                         IngredientImage = "http://blog.ideasinfood.com/.a/6a00d83451f83a69e2016762d115b0970b-pi"
                     },
@@ -197,7 +214,7 @@
                     new Ingredient()
                     {
                         Name = "raspberries",
-                        Quantity = "150g/5oz",
+                        Quantity = "150g",
                         IngredientDetails = "Fill a Victoria sponge with fresh raspberries for a taste of summer, or use them in a classic summer pudding. Try visiting a pick your own farm for the freshest raspberries.",
                         IngredientImage = "http://supergardener.com/wp-content/uploads/2015/04/raspberry.jpg"
                     },
@@ -231,6 +248,189 @@
                     new Like() { Value = LikeType.Positive, Author = this.Users[2] }
                 }
             });
+
+            this.Recipes.Add(new Recipe
+            {
+                Title = "Chunky apple crumble",
+                Description = "Preheat the oven to 200C/400F/Gas 6. For the filling, peel, quarter and core the apples and cut into large chunks. Place in a shallow ovenproof dish. Zest and juice the orange, adding the zest and juice to the apples. Mix together with your hands. Bruise the rosemary sprigs and scatter over the apples. Toss over the blackberries, add a splash of water and scatter over the sugar. For the crumble topping, place the almonds, flour, polenta, butter and sugar in a food processor and pulse briefly several times, just to mix. The mixture should look like coarse breadcrumbs. Tip out into a bowl and add a splash of water. Use a spoon to mix briefly - it should be quite clumpy. Sprinkle the crumble mixture over the fruit. Place in the oven and bake for 20 minutes. Turn down the heat to 180C/350F/Gas 4 and cook for a further 20-25 minutes, until the top is nicely browned and bubbling. Serve with pouring cream or custard.",
+                Author = user,
+                CreatedOn = DateTime.Now.AddDays(rand.Next(-5, 5)),
+                CookingTime = "less than 30 min",
+                Season = Season.Spring,
+                Occasion = this.Occasions[5],
+                RecipeImage = "http://www.marcussamuelsson.com/wp-content/uploads/2011/09/P1050627-2.jpg",
+                Ingredients = new List<Ingredient>()
+                 {
+                     new Ingredient()
+                     {
+                         Name = "apples",
+                         Quantity = "4 large Bramley cooking",
+                         IngredientDetails = "The phytonutrients in apples can help you regulate your blood sugar. Recent research has shown that apple polyphenols can help prevent spikes in blood sugar through a variety of mechanisms. Flavonoids like quercetin found in apples can inhibit enzymes like alpha-amylase and alpha-glucosidase. Since these enzymes are involved in the breakdown of complex carbohydrates into simple sugars, your blood sugar has fewer simple sugars to deal with when these enzymes are inhibited. In addition, the polyphenols in apple have been shown to lessen absorption of glucose from the digestive tract; to stimulate the beta cells of the pancreas to secrete insulin; and to increase uptake of glucose from the blood via stimulation of insulin receptors. All of these mechanisms triggered by apple polyphenols can make it easier for you to regulate your blood sugar.",
+                         IngredientImage = "http://thenaturalwayofhealing.com/wp-content/uploads/2015/07/apples.jpeg"
+                     },
+                      new Ingredient()
+                     {
+                         Name = "orange",
+                         Quantity = "1 large",
+                         IngredientDetails = "There are two main types of oranges: sweet oranges and bitter (Seville) oranges. The former can be thick- or thin- skinned, with or without seeds, and has sweet-tasting orange or red-flecked flesh. Bitter oranges have aromatic dimpled skin with very bitter pith and very sour, pale-orange flesh. They always contain seeds.",
+                         IngredientImage = "http://a3145z1.americdn.com/wp-content/uploads/2013/03/orange-king-of-fruits.jpg"
+                     },
+                      new Ingredient()
+                     {
+                         Name = "rosemary",
+                         Quantity = "2 sprigs",
+                         IngredientDetails = "Rosemary is a robust and most versatile herb with a flavour that complements a wide variety of dishes and ingredients. Native to the Mediterranean, its bittersweet green leaves resemble pine needles. The plant is an evergreen shrub, so the leaves are available fresh all year round.",
+                         IngredientImage = "http://gourmandistan.files.wordpress.com/2011/08/rosemary.jpg"
+                     },
+                      new Ingredient()
+                     {
+                         Name = "blackberries",
+                         Quantity = "225g ",
+                         IngredientDetails = "Look out for blackberries in hedgerows from July to October. Classic blackberry recipes include summer pudding, trifle, and blackberry jam. Try savoury recipes using blackberry with rich meat like duck.",
+                         IngredientImage = "https://40.media.tumblr.com/6dfec92cb84c8e62eb170d743941ee08/tumblr_inline_o0st0dZTIB1tlsfxo_540.jpg"
+                     },
+                      new Ingredient()
+                     {
+                         Name = "water",
+                         Quantity = "splash of",
+                         IngredientDetails = "Water is essential for life. The amount of drinking water required is variable. It depends on physical activity, age, health issues, and environmental conditions. It is estimated that the average American drinks about one litre of water a day with 95% drinking less than three liters per day. For those working in a hot climate, up to 16 liters a day may be required. Water makes up about 60% of weight in men and 55% of weight in women. Infants are about 70% to 80% water while the elderly are around 45%.",
+                         IngredientImage = "http://programapex.com/wp-content/uploads/2015/10/water.jpg"
+                     },
+                      new Ingredient()
+                     {
+                         Name = "almonds",
+                         Quantity = "55g ground",
+                         IngredientDetails = "The almond that we think of as a nut is technically the seed of the fruit of the almond tree, a medium-size tree that bears fragrant pink and white flowers. Like its cousins, the peach, cherry and apricot trees, the almond tree bears fruits with stone-like seeds (or pits) within. The seed of the almond fruit is what we refer to as the almond nut. In addition to their cholesterol-lowering effects, almonds' ability to reduce heart disease risk may also be partly due to the antioxidant action of the vitamin E found in the almonds, as well as to the LDL-lowering effect of almonds' monounsaturated fats.",
+                         IngredientImage = "http://s3.amazonaws.com/media.wbur.org/wordpress/11/files/2015/04/0415_almonds.jpg"
+                     },
+                      new Ingredient()
+                     {
+                         Name = "polenta",
+                         Quantity = "85g",
+                         IngredientDetails = "Polenta is a golden-yellow Italian cornmeal made from dried, ground maize (corn), and also the name given to the savoury cornmeal porridge that’s made by mixing cornmeal with water and simmering and stirring until it thickens - a staple dish of northern Italy. Polenta can be ground coarse or fine and is widely used in the southern states of America to make a variety of dishes, including cornbread, because maize is a major crop in the US.",
+                         IngredientImage = "http://cookdiary.net/wp-content/uploads/images/Polenta_18892.jpg"
+                     },
+                      new Ingredient()
+                     {
+                         Name = "muscovado sugar",
+                         Quantity = "110g",
+                         IngredientDetails = "If you think sugar is just sweet, think again. Sugars like muscovado, demerara, and turbinado have flavor depths and aromatic heights that blow plain ol' granulated sugar out of the water. While most of these sugars are classified as raw, they're still typically refined to some extent in order to be used in cooking. What is muscovado sugar? Simply put, this is an unrefined cane sugar in which the molasses is not removed. It usually comes labeled 'light' (with less molasses) or 'dark.' Most of the artisanal muscovado sugars come from the island of Mauritius, off the coast of Africa.",
+                         IngredientImage = "http://www.realfoods.co.uk/ProductImagesID/968_1.jpg"
+                     },
+                     new Ingredient()
+                     {
+                         Name = "flour",
+                         Quantity = "140g",
+                         IngredientDetails = "Flour is the finely milled meal of cereal grains. The term mostly used to refer to wheat flour. However, nuts such as chestnuts, root vegetables like potatoes, seeds such as buckwheat, and pulses such as chickpeas can also be made into flour. Wheat flour is a staple of European, North American, Middle Eastern, African and South Asian cuisines. It’s graded according to whether it is made from hard wheat, soft wheat, or a mixture of the two; and whether the grain’s bran and germ are removed or left in. It is normally used in dishes where raising agents are not required.",
+                         IngredientImage = "http://blog.ideasinfood.com/.a/6a00d83451f83a69e2016762d115b0970b-pi"
+                     },
+                      new Ingredient()
+                     {
+                         Name = "butter",
+                         Quantity = "140g",
+                         IngredientDetails = "Butter is made from churning cream and is a kitchen essential. Without it, cakes, biscuits and pastries wouldn't have the same melting richness and tender texture. It's also used in many classic sauces, such as beurre blanc, beurre noisette, beurre meunier and hollandaise. Added at the end of cooking, it gives richness and gloss to sauces. With a fat content of 80 per cent, butter isn't exactly diet food, but a little goes a long way.",
+                         IngredientImage = "http://www.greenprophet.com/wp-content/uploads/freshly-made-butter.jpg"
+                     }
+                },
+                 Likes = new List<Like>()
+                 {
+                     new Like() { Value = LikeType.Positive, Author = this.Users[2] },
+                 }
+             });
+
+            this.Recipes.Add(new Recipe
+            {
+                Title = "The perfect roast turkey",
+                Description = "Remove the turkey from the fridge and bring to room temperature - this will take at least an hour. When you are ready to cook, preheat the oven to 230C/220C fan/Gas 8. Heat the rapeseed oil in a large, heavy-based roasting tray on the stove top. Add the chopped turkey wings and neck and fry for 8-10 minutes, turning the pieces over every 2-3 minutes, or until evenly browned all over. Meanwhile, in a small bowl, soften the butter with the back of a dessert spoon, then season with the salt and freshly ground white pepper. Using a pastry brush or your hands, smear the seasoned butter all over the turkey. Add any remaining butter to the roasting tray once the chopped wings and neck have browned. Place the turkey on top of the wing and neck pieces, then roast in the oven for 30 minutes. Remove the turkey from the oven and baste all over with the cooking juices. Reduce the oven temperature to 160C/150C fan/Gas 3. Pour the water into the roasting tray, then return the turkey to the oven and continue to cook for a further 1 hour, basting the bird with the cooking juices every 20 minutes (do this quickly to prevent the heat escaping from the oven). At the end of the cooking time, test that the turkey is cooked through by inserting a skewer or roasting fork into the thickest part of its thigh; if the juices run clear, the meat is cooked. Alternatively, use a meat thermometer; if cooked, the temperature should be 74°C or above. If the turkey is not fully cooked, return it to the oven for a further 20 minutes or until the juices run clear. Remove the turkey from the oven and transfer the bird to a large, deep-sided tray, reserving the roasting tray the turkey was cooked in along with the cooking juices. Set the turkey aside to rest for a minimum of 30 minutes and up to 1½ hours. While the turkey is resting, cook your roast potatoes and vegetable dishes. When you’re almost ready to serve the meal, return the roasting tray used to cook the turkey to the stove top. Bring the cooking juices to the boil over a medium heat, scraping up any burned bits from the bottom of the tray using a wooden spoon. Collect the juices released by the turkey as it was resting and add them to the gravy. Season, to taste, with salt and freshly ground black pepper, if needed. Reduce the heat until the gravy is simmering, then stir in the dissolved arrowroot and cook until the gravy has thickened. Strain the gravy through a fine sieve into a warmed jug. Keep warm. To serve, bring the turkey to the table and carve into slices. Serve with the roast potatoes and vegetables. Pour over the gravy.",
+                Author = user,
+                CreatedOn = DateTime.Now.AddDays(rand.Next(-5, 5)),
+                CookingTime = "from 1 hour to 2 hours",
+                Season = Season.Winter,
+                Occasion = this.Occasions[2],
+                RecipeImage = "http://ghk.h-cdn.co/assets/cm/15/11/54ff9be9eceae-roast-turkey-de-95558113.jpg",
+                Ingredients = new List<Ingredient>()
+                 {
+                     new Ingredient()
+                     {
+                         Name = "rapeseed oil",
+                         Quantity = "20ml",
+                         IngredientDetails = "The bright yellow fields of rape in early summer produce an excellent, light cooking oil. Look for cold-pressed rapeseed oil and use it in salads, fried or baked dishes and for general culinary use. It’s particularly low in saturated fat so is seen as a healthy choice. In the US, rapeseed oil is known as canola.",
+                         IngredientImage = "http://www.hammersson-international.com/photos/674REFINED_RAPESEED_OIL_FROM_POLAND-scalata.jpg"
+                     },
+                       new Ingredient()
+                     {
+                         Name = "turkey",
+                         Quantity = "1 x 5kg good-quality free-range",
+                         IngredientDetails = "Low in fat and high in protein, enjoy our top turkey recipes from the ultimate roast turkey recipe to our warming turkey curry. Traditionally eaten at Thanksgiving and Christmas it needn't be saved for the festive table, use mince for turkey burgers, meatloaf and meatballs or replace for chicken in Hugh Fearnley-Whittingstall's turkey coq au vin and Rick Stein's Vietnamese turkey salad.",
+                         IngredientImage = "http://tarheelreader.org/cache/images/32/2441818832_aa89a2ffa2.jpg"
+                     },
+                     new Ingredient()
+                     {
+                         Name = "sea salt",
+                         Quantity = "2 pinches",
+                         IngredientDetails = "Sea salt is produced as the sea washes over rocks and then recedes with the tide, leaving pools of water. The sun evaporates the water and leaves the salt in the form of crystals that can be used in cooking or preserving, as whole crystals or ground. It’s an absolutely pure salt that tastes of the sea and its sparkling white crystalline flakes are delicious used in all kinds of savoury cooking. It has a pronounced and distinctive salty taste so use less than you would with ordinary salt.",
+                         IngredientImage = "https://upload.wikimedia.org/wikipedia/commons/1/10/Salt_Farmers_-_Pak_Thale-edit1.jpg"
+                     },
+                    new Ingredient()
+                     {
+                         Name = "white pepper",
+                         Quantity = "2 pinches freshly ground",
+                         IngredientDetails = "White pepper tastes hotter than black but is less complex, with fewer flavor notes, maria lorraine explains on Chowhound. High-quality peppercorns of either type are more aromatic and have more floral, spice, and fruit notes than generic ones. Candy recommends the pungent Muntok white and Tellicherry black peppercorns sold by Pendery's. Freshness is key to good white pepper, which turns stale and bitter faster than black, petradish says.",
+                         IngredientImage = "http://spicetrekkers.com/wp-content/uploads/2012/10/indonesian-white-pepper.jpg"
+                     },
+                     new Ingredient()
+                     {
+                         Name = "black pepper",
+                         Quantity = "2 pinches freshly ground",
+                         IngredientDetails = "Pepper is a condiment that has been salt's partner on Western tables for hundreds of years. It adds a flavour of its own to dishes, as well as enhancing the taste of other ingredients. A spice indigenous to southern India, it stimulates the appetite and gives food a gentle warmth. Black pepper comes from a climbing vine, the fruits of which - small round berries - ripen from green to red and finally to brown. Black peppercorns are actually berries that are picked when they're just turning red. They are then dried whole before being sold. Peppercorns can be green, white or black, depending on when they are harvested. Pink peppercorns, however, are not true pepper.",
+                         IngredientImage = "http://cdn2.curejoy.com/content/wp-content/uploads/2014/04/Top-20-Health-Secrets-of-Black-Pepper.jpg"
+                     },
+                     new Ingredient()
+                     {
+                         Name = "arrowroot",
+                         Quantity = "1-2 tsp ground",
+                         IngredientDetails = "A starch extract of the root of a tropical plant native to the Americas called maranta. Arrowroot is used for thickening sauces, juices and syrups; when heated the starch turns to jelly and so thickens the liquid. Its great advantage over cornflour is that it’s completely tasteless (whereas cornflour can need cooking to get rid of its raw taste) and it gives a clear finish when used to thicken certain soups, fruit syrups or sauces.",
+                         IngredientImage = "http://cdn2.momjunction.com/wp-content/uploads/2014/10/arrowroot-for-babies.jpg"
+                     },
+                     new Ingredient()
+                     {
+                         Name = "potatoes",
+                         Quantity = "roast",
+                         IngredientDetails = "Potatoes are tubers that are a staple food in many parts of the world, particularly Europe and the West. They are commonly categorised according to when they're harvested (early, mid-season and late) as well as their characteristics (whether waxy in appearance, or floury once cooked). All-rounder varieties include King Edward, Maris Piper, Romano and Desirée potatoes, which are suitable for every type of cooking except for salads and steaming.",
+                         IngredientImage = "https://upload.wikimedia.org/wikipedia/commons/a/ab/Patates.jpg"
+                     },
+                     new Ingredient()
+                     {
+                         Name = "vegetables",
+                         Quantity = "steamed seasonal",
+                         IngredientDetails = "Any vegetable or 100% vegetable juice counts as a member of the Vegetable Group. Vegetables may be raw or cooked; fresh, frozen, canned, or dried/dehydrated; and may be whole, cut-up, or mashed. Based on their nutrient content, vegetables are organized into 5 subgroups: dark-green vegetables, starchy vegetables, red and orange vegetables, beans and peas, and other vegetables.",
+                         IngredientImage = "https://www.ag.ndsu.edu/faithcommunitiesalive/newsletters/fca-articles/june-is-fresh-fruit-and-vegetable-month/images/veggies.jpg?isImage=1"
+                     },
+                },
+                 Comments = new List<Comment>()
+                 {
+                     new Comment()
+                     {
+                         Content = "Wow",
+                         PostedBy = this.Users[3],
+                         CreatedOn = DateTime.Now.AddDays(rand.Next(-5, 5))
+                     },
+                     new Comment()
+                     {
+                         Content = "I liked it",
+                         PostedBy = this.Users[4],
+                         CreatedOn = DateTime.Now.AddDays(rand.Next(-5, 5))
+                     }
+                 },
+                 Likes = new List<Like>()
+                 {
+                     new Like() { Value = LikeType.Positive, Author = this.Users[0] },
+                     new Like() { Value = LikeType.Positive, Author = this.Users[1] },
+                     new Like() { Value = LikeType.Positive, Author = this.Users[2] },
+                     new Like() { Value = LikeType.Positive, Author = this.Users[3] },
+                      new Like() { Value = LikeType.Positive, Author = this.Users[4] },
+                 }
+             });
 
             // Adding Article Categories
             this.Categories.Add(new Category { Name = "Did you know?", CategoryImage = "http://www.didyouknow.cd/wp-content/uploads/2014/12/did-you-know.jpg" });

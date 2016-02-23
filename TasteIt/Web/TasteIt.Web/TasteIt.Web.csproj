@@ -275,6 +275,7 @@
     <Compile Include="Models\Manages\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="Models\Comment\CommentViewModel.cs" />
     <Compile Include="Models\Recipe\OccasionViewModel.cs" />
+    <Compile Include="Models\Recipe\RecipeInputModel.cs" />
     <Compile Include="Models\Recipe\RecipesIndexViewModel.cs" />
     <Compile Include="Models\Recipe\RecipeViewModel.cs" />
     <Compile Include="Models\Recipe\SeasonViewModel.cs" />
@@ -448,6 +449,7 @@
     <Content Include="Views\Comments\Index.cshtml" />
     <Content Include="Views\Recipes\GetBySeason.cshtml" />
     <Content Include="Views\Recipes\GetByOccasion.cshtml" />
+    <Content Include="Views\Recipes\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

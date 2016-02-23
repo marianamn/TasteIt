@@ -43,7 +43,6 @@
         [ForeignKey("AuthorId")]
         public virtual User Author { get; set; }
 
-        [Required]
         public int OccasionId { get; set; }
 
         [ForeignKey("OccasionId")]

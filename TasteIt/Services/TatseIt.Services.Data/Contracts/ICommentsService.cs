@@ -10,6 +10,6 @@
 
         Comment GetById(string id);
 
-        Comment Create(string content, string postedById, int RecipeId, DateTime createdOn);
+        Comment Create(string content, string postedById, DateTime createdOn);
     }
 }

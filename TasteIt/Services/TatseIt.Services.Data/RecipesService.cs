@@ -61,5 +61,27 @@
 
             return recipes;
         }
+
+        public Recipe Create(string title, string cookingTime,string desctiption, string image)
+        {
+            var recipe = new Recipe()
+            {
+                Title = title,
+                CookingTime = cookingTime,
+                CreatedOn= DateTime.UtcNow,
+                Description = desctiption,
+                RecipeImage = image
+            };
+
+            return recipe;
+        }
+
+        public void Add(Recipe recipe)
+        {
+            this.recipes.Add(recipe);
+
+            this.recipes.SaveChanges();
+
+        }
     }
 }

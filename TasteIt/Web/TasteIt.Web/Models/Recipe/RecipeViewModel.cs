@@ -31,6 +31,8 @@
 
         public string RecipeImage { get; set; }
 
+        public string AuthorId { get; set; }
+
         public string Author { get; set; }
 
         public string Occasion { get; set; }
@@ -56,6 +58,9 @@
 
         public void CreateMappings(IMapperConfiguration configuration)
         {
+            configuration.CreateMap<Recipe, RecipeViewModel>()
+                  .ForMember(x => x.AuthorId, opt => opt.MapFrom(x => (x.AuthorId)));
+
             configuration.CreateMap<Recipe, RecipeViewModel>()
                    .ForMember(x => x.Author, opt => opt.MapFrom(x => (x.Author.FirstName + " " + x.Author.LastName)));
 

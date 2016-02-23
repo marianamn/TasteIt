@@ -8,8 +8,10 @@
 <h2 class="text-center logo">Select recipe by:</h2>
 <hr />
 
-
-@Html.ActionLink("Create recipe", "/GetBySeason", "Recipes", null, new { @class = "btn btn-primary" })
+@if (this.User.Identity.IsAuthenticated)
+{
+    @Html.ActionLink("Create recipe", "/Create", "Recipes", null, new { @class = "btn btn-primary" })
+}
 
 <div class="container selected-items">
     <div class="row">
