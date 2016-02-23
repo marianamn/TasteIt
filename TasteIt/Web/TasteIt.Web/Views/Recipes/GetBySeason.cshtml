@@ -3,6 +3,13 @@
     ViewBag.Title = "GetBySeason";
 }
 
-<h2>Get By Season</h2>
+<h2>Recipes By Season</h2>
+
+@if (Model == null)
+{
+    <div>No recipes in this season!</div>
+}
 
 @Html.Partial("_RecipePartial")
+
+@Html.ActionLink("Back to recipes", "/Recipes", "Recipes", null, new { @class = "btn btn-primary" })

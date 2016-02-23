@@ -9,16 +9,16 @@
 <hr />
 
 
-@Html.ActionLink("See recipies by sesons", "/GetBySeason", "Recipes", null, new { @class = "btn btn-primary" })
-@Html.ActionLink("See recipies by Occasion", "/GetByOccasion", "Recipes", null, new { @class = "btn btn-primary" })
+@Html.ActionLink("Create recipe", "/GetBySeason", "Recipes", null, new { @class = "btn btn-primary" })
+
 <div class="container selected-items">
     <div class="row">
         <div class="col-md-6">
             <h4 class="recipe-categ-title"><strong>Recipes by season:</strong></h4>
             <ul class="detail-text">
-                @foreach (var recipe in Model.Recipes)
+                @foreach (var recipe in Model.Recipes.OrderBy(x => x.Occasion))
                 {
-                    <li>@Html.ActionLink(recipe.Season.ToString(), @"/GetBySeason?season%="+recipe.Season.ToString(), "Recipes")</li>
+                    <li><a href="Recipes/GetBySeason?season=@recipe.Season.ToString()">@recipe.Season.ToString()</a></li>
                 }
             </ul>
         </div>
@@ -29,7 +29,7 @@
             <ul class="detail-text">
                 @foreach (var occasion in Model.Occasions)
                 {
-                    <li>@Html.ActionLink(occasion.Name, "GetByOccasion", "/Recipes/GetByOccasion", null, new { occasion = occasion.Name})</li>
+                    <li><a href="Recipes/GetByOccasion?occasion=@occasion.Name">@occasion.Name</a></li>
                 }
             </ul>
         </div>

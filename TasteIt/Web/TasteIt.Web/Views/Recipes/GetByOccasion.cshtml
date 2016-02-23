@@ -3,6 +3,14 @@
     ViewBag.Title = "GetByOccasion";
 }
 
-<h2>GetByOccasion</h2>
+<h2>Recipes By Occasion</h2>
+
+
+@if (Model == null)
+{
+    <div>No recipes in this occasion!</div>
+}
 
 @Html.Partial("_RecipePartial")
+
+@Html.ActionLink("Back to recipes", "/Recipes", "Recipes", null, new { @class = "btn btn-primary" })
