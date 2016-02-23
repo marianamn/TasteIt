@@ -6,15 +6,18 @@ TasteIt is an informational application, in witch the user can learn interesting
 
 ##### Roles:
 * Not Login user - has access to Articles, Recipes and Ingredients menu
-* Login user - can like and dislike certain recipe; can give comment to recipe, can Create Ingredient and Recipe. Login user has access to his personal profile, which he can edit and also can see/edit/delete all comments, recipes and ingredients added by him
+* Login user - can like and dislike certain recipe; can give comment to recipe, can Create Ingredient and Recipe. Login user has access to his personal profile, which he can edit and also can see/edit/delete all comments, recipes and ingredients added by him (under construction)
 * Administrator - has access to Manage App menu through witch he can manage Articles, Ingredients, Recipes, Comments and Users (create/edit/delete)
 
 ##### Home page:
 Has four modules:
+
 * pictuere slideshow - external library used - bxslider.js (more details on https://github.com/stevenwanderski/bxslider-4; Cofiguration options - http://bxslider.com/options)
 * Random 3 ingredients with link to their Details page
 * Top 3 most liked recipes with link to their Details page
 * Top 3 newes Articles with link to their Details page
+
+Information is cashed for 15 minutes
 
 ##### About page:
 Shows basic information of the application.

@@ -63,20 +63,26 @@
 </div>
 <br />
 
-<div class="row">
-    @Html.Action("Create", "Comments", new { id = Model.Id })
-</div>
+@*<div class="row">
+        @Html.Action("Create", "Comments", new { id = Model.Id })
+   </div>
+*@
 
-<p>
-    @Ajax.ActionLink("Add Comment", "Create", "Comments", new AjaxOptions()
+
+@if (this.User.Identity.IsAuthenticated)
 {
-    HttpMethod = "GET",
-    InsertionMode = InsertionMode.Replace,
-    UpdateTargetId = "create-comment"
-})
-</p>
+    <p>
+        @Ajax.ActionLink("Add Comment", "Create", "Comments", new AjaxOptions()
+        {
+            HttpMethod = "GET",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "create-comment"
+        })
+    </p>
 
-<div id="create-comment"></div>
+    <div id="create-comment"></div>
+}
+
 
 <h3><strong>Comments:</strong></h3>
 <div>
@@ -109,11 +115,11 @@
         }
     </div>
 </div>
+<br />
 
 <div>
-    <h2 class="relatedArticle-link">
-        @Html.ActionLink("More recipes", "/Index" + @Html.DisplayFor(@model => model.Url), "Recipes")
-    </h2>
+    @Html.ActionLink("More recipes", "/Index" + @Html.DisplayFor(@model => model.Url), "Recipes", null, new {@class="btn btn-primary" })
+
 </div>
 
 

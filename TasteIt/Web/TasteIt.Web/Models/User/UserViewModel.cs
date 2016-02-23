@@ -1,12 +1,13 @@
-﻿namespace TasteIt.Web.Models
+﻿namespace TasteIt.Web.Models.User
 {
     using Comment;
+    using Infrastructure.Mapping;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using TasteIt.Web.Models.Article;
     using TasteIt.Web.Models.Recipe;
 
-    public class UserViewModel
+    public class UserViewModel : IMapFrom<Data.Models.User>
     {
         [Required]
         public string FirstName { get; set; }

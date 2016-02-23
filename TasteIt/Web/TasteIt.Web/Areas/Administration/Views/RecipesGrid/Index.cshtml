@@ -1,0 +1,33 @@
+﻿@using Kendo.Mvc.UI
+@(Html.Kendo().Grid<TasteIt.Data.Models.Recipe>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+        columns.Bound(c => c.Title);
+        columns.Bound(c => c.Description);
+        columns.Bound(c => c.CreatedOn);
+        columns.Bound(c => c.CookingTime);
+        columns.Bound(c => c.Season);
+        columns.Bound(c => c.RecipeImage);
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar => {
+            toolbar.Create();
+      })
+      .ColumnMenu()
+      .Editable(editable => editable.Mode(GridEditMode.InLine))
+      .Pageable()
+      .Sortable(sortable => {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("Recipes_Read", "RecipesGrid"))
+          .Create(create => create.Action("Recipes_Create", "RecipesGrid"))
+          .Update(update => update.Action("Recipes_Update", "RecipesGrid"))
+          .Destroy(destroy => destroy.Action("Recipes_Destroy", "RecipesGrid"))
+      )
+)

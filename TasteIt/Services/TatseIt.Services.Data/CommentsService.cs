@@ -38,20 +38,22 @@
             return comment;
         }
 
-        public Comment Create(string content, string postedById, DateTime createdOn)
+        public Comment Create(string content)
         {
             var comment = new Comment()
             {
-                Content = content,
-                PostedById = postedById,
-                CreatedOn = createdOn
+                Content = content
             };
 
+
+            return comment;
+        }
+
+        public void Add(Comment comment)
+        {
             this.comments.Add(comment);
 
             this.comments.SaveChanges();
-
-            return comment;
         }
     }
 }

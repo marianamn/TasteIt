@@ -10,6 +10,8 @@
 
         Comment GetById(string id);
 
-        Comment Create(string content, string postedById, DateTime createdOn);
+        Comment Create(string content);
+
+        void Add(Comment comment);
     }
 }

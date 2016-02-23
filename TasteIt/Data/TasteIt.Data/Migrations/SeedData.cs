@@ -71,12 +71,9 @@
             this.Occasions.Add(new Occasion { Name = "St.Valentine's Day", OccasionImage = "http://freehappybirthdayimages.com/wp-content/uploads/2015/09/Internet-Greeting-Cards.jpg" });
             this.Occasions.Add(new Occasion { Name = "Easter", OccasionImage = "http://www.toptenz.net/wp-content/uploads/2015/03/easter1.jpg" });
             this.Occasions.Add(new Occasion { Name = "Christmas", OccasionImage = "http://c.tadst.com/gfx/600x400/christmas.jpg?1" });
-            this.Occasions.Add(new Occasion { Name = "Halloween", OccasionImage = "http://img01.thedrum.com/news/tmp/111596/halloween.jpg" });
             this.Occasions.Add(new Occasion { Name = "BirthdayParty", OccasionImage = "http://cdn.sheknows.com/articles/birthday-party-manners-600.jpg" });
             this.Occasions.Add(new Occasion { Name = "Healthy diet plans", OccasionImage = "http://cdn2-b.examiner.com/sites/default/files/styles/image_content_width/hash/ed/9b/ed9b1d3709f2e7bff9fcf6e9cbc55fc5.jpg?itok=w47CAGHW" });
             this.Occasions.Add(new Occasion { Name = "Dinner", OccasionImage = "http://www.gentlemansgazette.com/wp-content/uploads/2013/12/Dinner-Party-Hors-dOeuvres.jpg" });
-            this.Occasions.Add(new Occasion { Name = "Lunch", OccasionImage = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQsW-rhZPDxbQXOfGW6wW_KGtVt5HvpLgICqNJZWlHOUL9lTYv81g" });
-            this.Occasions.Add(new Occasion { Name = "Breakfast", OccasionImage = "http://cache4.asset-cache.net/gc/84438240-bacon-and-eggs-shaped-as-a-face-gettyimages.jpg?v=1&c=IWSAsset&k=2&d=KwD9gZKR%2F14XyEl%2FDxw1308niyzp5jqSM%2BStb9vxlTw%3D" });
             this.Occasions.Add(new Occasion { Name = "Wedding", OccasionImage = "http://olivo.co.uk/wp-content/uploads/2015/04/wedding-02.jpg" });
 
             // Adding Recipes
@@ -256,7 +253,7 @@
                 Author = user,
                 CreatedOn = DateTime.Now.AddDays(rand.Next(-5, 5)),
                 CookingTime = "less than 30 min",
-                Season = Season.Spring,
+                Season = Season.Summer,
                 Occasion = this.Occasions[5],
                 RecipeImage = "http://www.marcussamuelsson.com/wp-content/uploads/2011/09/P1050627-2.jpg",
                 Ingredients = new List<Ingredient>()

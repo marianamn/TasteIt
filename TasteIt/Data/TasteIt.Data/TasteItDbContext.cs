@@ -27,5 +27,7 @@
         {
             return new TasteItDbContext();
         }
+
+        public System.Data.Entity.DbSet<TasteIt.Data.Models.Comment> Comments { get; set; }
     }
 }

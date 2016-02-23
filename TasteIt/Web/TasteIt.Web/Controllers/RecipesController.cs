@@ -113,7 +113,11 @@
                 recipe.CookingTime,
                 recipe.RecipeImage);
 
-            newRecipe.AuthorId = this.User.Identity.GetUserId();
+            if (this.User.Identity.IsAuthenticated)
+            {
+                newRecipe.AuthorId = this.User.Identity.GetUserId();
+            }
+            
             newRecipe.CreatedOn = DateTime.UtcNow;
 
             this.recipes.Add(newRecipe);

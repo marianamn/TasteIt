@@ -56,10 +56,20 @@
             {
                 return this.PartialView(comment);
             }
-            
-            comment.AuthorId = this.User.Identity.GetUserId();
 
-            var newComment = this.comments.Create(this.sanitizer.Sanitize(comment.Content), comment.AuthorId, DateTime.Now);
+            var newComment = this.comments.Create(comment.Content);
+
+            if (this.User.Identity.IsAuthenticated)
+            {
+                newComment.PostedById = this.User.Identity.GetUserId();
+            }
+
+           newComment.CreatedOn = DateTime.UtcNow;
+           //string id = this.Url.RequestContext.RouteData.Values["Id"].ToString();
+           //var recipe = this.recipes.GetById(id);
+           //newComment.RecipeId = recipe.Id;
+
+            this.comments.Add(newComment);
 
             var resultComment = this.Mapper.Map<CommentInputModel>(newComment);
 

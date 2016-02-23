@@ -22,6 +22,7 @@
             this.articles = articles;
         }
 
+        [OutputCache(Duration = 15 * 60, VaryByParam = "none")]
         public ActionResult Index()
         {
             if (this.User.Identity.IsAuthenticated)

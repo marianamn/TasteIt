@@ -1,0 +1,84 @@
+﻿@using Kendo.Mvc.UI
+@(Html.Kendo().Grid<TasteIt.Data.Models.Comment>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+        columns.Bound(c => c.Content);
+        columns.Bound(c => c.CreatedOn);
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar => {
+            toolbar.Create();
+      })
+      .Editable(editable => editable.Mode(GridEditMode.InLine))
+      .Pageable()
+      .Sortable(sortable => {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .Events(events => {
+            events.Cancel("onCancel");
+            events.Remove("onRemove");
+            events.Save("onSave");
+            events.DataBinding("onDataBinding");
+            events.DetailExpand("onDetailExpand");
+            events.Change("onChange");
+            events.ColumnMenuInit("onColumnMenuInit");
+            events.SaveChanges("onSaveChanges");
+            events.Edit("onEdit");
+            events.DetailCollapse("onDetailCollapse");
+      })
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("Comments_Read", "CommentsGrid"))
+          .Create(create => create.Action("Comments_Create", "CommentsGrid"))
+          .Update(update => update.Action("Comments_Update", "CommentsGrid"))
+          .Destroy(destroy => destroy.Action("Comments_Destroy", "CommentsGrid"))
+      )
+)
+
+<script>
+
+    function onCancel(e){
+        //Implement the event handler for Cancel
+    }
+
+    function onRemove(e){
+        //Implement the event handler for Remove
+    }
+
+    function onSave(e){
+        //Implement the event handler for Save
+    }
+
+    function onDataBinding(e){
+        //Implement the event handler for DataBinding
+    }
+
+    function onDetailExpand(e){
+        //Implement the event handler for DetailExpand
+    }
+
+    function onChange(e){
+        //Implement the event handler for Change
+    }
+
+    function onColumnMenuInit(e){
+        //Implement the event handler for ColumnMenuInit
+    }
+
+    function onSaveChanges(e){
+        //Implement the event handler for SaveChanges
+    }
+
+    function onEdit(e){
+        //Implement the event handler for Edit
+    }
+
+    function onDetailCollapse(e){
+        //Implement the event handler for DetailCollapse
+    }
+
+</script>
