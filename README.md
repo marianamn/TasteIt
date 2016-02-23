@@ -11,7 +11,7 @@ TasteIt is an informational application, in witch the user can learn interesting
 
 ##### Home page:
 Has four modules:
-* pictuere slideshow - external library uesed - bxslider.js (more details on https://github.com/stevenwanderski/bxslider-4; Cofiguration options - http://bxslider.com/options)
+* pictuere slideshow - external library used - bxslider.js (more details on https://github.com/stevenwanderski/bxslider-4; Cofiguration options - http://bxslider.com/options)
 * Random 3 ingredients with link to their Details page
 * Top 3 most liked recipes with link to their Details page
 * Top 3 newes Articles with link to their Details page
