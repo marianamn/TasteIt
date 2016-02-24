@@ -42,6 +42,9 @@ Has four modules:
 
 #### Manage app section (for Adninistrator role):
 Manage app in Grid views.
+Login Admin:
+Email = admin@admin.com
+Password = admin@admin.com
 
 #### GitHub repository:
 https://github.com/marianamn/TasteIt

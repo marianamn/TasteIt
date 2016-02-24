@@ -5,14 +5,17 @@
     using Infrastructure.Mapping;
     using Models.Ingredient;
     using TatseIt.Services.Data.Contracts;
+    using Infrastructure;
 
     public class IngredientsController : BaseController
     {
         private readonly IIngredientsService ingredients;
+        private readonly ISanitizer sanitizer;
 
-        public IngredientsController(IIngredientsService ingredients)
+        public IngredientsController(IIngredientsService ingredients, ISanitizer sanitizer)
         {
             this.ingredients = ingredients;
+            this.sanitizer = sanitizer;
         }
 
         public ActionResult Index(string selectedLetter)
@@ -75,7 +78,11 @@
                 return this.PartialView(ingredient);
             }
 
-            var newIngredient = this.ingredients.Create(ingredient.Name, ingredient.IngredientDetails, ingredient.IngredientImage);
+            var newIngredient = this.ingredients.Create(
+                this.sanitizer.Sanitize(ingredient.Name), 
+                this.sanitizer.Sanitize(ingredient.IngredientDetails), 
+                this.sanitizer.Sanitize(ingredient.IngredientImage));
+
             var resultIngredient = this.Mapper.Map<IngredientViewModel>(newIngredient);
 
             this.TempData["Notification"] = "Ingredient was successfully created!";
