@@ -1,24 +1,25 @@
 ﻿namespace TasteIt.Web.Controllers
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Web;
     using System.Web.Mvc;
+    using Infrastructure;
     using Infrastructure.Mapping;
+    using Microsoft.AspNet.Identity;
     using TasteIt.Web.Models.Recipe;
     using TatseIt.Services.Data.Contracts;
-    using Data.Models;
-    using Microsoft.AspNet.Identity;
+
     public class RecipesController : BaseController
     {
         private readonly IRecipesService recipes;
         private readonly IOccasionsService occasions;
+        private readonly ISanitizer sanitizer;
 
-        public RecipesController(IRecipesService recipes, IOccasionsService occasions)
+        public RecipesController(IRecipesService recipes, IOccasionsService occasions, ISanitizer sanitizer)
         {
             this.recipes = recipes;
             this.occasions = occasions;
+            this.sanitizer = sanitizer;
         }
 
         // GET: Recipe
@@ -37,7 +38,12 @@
                 Occasions = occasions,
                 Recipes = recipes
             };
-            
+
+            if (viewModel == null)
+            {
+                return this.Redirect("/");
+            }
+
             return this.View(viewModel);
         }
 
@@ -64,7 +70,7 @@
 
             if (viewModel == null)
             {
-                return Redirect("/");
+                return this.Redirect("/");
             }
 
             return this.View(viewModel);
@@ -85,7 +91,7 @@
 
             if (viewModel == null)
             {
-                return Redirect("/");
+                return this.Redirect("/");
             }
 
             return this.View(viewModel);
@@ -94,7 +100,7 @@
         [Authorize]
         public ActionResult Create()
         {
-            return PartialView();
+            return this.PartialView();
         }
 
         [Authorize]
@@ -108,10 +114,10 @@
             }
 
             var newRecipe = this.recipes.Create(
-                recipe.Title,
-                recipe.Description,
-                recipe.CookingTime,
-                recipe.RecipeImage);
+                this.sanitizer.Sanitize(recipe.Title),
+                this.sanitizer.Sanitize(recipe.Description),
+                this.sanitizer.Sanitize(recipe.CookingTime),
+                this.sanitizer.Sanitize(recipe.RecipeImage));
 
             if (this.User.Identity.IsAuthenticated)
             {

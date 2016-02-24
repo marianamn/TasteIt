@@ -7,6 +7,7 @@ namespace TasteIt.Web.App_Start
     using System.Web;
     using Data;
     using Data.Repositories;
+    using Infrastructure;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
     using Ninject;
     using Ninject.Extensions.Conventions;
@@ -68,8 +69,8 @@ namespace TasteIt.Web.App_Start
             kernel.Bind(typeof(IDbRepository<>)).To(typeof(DbRepository<>));
 
             kernel.Bind(typeof(IIdentifierProvider)).To<IdentifierProvider>();
+            kernel.Bind(typeof(ISanitizer)).To<HtmlSanitizerAdapter>();
 
-            // kernel.Bind<IMoviesService>().To<MoviesService>();
             kernel.Bind(b => b.From("TatseIt.Services.Data")
                              .SelectAllClasses()
                              .BindDefaultInterface());

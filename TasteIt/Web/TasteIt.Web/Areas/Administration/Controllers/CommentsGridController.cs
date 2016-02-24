@@ -1,17 +1,11 @@
 ﻿namespace TasteIt.Web.Areas.Administration.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Data;
-    using System.Data.Entity;
     using System.Linq;
-    using System.Net;
-    using System.Web;
     using System.Web.Mvc;
+    using Data.Repositories;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
     using TasteIt.Data.Models;
-    using Data.Repositories;
 
     public class CommentsGridController : Controller
     {
@@ -24,19 +18,22 @@
 
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         public ActionResult Comments_Read([DataSourceRequest]DataSourceRequest request)
         {
             IQueryable<Comment> comments = this.comments.All();
-            DataSourceResult result = comments.ToDataSourceResult(request, comment => new {
+            DataSourceResult result = comments.ToDataSourceResult(
+                request, 
+                comment => new
+                {
                 Id = comment.Id,
                 Content = comment.Content,
                 CreatedOn = comment.CreatedOn,
             });
 
-            return Json(result);
+            return this.Json(result);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -55,7 +52,7 @@
                 comment.Id = entity.Id;
             }
 
-            return Json(new[] { comment }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { comment }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -74,7 +71,7 @@
                 this.comments.SaveChanges();
             }
 
-            return Json(new[] { comment }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { comment }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -93,7 +90,7 @@
                 this.comments.SaveChanges();
             }
 
-            return Json(new[] { comment }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { comment }.ToDataSourceResult(request, this.ModelState));
         }
 
         protected override void Dispose(bool disposing)

@@ -47,7 +47,6 @@
             //                                                  .To<ArticleViewModel>()
             //                                                  .ToList(),
             //                               15 * 60);
-
             var viewModel = new IndexViewModel
             {
                 Ingredients = ingredients,

@@ -40,12 +40,10 @@
         [Required]
         public string AuthorId { get; set; }
 
-        [ForeignKey("AuthorId")]
         public virtual User Author { get; set; }
 
         public int OccasionId { get; set; }
 
-        [ForeignKey("OccasionId")]
         public virtual Occasion Occasion { get; set; }
 
         public virtual ICollection<Ingredient> Ingredients { get; set; }

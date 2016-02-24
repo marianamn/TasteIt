@@ -19,7 +19,7 @@
 
         IQueryable<Recipe> GetByOccasion(string occasion);
 
-        Recipe Create(string title, string cookingTime, string desctiption,string image);
+        Recipe Create(string title, string cookingTime, string desctiption, string image);
 
         void Add(Recipe recipe);
     }

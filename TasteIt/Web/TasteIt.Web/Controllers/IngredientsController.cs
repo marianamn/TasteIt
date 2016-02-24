@@ -1,16 +1,10 @@
 ﻿namespace TasteIt.Web.Controllers
 {
-    using Models.Ingredient;
-    using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Web;
     using System.Web.Mvc;
-    using TatseIt.Services.Data.Contracts;
     using Infrastructure.Mapping;
-    using Data.Repositories;
-    using Data.Models;
-    using Data;
+    using Models.Ingredient;
+    using TatseIt.Services.Data.Contracts;
 
     public class IngredientsController : BaseController
     {
@@ -68,7 +62,7 @@
         [Authorize]
         public ActionResult Create()
         {
-            return PartialView();
+            return this.PartialView();
         }
 
         [Authorize]
@@ -88,6 +82,5 @@
 
             return this.PartialView(resultIngredient);
         }
-
     }
 }

@@ -19,6 +19,8 @@
 
         public IDbSet<Like> Likes { get; set; }
 
+        public IDbSet<Comment> Comments { get; set; }
+
         public IDbSet<Category> Categories { get; set; }
 
         public IDbSet<Article> Articles { get; set; }
@@ -27,7 +29,5 @@
         {
             return new TasteItDbContext();
         }
-
-        public System.Data.Entity.DbSet<TasteIt.Data.Models.Comment> Comments { get; set; }
     }
 }

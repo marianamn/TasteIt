@@ -1,12 +1,7 @@
 ﻿namespace TasteIt.Web.Models.Ingredient
 {
-    using Services.Web;
-    using Services.Web.Contracts;
     using System.Collections.Generic;
     using System.Linq;
-    using TasteIt.Web.Infrastructure.Mapping;
-    using AutoMapper;
-    using System;
 
     public class AlphabeticalPagingViewModel
     {

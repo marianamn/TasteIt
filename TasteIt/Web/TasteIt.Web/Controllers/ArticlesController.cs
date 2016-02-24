@@ -1,18 +1,16 @@
 ﻿namespace TasteIt.Web.Controllers
 {
+    using System;
     using System.Linq;
     using System.Web.Mvc;
+    using Common;
     using Infrastructure.Mapping;
     using Models.Article;
-    using TasteIt.Data.Models;
-    using TasteIt.Data.Repositories;
     using TatseIt.Services.Data.Contracts;
-    using System;
-    using Common;
 
     public class ArticlesController : BaseController
     {
-        const int ItemsPerPage = GlobalConstants.itemsPerPage;
+        private const int ItemsPerPage = GlobalConstants.ItemsPerPage;
 
         private readonly IArticlesService articles;
 
@@ -27,9 +25,9 @@
             var allItemsCount = this.articles.Count();
             var totalPages = (int)Math.Ceiling(allItemsCount / (decimal)ItemsPerPage);
             var itemsToSkip = (page - 1) * ItemsPerPage;
-            var allArticles =this.articles
+            var allArticles = this.articles
                                  .GetAll()
-                                 .OrderByDescending(x =>x.CreatedOn)
+                                 .OrderByDescending(x => x.CreatedOn)
                                  .Skip(itemsToSkip)
                                  .Take(ItemsPerPage)
                                  .To<ArticleViewModel>()

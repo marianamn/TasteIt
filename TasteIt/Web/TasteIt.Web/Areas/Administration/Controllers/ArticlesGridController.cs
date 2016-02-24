@@ -1,11 +1,12 @@
 ﻿namespace TasteIt.Web.Areas.Administration.Controllers
 {
+    using System.Linq;
     using System.Web.Mvc;
     using Data.Repositories;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
     using TasteIt.Data.Models;
-    using Microsoft.AspNet.Identity;
+
     public class ArticlesGridController : Controller
     {
         private readonly IDbRepository<Article> articles;
@@ -17,13 +18,16 @@
 
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         public ActionResult Articles_Read([DataSourceRequest]DataSourceRequest request)
         {
             DataSourceResult result = this.articles.All()
-            .ToDataSourceResult(request, article => new  {
+            .ToDataSourceResult(
+                request, 
+                article => new
+                {
                 Id = article.Id,
                 Title = article.Title,
                 Content = article.Content,
@@ -31,12 +35,13 @@
                 ArticleImage = article.ArticleImage,
             });
 
-            return Json(result);
+            return this.Json(result);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Articles_Create([DataSourceRequest]DataSourceRequest request, Article article)
         {
+            var newId = 0;
             if (ModelState.IsValid)
             {
                 var entity = new Article
@@ -50,9 +55,12 @@
                 this.articles.Add(entity);
                 this.articles.SaveChanges();
                 article.Id = entity.Id;
+                newId = entity.Id;
             }
 
-            return Json(new[] { article }.ToDataSourceResult(request, ModelState));
+            var articleToDisplay = this.articles.All().FirstOrDefault(x => x.Id == newId);
+
+            return this.Json(new[] { articleToDisplay }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -60,20 +68,18 @@
         {
             if (ModelState.IsValid)
             {
-                var entity = new Article
-                {
-                    Id = article.Id,
-                    Title = article.Title,
-                    Content = article.Content,
-                    CreatedOn = article.CreatedOn,
-                    ArticleImage = article.ArticleImage,
-                };
+                var entity = this.articles.GetById(article.Id);
+                entity.Title = article.Title;
+                entity.Content = article.Content;
+                entity.CreatedOn = article.CreatedOn;
+                entity.ArticleImage = article.ArticleImage;
 
-                this.articles.Update(entity);
                 this.articles.SaveChanges();
             }
 
-            return Json(new[] { article }.ToDataSourceResult(request, ModelState));
+            var articleToDisplay = this.articles.All().FirstOrDefault(x => x.Id == article.Id);
+
+            return this.Json(new[] { article }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -81,20 +87,11 @@
         {
             if (ModelState.IsValid)
             {
-                var entity = new Article
-                {
-                    Id = article.Id,
-                    Title = article.Title,
-                    Content = article.Content,
-                    CreatedOn = article.CreatedOn,
-                    ArticleImage = article.ArticleImage,
-                };
-
                 this.articles.Delete(article.Id);
                 this.articles.SaveChanges();
             }
 
-            return Json(new[] { article }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { article }.ToDataSourceResult(request, this.ModelState));
         }
 
         protected override void Dispose(bool disposing)

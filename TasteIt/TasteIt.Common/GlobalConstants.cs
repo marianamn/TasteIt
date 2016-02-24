@@ -2,6 +2,6 @@
 {
     public class GlobalConstants
     {
-        public const int itemsPerPage = 6;
+        public const int ItemsPerPage = 6;
     }
 }

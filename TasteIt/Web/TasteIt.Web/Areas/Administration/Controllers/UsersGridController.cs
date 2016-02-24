@@ -2,10 +2,10 @@
 {
     using System.Linq;
     using System.Web.Mvc;
+    using Data.Repositories;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
     using TasteIt.Data.Models;
-    using Data.Repositories;
 
     public class UsersGridController : Controller
     {
@@ -18,13 +18,16 @@
 
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         public ActionResult Users_Read([DataSourceRequest]DataSourceRequest request)
         {
             IQueryable<User> users = this.users.All();
-            DataSourceResult result = users.ToDataSourceResult(request, user => new {
+            DataSourceResult result = users.ToDataSourceResult(
+                request, 
+                user => new
+                {
                 Id = user.Id,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
@@ -42,7 +45,7 @@
                 UserName = user.UserName
             });
 
-            return Json(result);
+            return this.Json(result);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -73,7 +76,7 @@
                 user.Id = entity.Id;
             }
 
-            return Json(new[] { user }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { user }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -104,7 +107,7 @@
                 this.users.SaveChanges();
             }
 
-            return Json(new[] { user }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { user }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -135,7 +138,7 @@
                 this.users.SaveChanges();
             }
 
-            return Json(new[] { user }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { user }.ToDataSourceResult(request, this.ModelState));
         }
 
         protected override void Dispose(bool disposing)

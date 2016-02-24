@@ -1,17 +1,15 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using TasteIt.Web.Models;
-using TasteIt.Web.Models.Manages;
-using TasteIt.Web.App_Start;
-
-namespace TasteIt.Web.Controllers
+﻿namespace TasteIt.Web.Controllers
 {
+    using System.Linq;
+    using System.Threading.Tasks;
+    using System.Web;
+    using System.Web.Mvc;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.Owin;
+    using Microsoft.Owin.Security;
+    using TasteIt.Web.App_Start;
+    using TasteIt.Web.Models.Manages;
+
     [Authorize]
     public class ManageController : Controller
     {

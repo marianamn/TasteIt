@@ -3,17 +3,15 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using TasteIt.Data.Models;
     using TasteIt.Data.Repositories;
-    using TatseIt.Services.Data.Contracts;
     using TasteIt.Services.Web.Contracts;
+    using TatseIt.Services.Data.Contracts;
 
     public class IngredientsService : IIngredientsService
     {
-        private IDbRepository<Ingredient> ingredients;
         private readonly IIdentifierProvider identifierProvider;
+        private IDbRepository<Ingredient> ingredients;
 
         public IngredientsService(IDbRepository<Ingredient> ingredients, IIdentifierProvider identifierProvider)
         {
@@ -64,13 +62,13 @@
             return letters;
         }
 
-        public Ingredient Create(string name, string description, string IngredientImage)
+        public Ingredient Create(string name, string description, string ingredientImage)
         {
             var ingredient = new Ingredient()
             {
                 Name = name,
                 IngredientDetails = description,
-                IngredientImage = IngredientImage
+                IngredientImage = ingredientImage
             };
 
             this.ingredients.Add(ingredient);

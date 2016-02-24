@@ -1,17 +1,11 @@
 ﻿namespace TasteIt.Web.Areas.Administration.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Data;
-    using System.Data.Entity;
     using System.Linq;
-    using System.Net;
-    using System.Web;
     using System.Web.Mvc;
+    using Data.Repositories;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
     using TasteIt.Data.Models;
-    using Data.Repositories;
 
     public class RecipesGridController : Controller
     {
@@ -24,13 +18,16 @@
 
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         public ActionResult Recipes_Read([DataSourceRequest]DataSourceRequest request)
         {
             IQueryable<Recipe> recipes = this.recipes.All();
-            DataSourceResult result = recipes.ToDataSourceResult(request, recipe => new {
+            DataSourceResult result = recipes.ToDataSourceResult(
+                request, 
+                recipe => new
+                {
                 Id = recipe.Id,
                 Title = recipe.Title,
                 Description = recipe.Description,
@@ -40,7 +37,7 @@
                 RecipeImage = recipe.RecipeImage,
             });
 
-            return Json(result);
+            return this.Json(result);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -63,7 +60,7 @@
                 recipe.Id = entity.Id;
             }
 
-            return Json(new[] { recipe }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { recipe }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -86,7 +83,7 @@
                 this.recipes.SaveChanges();
             }
 
-            return Json(new[] { recipe }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { recipe }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -109,7 +106,7 @@
                 this.recipes.SaveChanges();
             }
 
-            return Json(new[] { recipe }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { recipe }.ToDataSourceResult(request, this.ModelState));
         }
 
         protected override void Dispose(bool disposing)

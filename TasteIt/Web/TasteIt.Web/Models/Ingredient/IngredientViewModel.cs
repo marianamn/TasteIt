@@ -1,13 +1,11 @@
 ﻿namespace TasteIt.Web.Models.Ingredient
 {
     using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
     using Data.Models;
     using Infrastructure.Mapping;
-    using Services.Web.Contracts;
     using Services.Web;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web.Mvc;
+    using Services.Web.Contracts;
 
     public class IngredientViewModel : IMapFrom<Ingredient>
     {

@@ -12,9 +12,9 @@
 
     public class CommentsService : ICommentsService
     {
+        private readonly IIdentifierProvider identifierProvider;
         private IDbRepository<Comment> comments;
         private IDbRepository<Recipe> recipes;
-        private readonly IIdentifierProvider identifierProvider;
 
         public CommentsService(IDbRepository<Comment> comments, IDbRepository<Recipe> recipes, IIdentifierProvider identifierProvider)
         {
@@ -44,7 +44,6 @@
             {
                 Content = content
             };
-
 
             return comment;
         }

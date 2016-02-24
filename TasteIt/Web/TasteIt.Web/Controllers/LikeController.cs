@@ -1,8 +1,8 @@
 ﻿namespace TasteIt.Web.Controllers
 {
-    using Microsoft.AspNet.Identity;
     using System.Linq;
     using System.Web.Mvc;
+    using Microsoft.AspNet.Identity;
     using TasteIt.Data.Models;
     using TasteIt.Data.Repositories;
 
@@ -23,6 +23,7 @@
             {
                 likeType = 1;
             }
+
             if (likeType < -1)
             {
                 likeType = -1;

@@ -1,10 +1,10 @@
 ﻿namespace TasteIt.Web.Models.Comment
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
     using AutoMapper;
     using Infrastructure.Mapping;
     using TasteIt.Data.Models;
-    using System;
 
     public class CommentViewModel : IMapFrom<Comment>, IHaveCustomMappings
     {

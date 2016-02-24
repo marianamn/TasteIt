@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace TasteIt.Web.Models.Recipe
+﻿namespace TasteIt.Web.Models.Recipe
 {
+    using System;
+    using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
+
     public class RecipeInputModel
     {
         public int Id { get; set; }
@@ -28,5 +25,7 @@ namespace TasteIt.Web.Models.Recipe
         public string RecipeImage { get; set; }
 
         public string AuthorId { get; set; }
+
+        public string Occasion { get; set; }
     }
 }

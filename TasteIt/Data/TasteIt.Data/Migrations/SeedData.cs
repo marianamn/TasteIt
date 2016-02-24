@@ -313,20 +313,6 @@
                          Quantity = "110g",
                          IngredientDetails = "If you think sugar is just sweet, think again. Sugars like muscovado, demerara, and turbinado have flavor depths and aromatic heights that blow plain ol' granulated sugar out of the water. While most of these sugars are classified as raw, they're still typically refined to some extent in order to be used in cooking. What is muscovado sugar? Simply put, this is an unrefined cane sugar in which the molasses is not removed. It usually comes labeled 'light' (with less molasses) or 'dark.' Most of the artisanal muscovado sugars come from the island of Mauritius, off the coast of Africa.",
                          IngredientImage = "http://www.realfoods.co.uk/ProductImagesID/968_1.jpg"
-                     },
-                     new Ingredient()
-                     {
-                         Name = "flour",
-                         Quantity = "140g",
-                         IngredientDetails = "Flour is the finely milled meal of cereal grains. The term mostly used to refer to wheat flour. However, nuts such as chestnuts, root vegetables like potatoes, seeds such as buckwheat, and pulses such as chickpeas can also be made into flour. Wheat flour is a staple of European, North American, Middle Eastern, African and South Asian cuisines. It’s graded according to whether it is made from hard wheat, soft wheat, or a mixture of the two; and whether the grain’s bran and germ are removed or left in. It is normally used in dishes where raising agents are not required.",
-                         IngredientImage = "http://blog.ideasinfood.com/.a/6a00d83451f83a69e2016762d115b0970b-pi"
-                     },
-                      new Ingredient()
-                     {
-                         Name = "butter",
-                         Quantity = "140g",
-                         IngredientDetails = "Butter is made from churning cream and is a kitchen essential. Without it, cakes, biscuits and pastries wouldn't have the same melting richness and tender texture. It's also used in many classic sauces, such as beurre blanc, beurre noisette, beurre meunier and hollandaise. Added at the end of cooking, it gives richness and gloss to sauces. With a fat content of 80 per cent, butter isn't exactly diet food, but a little goes a long way.",
-                         IngredientImage = "http://www.greenprophet.com/wp-content/uploads/freshly-made-butter.jpg"
                      }
                 },
                  Likes = new List<Like>()

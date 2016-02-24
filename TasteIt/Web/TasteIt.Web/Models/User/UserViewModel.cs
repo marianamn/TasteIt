@@ -1,9 +1,9 @@
 ﻿namespace TasteIt.Web.Models.User
 {
-    using Comment;
-    using Infrastructure.Mapping;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using Comment;
+    using Infrastructure.Mapping;
     using TasteIt.Web.Models.Article;
     using TasteIt.Web.Models.Recipe;
 

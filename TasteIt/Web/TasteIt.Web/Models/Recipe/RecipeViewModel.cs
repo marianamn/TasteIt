@@ -1,16 +1,16 @@
 ﻿namespace TasteIt.Web.Models.Recipe
 {
     using System;
-    using System.Linq;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Linq;
     using AutoMapper;
+    using Comment;
     using Infrastructure.Mapping;
+    using Ingredient;
     using Services.Web;
     using Services.Web.Contracts;
     using TasteIt.Data.Models;
-    using Ingredient;
-    using Comment;
 
     public class RecipeViewModel : IMapFrom<Recipe>, IHaveCustomMappings
     {
@@ -59,7 +59,7 @@
         public void CreateMappings(IMapperConfiguration configuration)
         {
             configuration.CreateMap<Recipe, RecipeViewModel>()
-                  .ForMember(x => x.AuthorId, opt => opt.MapFrom(x => (x.AuthorId)));
+                  .ForMember(x => x.AuthorId, opt => opt.MapFrom(x => x.AuthorId));
 
             configuration.CreateMap<Recipe, RecipeViewModel>()
                    .ForMember(x => x.Author, opt => opt.MapFrom(x => (x.Author.FirstName + " " + x.Author.LastName)));

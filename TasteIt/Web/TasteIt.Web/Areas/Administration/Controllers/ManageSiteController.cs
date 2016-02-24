@@ -7,7 +7,7 @@
         // GET: Administration/ManageSite
         public ActionResult Index()
         {
-            return View("ManageSite");
+            return this.View("ManageSite");
         }
     }
 }

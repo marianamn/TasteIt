@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-namespace TatseIt.Services.Data
+﻿namespace TatseIt.Services.Data
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using TasteIt.Data.Models;
     using TasteIt.Data.Repositories;
     using TasteIt.Services.Web.Contracts;
@@ -10,8 +10,8 @@ namespace TatseIt.Services.Data
 
     public class OccasionsService : IOccasionsService
     {
-        private IDbRepository<Occasion> occasins;
         private readonly IIdentifierProvider identifierProvider;
+        private IDbRepository<Occasion> occasins;
 
         public OccasionsService(IDbRepository<Occasion> occasins, IIdentifierProvider identifierProvider)
         {

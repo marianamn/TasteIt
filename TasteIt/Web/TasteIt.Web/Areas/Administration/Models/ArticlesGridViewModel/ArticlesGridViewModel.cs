@@ -28,7 +28,7 @@
         public void CreateMappings(IMapperConfiguration configuration)
         {
             configuration.CreateMap<Article, ArticlesGridModel>()
-              .ForMember(x => x.AuthorEmail, opt => opt.MapFrom(x => (x.Author.Email)));
+              .ForMember(x => x.AuthorEmail, opt => opt.MapFrom(x => x.Author.Email));
         }
     }
 }

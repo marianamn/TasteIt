@@ -22,6 +22,8 @@
             this.comments = new HashSet<Comment>();
         }
 
+        public static object Identity { get; set; }
+
         [Required]
         public string FirstName { get; set; }
 
@@ -50,8 +52,6 @@
 
             set { this.comments = value; }
         }
-
-        public static object Identity { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {

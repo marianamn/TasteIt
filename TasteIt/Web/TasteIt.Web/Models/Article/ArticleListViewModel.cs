@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace TasteIt.Web.Models.Article
+﻿namespace TasteIt.Web.Models.Article
 {
+    using System.Collections.Generic;
+
     public class ArticleListViewModel
     {
         public int CurrentPage { get; set; }

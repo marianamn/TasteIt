@@ -12,8 +12,8 @@
 
     public class RecipesService : IRecipesService
     {
-        private IDbRepository<Recipe> recipes;
         private readonly IIdentifierProvider identifierProvider;
+        private IDbRepository<Recipe> recipes;
 
         public RecipesService(IDbRepository<Recipe> recipes, IIdentifierProvider identifierProvider)
         {
@@ -45,7 +45,6 @@
             return recipe;
         }
         
-
         public IQueryable<Recipe> GetBySeason(string season)
         {
             var recipes = this.recipes.All()
@@ -62,13 +61,13 @@
             return recipes;
         }
 
-        public Recipe Create(string title, string cookingTime,string desctiption, string image)
+        public Recipe Create(string title, string cookingTime, string desctiption, string image)
         {
             var recipe = new Recipe()
             {
                 Title = title,
                 CookingTime = cookingTime,
-                CreatedOn= DateTime.UtcNow,
+                CreatedOn = DateTime.UtcNow,
                 Description = desctiption,
                 RecipeImage = image
             };
@@ -81,7 +80,6 @@
             this.recipes.Add(recipe);
 
             this.recipes.SaveChanges();
-
         }
     }
 }

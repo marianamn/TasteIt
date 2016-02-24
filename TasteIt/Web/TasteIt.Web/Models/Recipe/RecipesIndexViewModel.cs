@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace TasteIt.Web.Models.Recipe
+﻿namespace TasteIt.Web.Models.Recipe
 {
+    using System.Collections.Generic;
+
     public class RecipesIndexViewModel
     {
         public IEnumerable<OccasionViewModel> Occasions { get; set; }

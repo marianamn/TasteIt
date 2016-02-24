@@ -1,15 +1,11 @@
 ﻿namespace TatseIt.Services.Data
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using Contracts;
     using TasteIt.Data.Models;
     using TasteIt.Data.Repositories;
     using TasteIt.Services.Web.Contracts;
-    using TasteIt.Common;
 
     public class ArticlesService : IArticlesService
     {
